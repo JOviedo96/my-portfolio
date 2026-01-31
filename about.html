@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Your Name</title>
+    <title>About - Jamie Oviedo</title>
+    
+    <!-- Sophisticated Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,700;9..144,800&display=swap" rel="stylesheet">
+    
     <style>
         * {
             margin: 0;
@@ -12,25 +18,72 @@
         }
 
         :root {
+            /* Refined color palette */
             --sage: #CCD5AE;
             --sage-light: #E9EDC9;
+            --sage-dark: #8B9556;
             --cream: #FEFAE0;
             --beige: #FAEDCD;
             --tan: #D4A373;
-            --text-dark: #2A2A2A;
-            --text-medium: #4A4A4A;
+            --tan-dark: #A67C52;
+            --neutral-50: #FAFAF9;
+            --neutral-900: #1C1917;
+            --text-dark: #1C1917;
+            --text-medium: #57534E;
             --accent: #6B7842;
+            
+            /* Typography */
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-display: 'Fraunces', serif;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            font-family: var(--font-body);
             color: var(--text-dark);
-            background: var(--cream);
+            background: var(--neutral-50);
             overflow-x: hidden;
-            cursor: none;
         }
 
-        /* Screen reader only */
+        /* Page Layout - Grid */
+        .page-layout {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            min-height: 100vh;
+        }
+
+        .nav-sidebar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 3rem 2rem;
+            background: var(--neutral-50);
+            border-right: 1px solid var(--sage-light);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+        }
+
+        .content-area {
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6, p, span, a {
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            hyphens: auto;
+        }
+
+        img, video, iframe {
+            max-width: 100%;
+            height: auto;
+        }
+
+        section, article, div {
+            max-width: 100%;
+        }
+
         .sr-only {
             position: absolute;
             width: 1px;
@@ -43,32 +96,6 @@
             border-width: 0;
         }
 
-        /* Custom Cursor */
-        .cursor {
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--tan);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            transition: all 0.15s ease;
-            mix-blend-mode: difference;
-        }
-
-        .cursor-follower {
-            width: 40px;
-            height: 40px;
-            border: 1px solid var(--accent);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9998;
-            transition: all 0.3s ease;
-            opacity: 0.5;
-        }
-
-        /* Skip to main content */
         .skip-link {
             position: absolute;
             top: -40px;
@@ -86,16 +113,12 @@
             top: 0;
         }
 
-        /* Navigation */
+        /* Navigation - Sidebar */
         nav {
-            position: fixed;
-            right: 3rem;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 100;
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            gap: 3rem;
+            flex-wrap: nowrap;
         }
 
         nav a {
@@ -104,8 +127,12 @@
             font-size: 0.85rem;
             writing-mode: vertical-rl;
             transform: rotate(180deg);
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             letter-spacing: 0.1em;
+            font-weight: 500;
+            text-wrap: nowrap;
+            display: flex;
+            justify-content: center;
         }
 
         nav a:hover {
@@ -120,14 +147,13 @@
         }
 
         .logo-fixed {
-            position: fixed;
-            top: 3rem;
-            left: 3rem;
             font-size: 1.5rem;
-            font-weight: 700;
+            font-weight: 800;
             color: var(--text-dark);
-            z-index: 100;
             letter-spacing: -0.05em;
+            font-family: var(--font-display);
+            transition: color 0.3s ease;
+            cursor: pointer;
             text-decoration: none;
         }
 
@@ -135,9 +161,17 @@
             color: var(--accent);
         }
 
-        .logo-fixed:focus {
-            outline: 2px solid var(--accent);
-            outline-offset: 4px;
+        /* Scroll-triggered reveals */
+        section {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
+                        transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        section.reveal {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Hero */
@@ -145,8 +179,10 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 0 10rem 0 6rem;
+            padding: 0 6rem;
             position: relative;
+            opacity: 1;
+            transform: none;
         }
 
         .hero::before {
@@ -156,9 +192,13 @@
             right: 10%;
             width: 500px;
             height: 500px;
-            background: var(--sage-light);
+            background: radial-gradient(
+                circle at 30% 20%,
+                var(--sage-light) 0%,
+                transparent 60%
+            );
             border-radius: 50%;
-            opacity: 0.3;
+            opacity: 0.4;
             filter: blur(120px);
             z-index: -1;
         }
@@ -177,20 +217,21 @@
             font-weight: 600;
         }
 
-        .highlight {
-            background: linear-gradient(135deg, var(--sage) 0%, var(--tan) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
         .hero h1 {
+            font-family: var(--font-display);
             font-size: 7rem;
             font-weight: 800;
             line-height: 1;
             letter-spacing: -0.04em;
             margin-bottom: 2rem;
-            color: var(--text-dark);
+            color: var(--neutral-900);
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--sage-dark) 0%, var(--tan-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero-intro {
@@ -201,9 +242,112 @@
             margin-bottom: 3rem;
         }
 
+        /* Photo Section */
+        .photo-section {
+            padding: 8rem 6rem;
+            background: var(--cream);
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .photo-label {
+            font-size: 0.9rem;
+            color: var(--accent);
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            display: block;
+            font-weight: 600;
+        }
+
+        .photo-content h2 {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+
+        .photo-content p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-medium);
+            margin-bottom: 1.5rem;
+        }
+
+        .photo-content strong {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .photo-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .photo-frame {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 
+                0 1px 3px rgba(0, 0, 0, 0.05),
+                0 20px 60px rgba(107, 120, 66, 0.12);
+            z-index: 2;
+        }
+
+        .profile-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+
+        .profile-photo.loaded {
+            display: block;
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--sage-light) 0%, var(--beige) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-medium);
+            font-size: 1rem;
+        }
+
+        .photo-placeholder.hidden {
+            display: none;
+        }
+
+        .photo-accent {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: var(--tan);
+            border-radius: 30px;
+            top: -50px;
+            right: -50px;
+            z-index: 1;
+            opacity: 0.3;
+        }
+
         /* Journey Section */
         .journey {
-            padding: 8rem 10rem 8rem 6rem;
+            padding: 8rem 6rem;
             background: var(--beige);
             position: relative;
         }
@@ -215,9 +359,13 @@
             left: 5%;
             width: 400px;
             height: 400px;
-            background: var(--sage);
+            background: radial-gradient(
+                circle at 50% 50%,
+                var(--sage) 0%,
+                transparent 60%
+            );
             border-radius: 50%;
-            opacity: 0.2;
+            opacity: 0.3;
             filter: blur(120px);
             z-index: 0;
         }
@@ -230,10 +378,11 @@
         }
 
         .journey h2 {
+            font-family: var(--font-display);
             font-size: 5rem;
             font-weight: 800;
             letter-spacing: -0.03em;
-            margin-bottom: 6rem;
+            margin-bottom: 4rem;
             line-height: 1;
         }
 
@@ -241,6 +390,14 @@
         .timeline-interactive {
             position: relative;
             padding: 4rem 0;
+        }
+
+        .timeline-instructions {
+            text-align: center;
+            color: var(--text-medium);
+            font-size: 1rem;
+            margin-bottom: 3rem;
+            font-style: italic;
         }
 
         .timeline-line {
@@ -317,11 +474,8 @@
             font-size: 1.4rem;
         }
 
+        /* Timeline Content Display - Event Cards */
         .timeline-content-display {
-            background: white;
-            padding: 4rem;
-            border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
             min-height: 300px;
             opacity: 0;
             transform: translateY(20px);
@@ -333,145 +487,70 @@
             transform: translateY(0);
         }
 
-        .timeline-content-display h3 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            letter-spacing: -0.02em;
-            color: var(--accent);
+        .year-events {
+            display: none;
         }
 
-        .timeline-content-display .year-tag {
-            display: inline-block;
-            padding: 0.5rem 1.5rem;
-            background: var(--sage-light);
-            border-radius: 20px;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--accent);
-            margin-bottom: 1.5rem;
+        .year-events.active {
+            display: block;
         }
 
-        .timeline-content-display p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: var(--text-medium);
-        }
-
-        .timeline-instructions {
+        .year-header {
             text-align: center;
-            color: var(--text-medium);
-            font-size: 1rem;
             margin-bottom: 3rem;
-            font-style: italic;
         }
 
-        /* Photo Section */
-        .photo-section {
-            padding: 12rem 10rem 8rem 6rem;
-            background: var(--cream);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-        }
-
-        .photo-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6rem;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .photo-label {
-            font-size: 0.9rem;
-            color: var(--accent);
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            margin-bottom: 2rem;
-            display: block;
-            font-weight: 600;
-        }
-
-        .photo-content h2 {
-            font-size: 4rem;
+        .year-tag {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: var(--sage-light);
+            border-radius: 30px;
+            font-size: 2rem;
             font-weight: 800;
-            letter-spacing: -0.03em;
-            margin-bottom: 2rem;
-            line-height: 1.1;
+            color: var(--accent);
+            font-family: var(--font-display);
         }
 
-        .photo-content p {
-            font-size: 1.15rem;
-            line-height: 1.8;
-            color: var(--text-medium);
-            margin-bottom: 1.5rem;
+        .events-grid {
+            display: grid;
+            gap: 2rem;
         }
 
-        .photo-content strong {
-            color: var(--text-dark);
-            font-weight: 600;
-        }
-
-        .photo-container {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .photo-frame {
-            position: relative;
-            width: 500px;
-            height: 500px;
+        .event-card {
+            background: white;
+            padding: 3rem;
             border-radius: 30px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-            z-index: 2;
+            box-shadow: 
+                0 1px 3px rgba(0, 0, 0, 0.05),
+                0 10px 40px rgba(107, 120, 66, 0.06);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
-        .profile-photo {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: none;
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 4px 6px rgba(0, 0, 0, 0.05),
+                0 20px 60px rgba(107, 120, 66, 0.12);
         }
 
-        .profile-photo.loaded {
-            display: block;
+        .event-card h3 {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.02em;
+            font-weight: 700;
+            color: var(--accent);
         }
 
-        .photo-placeholder {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--sage-light) 0%, var(--beige) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .event-card p {
+            font-size: 1.1rem;
+            line-height: 1.7;
             color: var(--text-medium);
-            font-size: 1rem;
         }
 
-        .photo-placeholder.hidden {
-            display: none;
-        }
-
-        .photo-accent {
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: var(--tan);
-            border-radius: 30px;
-            top: -50px;
-            right: -50px;
-            z-index: 1;
-            opacity: 0.3;
-        }
-
-        /* Philosophy Section */
+        /* Design Philosophy */
         .philosophy {
-            padding: 8rem 10rem 8rem 6rem;
-            background: var(--cream);
+            padding: 8rem 6rem;
+            background: var(--neutral-50);
         }
 
         .philosophy .container {
@@ -480,6 +559,7 @@
         }
 
         .philosophy h2 {
+            font-family: var(--font-display);
             font-size: 5rem;
             font-weight: 800;
             letter-spacing: -0.03em;
@@ -497,13 +577,36 @@
             background: white;
             padding: 3rem;
             border-radius: 30px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
-            transition: all 0.3s ease;
+            box-shadow: 
+                0 1px 3px rgba(0, 0, 0, 0.05),
+                0 10px 40px rgba(107, 120, 66, 0.06);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .value-card:hover::before {
+            transform: scaleX(1);
         }
 
         .value-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+            transform: translateY(-8px) rotate(1deg);
+            box-shadow: 
+                0 4px 6px rgba(0, 0, 0, 0.05),
+                0 20px 60px rgba(107, 120, 66, 0.15);
         }
 
         .value-icon {
@@ -526,7 +629,7 @@
 
         /* Skills Section */
         .skills-section {
-            padding: 8rem 10rem 8rem 6rem;
+            padding: 8rem 6rem;
             background: var(--beige);
             position: relative;
         }
@@ -538,9 +641,13 @@
             right: 20%;
             width: 400px;
             height: 400px;
-            background: var(--tan);
+            background: radial-gradient(
+                circle at 50% 50%,
+                var(--tan) 0%,
+                transparent 60%
+            );
             border-radius: 50%;
-            opacity: 0.15;
+            opacity: 0.2;
             filter: blur(120px);
             z-index: 0;
         }
@@ -553,6 +660,7 @@
         }
 
         .skills-section h2 {
+            font-family: var(--font-display);
             font-size: 5rem;
             font-weight: 800;
             letter-spacing: -0.03em;
@@ -570,7 +678,9 @@
             background: white;
             padding: 3rem;
             border-radius: 30px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+            box-shadow: 
+                0 1px 3px rgba(0, 0, 0, 0.05),
+                0 10px 40px rgba(107, 120, 66, 0.06);
         }
 
         .skill-category h3 {
@@ -592,7 +702,7 @@
             border-radius: 25px;
             font-size: 0.95rem;
             color: var(--text-dark);
-            transition: all 0.2s ease;
+            transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
             border: 1px solid transparent;
         }
 
@@ -604,12 +714,13 @@
 
         /* Contact CTA */
         .contact-cta {
-            padding: 8rem 10rem 8rem 6rem;
+            padding: 8rem 6rem;
             text-align: center;
-            background: var(--cream);
+            background: var(--neutral-50);
         }
 
         .contact-cta h2 {
+            font-family: var(--font-display);
             font-size: 5rem;
             font-weight: 800;
             letter-spacing: -0.03em;
@@ -639,19 +750,23 @@
             text-decoration: none;
             font-weight: 600;
             font-size: 1.1rem;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
             display: inline-block;
         }
 
         .btn-primary {
             background: var(--tan);
             color: white;
-            box-shadow: 0 10px 40px rgba(212, 163, 115, 0.3);
+            box-shadow: 
+                0 1px 3px rgba(0, 0, 0, 0.05),
+                0 10px 40px rgba(212, 163, 115, 0.25);
         }
 
         .btn-primary:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 50px rgba(212, 163, 115, 0.4);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 
+                0 4px 6px rgba(0, 0, 0, 0.05),
+                0 15px 50px rgba(212, 163, 115, 0.35);
         }
 
         .btn-primary:focus {
@@ -662,12 +777,16 @@
         .btn-secondary {
             background: white;
             color: var(--text-dark);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 
+                0 1px 3px rgba(0, 0, 0, 0.05),
+                0 10px 40px rgba(0, 0, 0, 0.08);
         }
 
         .btn-secondary:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 
+                0 4px 6px rgba(0, 0, 0, 0.05),
+                0 15px 50px rgba(0, 0, 0, 0.12);
         }
 
         .btn-secondary:focus {
@@ -677,30 +796,34 @@
 
         /* Footer */
         footer {
-            padding: 3rem 10rem 3rem 6rem;
+            padding: 3rem 6rem;
             text-align: center;
             color: var(--text-medium);
-            background: var(--cream);
+            background: var(--neutral-50);
             border-top: 1px solid var(--sage-light);
             font-size: 0.95rem;
         }
 
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+
         /* Responsive */
         @media (max-width: 1200px) {
+            .hero h1 { font-size: 5rem; }
             .journey h2, .philosophy h2, .skills-section h2, .contact-cta h2, .photo-content h2 { font-size: 3.5rem; }
             
-            .journey, .philosophy, .skills-section, .contact-cta, .photo-section {
-                padding: 6rem 8rem 6rem 3rem;
+            .hero, .journey, .philosophy, .skills-section, .contact-cta, .photo-section {
+                padding: 6rem 4rem;
             }
 
-            .photo-section {
-                padding: 10rem 8rem 6rem 3rem;
-            }
-
-            footer { padding: 3rem 8rem 3rem 3rem; }
+            footer { padding: 3rem 4rem; }
             
-            nav { right: 2rem; }
-            .logo-fixed { left: 2rem; }
+            .nav-sidebar { padding: 3rem 1.5rem; }
 
             .photo-frame {
                 width: 400px;
@@ -708,45 +831,71 @@
             }
         }
 
+        @media (max-width: 1024px) {
+            .nav-sidebar {
+                padding: 2rem 1.5rem;
+            }
+
+            .hero, .journey, .philosophy, .skills-section, .contact-cta, .photo-section {
+                padding: 4rem 3rem;
+            }
+
+            .hero h1 { font-size: 4.5rem; }
+            .journey h2, .philosophy h2, .skills-section h2, .contact-cta h2, .photo-content h2 { font-size: 3rem; }
+
+            .values-grid, .skills-grid, .photo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            footer { padding: 3rem; }
+        }
+
         @media (max-width: 768px) {
-            body { cursor: auto; }
-            .cursor, .cursor-follower { display: none; }
+            /* Switch to single column layout */
+            .page-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-sidebar {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                padding: 1rem 1.5rem;
+                height: auto;
+                position: static;
+                border-right: none;
+                border-bottom: 1px solid var(--sage-light);
+            }
 
             nav {
-                position: static;
-                transform: none;
                 flex-direction: row;
-                padding: 2rem;
-                justify-content: center;
+                gap: 1.5rem;
             }
 
             nav a {
                 writing-mode: initial;
                 transform: none;
+                font-size: 1rem;
+                padding: 0.75rem 1rem;
+                min-height: 44px;
+                min-width: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
 
             .logo-fixed {
-                position: static;
-                text-align: center;
-                padding: 2rem;
+                font-size: 1.25rem;
             }
 
-            .journey, .philosophy, .skills-section, .contact-cta, .photo-section {
-                padding: 4rem 2rem;
+            .hero, .journey, .philosophy, .skills-section, .contact-cta, .photo-section {
+                padding: 4rem 1.5rem;
             }
 
-            .photo-section {
-                padding: 6rem 2rem 4rem 2rem;
-                min-height: auto;
-            }
+            footer { padding: 3rem 1.5rem; }
 
-            footer { padding: 3rem 2rem; }
-
+            .hero h1 { font-size: 3rem; }
             .journey h2, .philosophy h2, .skills-section h2, .contact-cta h2, .photo-content h2 { font-size: 2.5rem; }
-
-            .values-grid, .skills-grid, .photo-grid {
-                grid-template-columns: 1fr;
-            }
 
             .photo-grid { gap: 3rem; }
 
@@ -761,7 +910,6 @@
                 height: 300px;
             }
 
-            /* Make timeline more mobile-friendly */
             .timeline-instructions {
                 font-size: 0.9rem;
                 margin-bottom: 2rem;
@@ -787,18 +935,70 @@
                 font-size: 1.1rem;
             }
 
-            .timeline-content-display {
+            .event-card {
                 padding: 2rem;
-                min-height: 250px;
             }
 
-            .timeline-content-display h3 {
+            .event-card h3 {
                 font-size: 1.75rem;
             }
 
-            .timeline-content-display p {
+            .event-card p {
                 font-size: 1rem;
             }
+
+            .year-tag {
+                font-size: 1.5rem;
+                padding: 0.5rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-sidebar {
+                padding: 0.75rem 1rem;
+            }
+
+            .logo-fixed {
+                font-size: 1.125rem;
+            }
+
+            nav {
+                gap: 0.75rem;
+            }
+
+            nav a {
+                font-size: 0.8rem;
+                padding: 0.75rem;
+                letter-spacing: 0.05em;
+            }
+
+            .hero, .journey, .philosophy, .skills-section, .contact-cta, .photo-section {
+                padding: 3rem 1rem;
+            }
+
+            .hero h1 { font-size: 2.25rem; }
+            .journey h2, .philosophy h2, .skills-section h2, .contact-cta h2, .photo-content h2 { font-size: 2rem; }
+
+            .event-card {
+                padding: 1.5rem;
+            }
+
+            .event-card h3 {
+                font-size: 1.5rem;
+            }
+
+            .year-tag {
+                font-size: 1.25rem;
+                padding: 0.5rem 1.25rem;
+            }
+
+            .btn {
+                padding: 1.125rem 2rem;
+                font-size: 1rem;
+                min-height: 44px;
+            }
+
+            footer { padding: 2rem 1rem; }
         }
     </style>
 </head>
@@ -806,272 +1006,319 @@
     <!-- Skip to main content -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- Custom Cursor -->
-    <div class="cursor" aria-hidden="true"></div>
-    <div class="cursor-follower" aria-hidden="true"></div>
+    <div class="page-layout">
+        <!-- Navigation Sidebar -->
+        <aside class="nav-sidebar">
+            <a href="index.html" class="logo-fixed" aria-label="Return to homepage">JO</a>
+            <nav aria-label="Main navigation">
+                <a href="index.html#work">WORK</a>
+                <a href="about.html">ABOUT</a>
+                <a href="index.html#contact">CONTACT</a>
+            </nav>
+        </aside>
 
-    <!-- Logo -->
-    <a href="index.html" class="logo-fixed" aria-label="Return to homepage">YN</a>
+        <!-- Main Content Area -->
+        <main class="content-area">
+            <!-- Hero -->
+            <section class="hero" id="main-content">
+                <div class="hero-content">
+                    <span class="hero-label">About Me</span>
+                    <h1>Strategy-driven<br><span class="highlight">design</span> leader</h1>
+                    <p class="hero-intro">I lead product design initiatives that balance user needs with business objectives. My approach combines strategic thinking, rigorous research, and technical depth to drive measurable outcomes.</p>
+                </div>
+            </section>
 
-    <!-- Side Navigation -->
-    <nav aria-label="Main navigation">
-        <a href="index.html#work">WORK</a>
-        <a href="about.html">ABOUT</a>
-        <a href="index.html#contact">CONTACT</a>
-    </nav>
-
-    <!-- Photo Section -->
-    <section class="photo-section" id="main-content" aria-labelledby="photo-heading">
-        <div class="photo-grid">
-            <div class="photo-content">
-                <span class="photo-label">About Me</span>
-                <h2 id="photo-heading">The <span class="highlight">person</span> behind the pixels</h2>
-                <p>I'm a designer who came to the field through an unconventional path—psychology, research, and a deep curiosity about why people do what they do. That background gives me a unique lens on design challenges.</p>
-                <p>When I'm not designing, you'll find me exploring theme parks (yes, for work and pleasure), working on side projects that let me code, or diving into research papers about behavioral science.</p>
-                <p><strong>Currently based in Orlando, FL</strong> and open to remote opportunities where I can make meaningful impact.</p>
-            </div>
-            <div class="photo-container">
-                <div class="photo-frame">
-                    <img src="your-photo.jpg" alt="Your Name - Product Designer" class="profile-photo">
-                    <div class="photo-placeholder">
-                        [Your Photo Here - 800x800px]
+            <!-- Photo Section -->
+            <section class="photo-section" aria-labelledby="photo-heading">
+                <div class="photo-grid">
+                    <div class="photo-content">
+                        <span class="photo-label">Nice to meet you</span>
+                        <h2 id="photo-heading">Product designer who leads with strategy</h2>
+                        <p>I bring an unconventional path to product design—starting in psychology and research before moving into design. That foundation shapes how I approach problems: <strong>understanding the "why" before jumping to the "how."</strong></p>
+                        <p>I thrive in ambiguous problem spaces where user needs, business goals, and technical constraints intersect. I lead discovery research, synthesize insights across stakeholders, and translate complexity into clear product strategy and actionable designs.</p>
+                        <p><strong>Currently based in Orlando, FL</strong> and open to remote opportunities where I can drive strategic product initiatives at scale.</p>
+                    </div>
+                    <div class="photo-container">
+                        <div class="photo-frame">
+                            <img src="your-photo.jpg" alt="Jamie Oviedo - Product Designer" class="profile-photo">
+                            <div class="photo-placeholder">
+                                [Your Photo Here - 800x800px]
+                            </div>
+                        </div>
+                        <div class="photo-accent"></div>
                     </div>
                 </div>
-                <div class="photo-accent"></div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <!-- Journey -->
-    <section class="journey" aria-labelledby="journey-heading">
-        <div class="container">
-            <h2 id="journey-heading">My Journey</h2>
-            
-            <p class="timeline-instructions">Click on each year to explore my journey</p>
-            
-            <div class="timeline-interactive">
-                <!-- Horizontal Timeline Line -->
-                <div class="timeline-line">
-                    <div class="timeline-progress" id="timelineProgress"></div>
-                    <div class="timeline-dots">
-                        <button class="timeline-dot active" data-year="2019" aria-label="2019">
-                            <span class="timeline-year-label">2019</span>
-                        </button>
-                        <button class="timeline-dot" data-year="2020" aria-label="2020">
-                            <span class="timeline-year-label">2020</span>
-                        </button>
-                        <button class="timeline-dot" data-year="2023" aria-label="2023">
-                            <span class="timeline-year-label">2023</span>
-                        </button>
-                        <button class="timeline-dot" data-year="2024a" aria-label="2024 - Bachelor's Degree">
-                            <span class="timeline-year-label">2024</span>
-                        </button>
-                        <button class="timeline-dot" data-year="2024b" aria-label="2024 - Master's Program">
-                            <span class="timeline-year-label">2024</span>
-                        </button>
-                        <button class="timeline-dot" data-year="2024c" aria-label="2024 - Product Designer">
-                            <span class="timeline-year-label">2024</span>
-                        </button>
-                        <button class="timeline-dot" data-year="2026" aria-label="2026">
-                            <span class="timeline-year-label">2026</span>
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Content Display Area -->
-                <div id="timelineContent" class="timeline-content-display active" role="region" aria-live="polite">
-                    <div class="timeline-content" data-content="2019">
-                        <span class="year-tag">2019</span>
-                        <h3>Career Pivot</h3>
-                        <p>After health challenges ended my career as a figure skating coach, I initially pursued physical therapy to help athletes return to sport—something I understood deeply. When I realized that path wasn't viable, I remembered my love of web design from my youth and redirected my focus: from physical accessibility to digital accessibility. That lived experience with barriers shapes how I think about inclusive design today.</p>
-                    </div>
+            <!-- Journey -->
+            <section class="journey" aria-labelledby="journey-heading">
+                <div class="container">
+                    <h2 id="journey-heading">My Journey</h2>
                     
-                    <div class="timeline-content" data-content="2020" style="display: none;">
-                        <span class="year-tag">2020</span>
-                        <h3>Psychology Foundation</h3>
-                        <p>Began studying psychology with a focus on human behavior, research methods, and cognitive science. Developed strong foundation in qualitative and quantitative research—skills that would become central to my design practice.</p>
-                    </div>
+                    <p class="timeline-instructions">Click on each year to explore my journey</p>
                     
-                    <div class="timeline-content" data-content="2023" style="display: none;">
-                        <span class="year-tag">2023</span>
-                        <h3>Universal Destinations & Experiences</h3>
-                        <p>UX Design Intern designing mobile experiences for millions of theme park guests. Led research, design, and validation for Interactive Wands 2.0—learning to balance user needs with technical constraints at massive scale.</p>
-                    </div>
-                    
-                    <div class="timeline-content" data-content="2024a" style="display: none;">
-                        <span class="year-tag">2024</span>
-                        <h3>Bachelor's Degree</h3>
-                        <p>Graduated with B.S. in General Integrated Studies, designing my own program specializing in Product Design. Intentionally filled my schedule with psychology, digital design, and coding/programming classes—building the interdisciplinary foundation that defines my approach to design today.</p>
-                    </div>
-                    
-                    <div class="timeline-content" data-content="2024b" style="display: none;">
-                        <span class="year-tag">2024</span>
-                        <h3>Master's Program</h3>
-                        <p>Started Master's in Human-Centered Design & Engineering to deepen expertise in research methodologies, product strategy, and systems thinking. Learning to approach design challenges with academic rigor and practical application.</p>
-                    </div>
-                    
-                    <div class="timeline-content" data-content="2024c" style="display: none;">
-                        <span class="year-tag">2024</span>
-                        <h3>Product Designer</h3>
-                        <p>Transitioned to full-time Product Designer role, leading end-to-end design while completing graduate studies. Focusing on research-driven design that creates measurable business impact.</p>
-                    </div>
-                    
-                    <div class="timeline-content" data-content="2026" style="display: none;">
-                        <span class="year-tag">2026</span>
-                        <h3>What's Next</h3>
-                        <p>Completing M.S. in Human-Centered Design & Engineering in August. Looking for remote Product Designer roles where I can apply my unique combination of psychology, research, and technical skills to solve complex problems.</p>
+                    <div class="timeline-interactive">
+                        <!-- Horizontal Timeline Line -->
+                        <div class="timeline-line">
+                            <div class="timeline-progress" id="timelineProgress"></div>
+                            <div class="timeline-dots">
+                                <button class="timeline-dot active" data-year="2019" aria-label="2019">
+                                    <span class="timeline-year-label">2019</span>
+                                </button>
+                                <button class="timeline-dot" data-year="2020" aria-label="2020">
+                                    <span class="timeline-year-label">2020</span>
+                                </button>
+                                <button class="timeline-dot" data-year="2022" aria-label="2022">
+                                    <span class="timeline-year-label">2022</span>
+                                </button>
+                                <button class="timeline-dot" data-year="2023" aria-label="2023">
+                                    <span class="timeline-year-label">2023</span>
+                                </button>
+                                <button class="timeline-dot" data-year="2024" aria-label="2024">
+                                    <span class="timeline-year-label">2024</span>
+                                </button>
+                                <button class="timeline-dot" data-year="2026" aria-label="2026">
+                                    <span class="timeline-year-label">2026</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Content Display Area -->
+                        <div id="timelineContent" class="timeline-content-display active" role="region" aria-live="polite">
+                            <!-- 2019 -->
+                            <div class="year-events active" data-content="2019">
+                                <div class="year-header">
+                                    <span class="year-tag">2019</span>
+                                </div>
+                                <div class="events-grid">
+                                    <article class="event-card">
+                                        <h3>Career Pivot</h3>
+                                        <p>Health challenges ended my career as a figure skater and hockey referee. This turning point led me to reconsider my path and eventually discover my passion for creating accessible digital experiences—informed by my own experience navigating barriers.</p>
+                                    </article>
+                                </div>
+                            </div>
+
+                            <!-- 2020 -->
+                            <div class="year-events" data-content="2020">
+                                <div class="year-header">
+                                    <span class="year-tag">2020</span>
+                                </div>
+                                <div class="events-grid">
+                                    <article class="event-card">
+                                        <h3>Back to School</h3>
+                                        <p>Returned to higher education to build a new foundation. Began studying psychology with a focus on human behavior, research methods, and cognitive science—developing expertise in qualitative and quantitative research that would later become central to my design practice.</p>
+                                    </article>
+                                </div>
+                            </div>
+
+                            <!-- 2022 -->
+                            <div class="year-events" data-content="2022">
+                                <div class="year-header">
+                                    <span class="year-tag">2022</span>
+                                </div>
+                                <div class="events-grid">
+                                    <article class="event-card">
+                                        <h3>Finding My Path in Design</h3>
+                                        <p>Discovered UX and Product Design as the perfect intersection of my interests in psychology, problem-solving, and creating meaningful impact. Began intentionally designing my curriculum around product design—combining psychology, digital design, and programming courses to build an interdisciplinary foundation.</p>
+                                    </article>
+                                </div>
+                            </div>
+
+                            <!-- 2023 -->
+                            <div class="year-events" data-content="2023">
+                                <div class="year-header">
+                                    <span class="year-tag">2023</span>
+                                </div>
+                                <div class="events-grid">
+                                    <article class="event-card">
+                                        <h3>Universal Destinations & Experiences</h3>
+                                        <p>UX Design Intern leading the design thinking process across multiple projects. Designed experiences impacting millions of theme park guests worldwide while also creating internal tools that empowered team members within their roles. Learned to balance user delight with technical constraints at massive scale.</p>
+                                    </article>
+                                </div>
+                            </div>
+
+                            <!-- 2024 - Multiple Events -->
+                            <div class="year-events" data-content="2024">
+                                <div class="year-header">
+                                    <span class="year-tag">2024</span>
+                                </div>
+                                <div class="events-grid">
+                                    <article class="event-card">
+                                        <h3>Bachelor's Degree</h3>
+                                        <p>Graduated with B.S. in General Integrated Studies, intentionally designing my own curriculum around Product Design. Strategically combined psychology, digital design, and programming courses to build the interdisciplinary skillset that defines my approach: behavioral insights + design thinking + technical fluency.</p>
+                                    </article>
+                                    
+                                    <article class="event-card">
+                                        <h3>Master's Program</h3>
+                                        <p>Began Master's in Human-Centered Design & Engineering to deepen strategic thinking, advanced research methodologies, and systems-level problem solving. Applying academic rigor to real-world product challenges while building expertise in product strategy and organizational design.</p>
+                                    </article>
+                                    
+                                    <article class="event-card">
+                                        <h3>Product Designer at SportsEngine</h3>
+                                        <p>Leading product design for B2B SaaS platform serving youth sports organizations. Owned the design thinking process, led workshops for cross-functional team alignment early in projects, and worked on solving some of the highest impact problems the company faced—balancing user needs with business objectives and technical feasibility.</p>
+                                    </article>
+                                </div>
+                            </div>
+
+                            <!-- 2026 -->
+                            <div class="year-events" data-content="2026">
+                                <div class="year-header">
+                                    <span class="year-tag">2026</span>
+                                </div>
+                                <div class="events-grid">
+                                    <article class="event-card">
+                                        <h3>What's Next</h3>
+                                        <p>Completing M.S. in Human-Centered Design & Engineering in August. Seeking remote Product Designer roles where I can apply strategic thinking, research rigor, and cross-functional leadership to solve complex problems at scale.</p>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <!-- Design Philosophy -->
-    <section class="philosophy" aria-labelledby="philosophy-heading">
-        <div class="container">
-            <h2 id="philosophy-heading">Design Philosophy</h2>
-            <div class="values-grid">
-                <article class="value-card">
-                    <div class="value-icon">🔍</div>
-                    <h3>Research First</h3>
-                    <p>I don't design based on assumptions. I talk to users, observe behavior, analyze data, and let insights drive decisions. Better questions lead to better solutions. Every design decision should be defensible with evidence.</p>
-                </article>
+            <!-- Design Philosophy -->
+            <section class="philosophy" aria-labelledby="philosophy-heading">
+                <div class="container">
+                    <h2 id="philosophy-heading">How I Work</h2>
+                    <div class="values-grid">
+                        <article class="value-card">
+                            <div class="value-icon">🎯</div>
+                            <h3>Strategy First, Pixels Second</h3>
+                            <p>I start with the problem, not the solution. Research and strategy inform design decisions—not the other way around. Beautiful design that doesn't solve the right problem is just decoration. I focus on outcomes, not outputs.</p>
+                        </article>
 
-                <article class="value-card">
-                    <div class="value-icon">🎯</div>
-                    <h3>Impact Over Output</h3>
-                    <p>Beautiful pixels mean nothing if they don't solve the problem. I measure success by user outcomes and business results, not by how many screens I ship. Design is a means to an end, not the end itself.</p>
-                </article>
+                        <article class="value-card">
+                            <div class="value-icon">🔬</div>
+                            <h3>Research-Backed Decisions</h3>
+                            <p>Every design decision should be defensible with evidence. I combine qualitative insights with quantitative data to understand not just what users do, but why they do it. This approach leads to solutions that actually work in the real world.</p>
+                        </article>
 
-                <article class="value-card">
-                    <div class="value-icon">🧠</div>
-                    <h3>Psychology Matters</h3>
-                    <p>Understanding human behavior, cognitive biases, and decision-making isn't optional—it's fundamental. My psychology background gives me a lens that helps me design products people actually want to use, not just products that look good.</p>
-                </article>
+                        <article class="value-card">
+                            <div class="value-icon">🤝</div>
+                            <h3>Cross-Functional Leadership</h3>
+                            <p>Great products require diverse perspectives. I lead by facilitating collaboration between product, engineering, and business stakeholders—translating between disciplines, building alignment, and keeping teams focused on shared outcomes.</p>
+                        </article>
 
-                <article class="value-card">
-                    <div class="value-icon">🤝</div>
-                    <h3>Collaboration</h3>
-                    <p>The best products come from diverse perspectives. I work best with engineers, PMs, and stakeholders who challenge my thinking and push for better solutions. Great design happens at the intersection of disciplines.</p>
-                </article>
+                        <article class="value-card">
+                            <div class="value-icon">⚖️</div>
+                            <h3>Balance User Needs & Business Goals</h3>
+                            <p>Strategic design means finding solutions that work for users AND the business. I actively engage with constraints—whether technical, business, or organizational—and use them to inform better solutions, not excuse mediocre ones.</p>
+                        </article>
 
-                <article class="value-card">
-                    <div class="value-icon">⚡</div>
-                    <h3>Iterate Fast</h3>
-                    <p>Perfect is the enemy of done. I prototype quickly, test early, fail fast, and iterate based on real feedback—not internal debates. Learning happens through shipping, not through endless refinement.</p>
-                </article>
+                        <article class="value-card">
+                            <div class="value-icon">🧠</div>
+                            <h3>Psychology-Informed Design</h3>
+                            <p>Understanding cognitive biases, decision-making processes, and behavioral patterns isn't optional—it's foundational. I apply behavioral science principles to create intuitive experiences that align with how people actually think and behave.</p>
+                        </article>
 
-                <article class="value-card">
-                    <div class="value-icon">📊</div>
-                    <h3>Data-Informed</h3>
-                    <p>I combine qualitative insights with quantitative data. Numbers tell you what's happening, research tells you why. You need both to make confident decisions. Neither alone is sufficient.</p>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills -->
-    <section class="skills-section" aria-labelledby="skills-heading">
-        <div class="container">
-            <h2 id="skills-heading">Skills & Capabilities</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Research & Strategy</h3>
-                    <div class="skill-items">
-                        <span class="skill-tag">User Research</span>
-                        <span class="skill-tag">Usability Testing</span>
-                        <span class="skill-tag">Product Strategy</span>
-                        <span class="skill-tag">Data Analysis</span>
-                        <span class="skill-tag">A/B Testing</span>
-                        <span class="skill-tag">User Interviews</span>
-                        <span class="skill-tag">Surveys</span>
-                        <span class="skill-tag">Analytics</span>
+                        <article class="value-card">
+                            <div class="value-icon">⚡</div>
+                            <h3>AI as Force Multiplier</h3>
+                            <p>I leverage AI to accelerate research synthesis and design exploration—not to replace human judgment. AI helps me test 10x more concepts with users, analyze data at scale, and prototype rapidly. The goal: more time on strategic thinking and validation.</p>
+                        </article>
                     </div>
                 </div>
+            </section>
 
-                <div class="skill-category">
-                    <h3>Design Execution</h3>
-                    <div class="skill-items">
-                        <span class="skill-tag">UX/UI Design</span>
-                        <span class="skill-tag">Prototyping</span>
-                        <span class="skill-tag">Design Systems</span>
-                        <span class="skill-tag">Information Architecture</span>
-                        <span class="skill-tag">Interaction Design</span>
-                        <span class="skill-tag">Visual Design</span>
-                        <span class="skill-tag">User Flows</span>
-                        <span class="skill-tag">Wireframing</span>
+            <!-- Skills -->
+            <section class="skills-section" aria-labelledby="skills-heading">
+                <div class="container">
+                    <h2 id="skills-heading">Skills & Capabilities</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h3>Strategic Leadership</h3>
+                            <div class="skill-items">
+                                <span class="skill-tag">Product Strategy</span>
+                                <span class="skill-tag">Roadmap Planning</span>
+                                <span class="skill-tag">Stakeholder Management</span>
+                                <span class="skill-tag">Cross-Functional Leadership</span>
+                                <span class="skill-tag">Workshop Facilitation</span>
+                                <span class="skill-tag">Design Ops</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h3>Research & Insights</h3>
+                            <div class="skill-items">
+                                <span class="skill-tag">User Research</span>
+                                <span class="skill-tag">Usability Testing</span>
+                                <span class="skill-tag">Data Analysis</span>
+                                <span class="skill-tag">A/B Testing</span>
+                                <span class="skill-tag">Behavioral Analysis</span>
+                                <span class="skill-tag">Research Synthesis</span>
+                                <span class="skill-tag">Analytics</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h3>Design Execution</h3>
+                            <div class="skill-items">
+                                <span class="skill-tag">End-to-End Product Design</span>
+                                <span class="skill-tag">Design Systems</span>
+                                <span class="skill-tag">Prototyping</span>
+                                <span class="skill-tag">Information Architecture</span>
+                                <span class="skill-tag">Interaction Design</span>
+                                <span class="skill-tag">Accessibility (WCAG)</span>
+                                <span class="skill-tag">Visual Design</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h3>Technical Fluency & AI</h3>
+                            <div class="skill-items">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">HTML/CSS/JS</span>
+                                <span class="skill-tag">AI-Assisted Workflows</span>
+                                <span class="skill-tag">Data Science</span>
+                                <span class="skill-tag">Machine Learning Basics</span>
+                                <span class="skill-tag">Git</span>
+                                <span class="skill-tag">SQL</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </section>
 
-                <div class="skill-category">
-                    <h3>Technical Fluency</h3>
-                    <div class="skill-items">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">HTML/CSS/JS</span>
-                        <span class="skill-tag">Data Science</span>
-                        <span class="skill-tag">Machine Learning</span>
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">API Integration</span>
-                        <span class="skill-tag">SQL</span>
-                    </div>
+            <!-- Contact CTA -->
+            <section class="contact-cta" aria-labelledby="cta-heading">
+                <h2 id="cta-heading">Let's work together</h2>
+                <p>I'm seeking remote Product Designer roles where I can lead strategic design initiatives, drive cross-functional collaboration, and deliver measurable business impact.</p>
+                <div class="cta-buttons">
+                    <a href="/cdn-cgi/l/email-protection#6d070c00040843021b04080902545b2d0a000c0401430e0200" class="btn btn-primary">Get in Touch</a>
+                    <a href="index.html#work" class="btn btn-secondary">View My Work</a>
                 </div>
+            </section>
 
-                <div class="skill-category">
-                    <h3>Psychology Foundation</h3>
-                    <div class="skill-items">
-                        <span class="skill-tag">Behavioral Science</span>
-                        <span class="skill-tag">Cognitive Psychology</span>
-                        <span class="skill-tag">Decision Making</span>
-                        <span class="skill-tag">Research Methods</span>
-                        <span class="skill-tag">Human Behavior</span>
-                        <span class="skill-tag">Empathy Mapping</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact CTA -->
-    <section class="contact-cta" aria-labelledby="cta-heading">
-        <h2 id="cta-heading">Let's work together</h2>
-        <p>I'm currently open to remote Product Designer roles where I can apply research, strategy, and design to solve meaningful problems.</p>
-        <div class="cta-buttons">
-            <a href="/cdn-cgi/l/email-protection#c8b1a7bdbae6ada5a9a1a488adb0a9a5b8a4ade6aba7a5" class="btn btn-primary">Get in Touch</a>
-            <a href="index.html#work" class="btn btn-secondary">View My Work</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer role="contentinfo">
-        <p>© 2024 Your Name · Designed & coded with intention</p>
-    </footer>
+            <!-- Footer -->
+            <footer role="contentinfo">
+                <p>© 2025 Jamie Oviedo · Designed & coded with strategic intent</p>
+            </footer>
+        </main>
+    </div>
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // Custom Cursor
-        const cursor = document.querySelector('.cursor');
-        const follower = document.querySelector('.cursor-follower');
+        // Console Easter Egg
+        console.log('%c👋 Hey there!', 'color: #D4A373; font-size: 20px; font-weight: bold;');
+        console.log('%cLike what you see? Let\'s chat about design, psychology, or code.', 'color: #6B7842; font-size: 14px;');
+        console.log('%c📧 jamie.oviedo96@gmail.com', 'color: #57534E; font-size: 12px;');
 
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            
-            setTimeout(() => {
-                follower.style.left = e.clientX + 'px';
-                follower.style.top = e.clientY + 'px';
-            }, 100);
-        });
+        // Scroll-triggered reveals
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
 
-        // Enlarge cursor on hover
-        const hoverElements = document.querySelectorAll('a, button');
-        hoverElements.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursor.style.transform = 'scale(2)';
-                follower.style.transform = 'scale(1.5)';
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal');
+                }
             });
-            el.addEventListener('mouseleave', () => {
-                cursor.style.transform = 'scale(1)';
-                follower.style.transform = 'scale(1)';
-            });
+        }, observerOptions);
+
+        document.querySelectorAll('section:not(.hero)').forEach(section => {
+            observer.observe(section);
         });
 
         // Smooth scroll
@@ -1096,7 +1343,6 @@
             });
             
             photo.addEventListener('error', function() {
-                // If image fails to load, keep placeholder visible
                 this.style.display = 'none';
             });
         }
@@ -1120,16 +1366,16 @@
                 const progress = ((index) / (timelineDots.length - 1)) * 100;
                 timelineProgress.style.width = progress + '%';
                 
-                // Hide all content
-                const allContent = timelineContentDisplay.querySelectorAll('.timeline-content');
-                allContent.forEach(content => {
-                    content.style.display = 'none';
+                // Hide all year events
+                const allYearEvents = timelineContentDisplay.querySelectorAll('.year-events');
+                allYearEvents.forEach(events => {
+                    events.classList.remove('active');
                 });
                 
-                // Show selected content
-                const selectedContent = timelineContentDisplay.querySelector(`[data-content="${year}"]`);
-                if (selectedContent) {
-                    selectedContent.style.display = 'block';
+                // Show selected year events
+                const selectedYearEvents = timelineContentDisplay.querySelector(`[data-content="${year}"]`);
+                if (selectedYearEvents) {
+                    selectedYearEvents.classList.add('active');
                     
                     // Animate content appearance
                     timelineContentDisplay.style.opacity = '0';
