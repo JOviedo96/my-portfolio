@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Jamie Oviedo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,700;9..144,800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --sage: #CCD5AE; --sage-light: #E9EDC9; --cream: #FEFAE0; --beige: #FAEDCD;
+            --tan: #D4A373; --tan-dark: #A67C52; --neutral-50: #FAFAF9;
+            --text-dark: #1C1917; --text-medium: #57534E; --accent: #6B7842;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-display: 'Fraunces', serif;
+        }
+        body { font-family: var(--font-body); color: var(--text-dark); background: var(--neutral-50); line-height: 1.6; }
+        .page-layout { display: grid; grid-template-columns: auto 1fr; min-height: 100vh; }
+        .nav-sidebar { display: flex; flex-direction: column; align-items: center; justify-content: space-between; 
+            padding: 3rem 2rem; background: var(--neutral-50); border-right: 1px solid var(--sage-light);
+            position: sticky; top: 0; height: 100vh; }
+        .content-area { width: 100%; overflow-x: hidden; }
+        nav { display: flex; flex-direction: column; gap: 3rem; }
+        nav a { color: var(--text-medium); text-decoration: none; font-size: 0.85rem; writing-mode: vertical-rl;
+            transform: rotate(180deg); transition: all 0.3s; letter-spacing: 0.1em; font-weight: 500; }
+        nav a:hover, nav a.active { color: var(--accent); letter-spacing: 0.2em; }
+        .logo-fixed { font-size: 1.5rem; font-weight: 800; color: var(--text-dark); letter-spacing: -0.05em;
+            font-family: var(--font-display); text-decoration: none; }
+        .logo-fixed:hover { color: var(--accent); }
+        .contact-hero { padding: 6rem 3rem 3rem; background: var(--cream); text-align: center; }
+        .contact-hero h1 { font-family: var(--font-display); font-size: 4.5rem; font-weight: 800;
+            letter-spacing: -0.03em; line-height: 1; margin-bottom: 1.5rem; }
+        .contact-hero p { font-size: 1.5rem; color: var(--text-medium); max-width: 700px;
+            margin: 0 auto 2rem; line-height: 1.6; }
+        .contact-section { padding: 4rem 3rem; max-width: 700px; margin: 0 auto; }
+        .form-group { margin-bottom: 2rem; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 0.75rem; color: var(--text-dark);
+            font-size: 1rem; }
+        .form-group input,
+        .form-group textarea { width: 100%; padding: 1rem 1.5rem; border: 2px solid var(--sage-light);
+            border-radius: 12px; font-size: 1rem; font-family: var(--font-body); color: var(--text-dark);
+            background: white; transition: all 0.3s; }
+        .form-group input:focus,
+        .form-group textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(107, 120, 66, 0.1); }
+        .form-group textarea { min-height: 200px; resize: vertical; }
+        .submit-btn { width: 100%; padding: 1.25rem 2rem; background: var(--tan); color: white;
+            border: none; border-radius: 50px; font-size: 1.1rem; font-weight: 600; cursor: pointer;
+            transition: all 0.3s; font-family: var(--font-body); }
+        .submit-btn:hover { background: var(--tan-dark); transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 163, 115, 0.3); }
+        .submit-btn:active { transform: translateY(0); }
+        .form-note { text-align: center; color: var(--text-medium); font-size: 0.9rem; margin-top: 1.5rem; }
+        .success-message { background: var(--sage-light); color: var(--accent); padding: 1.5rem;
+            border-radius: 12px; text-align: center; margin-bottom: 2rem; display: none; }
+        .success-message.show { display: block; }
+        .other-contact { padding: 3rem; text-align: center; background: var(--beige); margin-top: 3rem;
+            border-radius: 20px; }
+        .other-contact h2 { font-family: var(--font-display); font-size: 2rem; margin-bottom: 1.5rem; }
+        .contact-links { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; }
+        .contact-link { display: inline-flex; align-items: center; gap: 0.75rem; color: var(--accent);
+            text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s; }
+        .contact-link:hover { color: var(--tan); gap: 1rem; }
+        footer { padding: 3rem; text-align: center; color: var(--text-medium);
+            border-top: 1px solid var(--sage-light); }
+        @media (max-width: 1024px) {
+            .page-layout { grid-template-columns: 1fr; }
+            .nav-sidebar { flex-direction: row; padding: 1rem 1.5rem; height: auto; position: static;
+                border-right: none; border-bottom: 1px solid var(--sage-light); }
+            nav { flex-direction: row; gap: 1.5rem; }
+            nav a { writing-mode: initial; transform: none; }
+        }
+        @media (max-width: 768px) {
+            .contact-hero h1 { font-size: 3rem; }
+            .contact-hero p { font-size: 1.25rem; }
+            .contact-section { padding: 3rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-layout">
+        <aside class="nav-sidebar">
+            <a href="index.html" class="logo-fixed" aria-label="Return to homepage">JO</a>
+            <nav aria-label="Main navigation">
+                <a href="work.html">WORK</a>
+                <a href="about.html">ABOUT</a>
+                <a href="contact.html" class="active">CONTACT</a>
+            </nav>
+        </aside>
+        <main class="content-area">
+            <section class="contact-hero">
+                <h1>Let's Connect</h1>
+                <p>Interested in working together or just want to say hello? Drop me a message and I'll get back to you soon.</p>
+            </section>
+            
+            <section class="contact-section">
+                <div class="success-message" id="successMessage">
+                    <strong>Message sent successfully!</strong> I'll get back to you as soon as possible.
+                </div>
+
+                <!-- 
+                SETUP INSTRUCTIONS:
+                Replace "YOUR_FORM_ID" below with your actual Formspree form ID
+                Or use Netlify Forms by adding: data-netlify="true"
+                Or use your preferred form backend service
+                -->
+                <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Your name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required placeholder="Tell me about your project, opportunity, or just say hello..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Message</button>
+                    
+                    <p class="form-note">
+                        Your information is secure and will only be used to respond to your inquiry.
+                    </p>
+                </form>
+
+                <div class="other-contact">
+                    <h2>Other Ways to Connect</h2>
+                    <div class="contact-links">
+                        <a href="https://linkedin.com/in/yourprofile" class="contact-link" target="_blank" rel="noopener noreferrer">
+                        LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <footer><p>© 2025 Jamie Oviedo · Designed & coded with strategic intent</p></footer>
+        </main>
+    </div>
+
+    <script>
+        // Form submission handler
+        const form = document.getElementById('contactForm');
+        const successMessage = document.getElementById('successMessage');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(form);
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    successMessage.classList.add('show');
+                    form.reset();
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        successMessage.classList.remove('show');
+                    }, 5000);
+                } else {
+                    alert('Oops! There was a problem sending your message. Please try again or email me directly.');
+                }
+            } catch (error) {
+                alert('Oops! There was a problem sending your message. Please try again or email me directly.');
+            }
+        });
+    </script>
+</body>
+</html>

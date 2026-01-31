@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work | Jamie Oviedo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,700;9..144,800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --sage: #CCD5AE; --sage-light: #E9EDC9; --cream: #FEFAE0; --beige: #FAEDCD;
+            --tan: #D4A373; --tan-dark: #A67C52; --neutral-50: #FAFAF9;
+            --text-dark: #1C1917; --text-medium: #57534E; --accent: #6B7842;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-display: 'Fraunces', serif;
+        }
+        body { font-family: var(--font-body); color: var(--text-dark); background: var(--neutral-50); line-height: 1.6; }
+        .page-layout { display: grid; grid-template-columns: auto 1fr; min-height: 100vh; }
+        .nav-sidebar { display: flex; flex-direction: column; align-items: center; justify-content: space-between; 
+            padding: 3rem 2rem; background: var(--neutral-50); border-right: 1px solid var(--sage-light);
+            position: sticky; top: 0; height: 100vh; }
+        .content-area { width: 100%; overflow-x: hidden; }
+        nav { display: flex; flex-direction: column; gap: 3rem; }
+        nav a { color: var(--text-medium); text-decoration: none; font-size: 0.85rem; writing-mode: vertical-rl;
+            transform: rotate(180deg); transition: all 0.3s; letter-spacing: 0.1em; font-weight: 500; }
+        nav a:hover, nav a.active { color: var(--accent); letter-spacing: 0.2em; }
+        .logo-fixed { font-size: 1.5rem; font-weight: 800; color: var(--text-dark); letter-spacing: -0.05em;
+            font-family: var(--font-display); text-decoration: none; }
+        .logo-fixed:hover { color: var(--accent); }
+        .hero { padding: 6rem 3rem 4rem; background: var(--cream); }
+        .hero h1 { font-family: var(--font-display); font-size: 4.5rem; font-weight: 800; letter-spacing: -0.03em;
+            line-height: 1; margin-bottom: 1.5rem; }
+        .hero p { font-size: 1.5rem; color: var(--text-medium); max-width: 700px; line-height: 1.6; }
+        .projects-grid { padding: 6rem 3rem; max-width: 1400px; margin: 0 auto; }
+        .project-card { background: white; border-radius: 20px; overflow: hidden; transition: all 0.4s;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06); margin-bottom: 4rem; }
+        .project-card:hover { transform: translateY(-8px); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
+        .project-image { width: 100%; aspect-ratio: 16/9; background: linear-gradient(135deg, var(--sage-light), var(--beige));
+            display: flex; align-items: center; justify-content: center; color: var(--text-medium); font-size: 0.9rem; }
+        .project-content { padding: 3rem; }
+        .project-tags { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+        .tag { padding: 0.5rem 1rem; background: var(--sage-light); border-radius: 20px; font-size: 0.75rem;
+            text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); font-weight: 600; }
+        .project-content h2 { font-family: var(--font-display); font-size: 2.5rem; font-weight: 800;
+            letter-spacing: -0.02em; margin-bottom: 1rem; }
+        .project-role { color: var(--accent); font-weight: 600; margin-bottom: 1rem; font-size: 1rem; }
+        .project-content p { font-size: 1.15rem; color: var(--text-medium); line-height: 1.7; margin-bottom: 2rem; }
+        .project-link { display: inline-flex; align-items: center; gap: 0.75rem; color: var(--tan);
+            text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s; }
+        .project-link:hover { gap: 1.25rem; color: var(--accent); }
+        .project-link::after { content: '→'; font-size: 1.5rem; }
+        footer { padding: 3rem; text-align: center; color: var(--text-medium);
+            border-top: 1px solid var(--sage-light); background: var(--neutral-50); }
+        @media (max-width: 1024px) {
+            .page-layout { grid-template-columns: 1fr; }
+            .nav-sidebar { flex-direction: row; padding: 1rem 1.5rem; height: auto; position: static;
+                border-right: none; border-bottom: 1px solid var(--sage-light); }
+            nav { flex-direction: row; gap: 1.5rem; }
+            nav a { writing-mode: initial; transform: none; }
+        }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .hero p { font-size: 1.25rem; }
+            .project-content h2 { font-size: 2rem; }
+            .projects-grid { padding: 3rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-layout">
+        <aside class="nav-sidebar">
+            <a href="index.html" class="logo-fixed" aria-label="Return to homepage">JO</a>
+            <nav aria-label="Main navigation">
+                <a href="work.html" class="active">WORK</a>
+                <a href="about.html">ABOUT</a>
+                <a href="contact.html">CONTACT</a>
+            </nav>
+        </aside>
+        <main class="content-area">
+            <section class="hero">
+                <div class="container">
+                    <h1>Selected Work</h1>
+                    <p>Product design projects that blend behavioral science, user research, and technical implementation to create meaningful impact.</p>
+                </div>
+            </section>
+            <section class="projects-grid">
+                <!-- Project 1: CareCompass -->
+                <article class="project-card">
+                    <div class="project-image">[CareCompass Hero Image]</div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Healthcare</span>
+                            <span class="tag">Research</span>
+                            <span class="tag">Master's Capstone</span>
+                        </div>
+                        <h2>CareCompass Healthcare Navigation Platform</h2>
+                        <p class="project-role">Product Design Lead • University of Michigan-Dearborn</p>
+                        <p>Led product strategy and design for patient-centered mobile platform integrating with EMR systems via FHIR-compliant APIs. Research analyzing 344,000+ patient reviews currently under review for publication in peer-reviewed medical informatics journals.</p>
+                        <a href="case-study-carecompass.html" class="project-link">View Case Study</a>
+                    </div>
+                </article>
+
+                <!-- Project 2: Home Depot -->
+                <article class="project-card">
+                    <div class="project-image">[Home Depot System Integration]</div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">B2B SaaS</span>
+                            <span class="tag">Strategic UX</span>
+                            <span class="tag">Systems Thinking</span>
+                        </div>
+                        <h2>Home Depot Associate Integration</h2>
+                        <p class="project-role">UX Research & Strategy • Strategic Case Study</p>
+                        <p>Strategic UX research identifying 72% service lead loss due to system fragmentation. Designed integration strategy connecting disconnected retail systems to capture lost revenue opportunities. Validated by Home Depot design leadership.</p>
+                        <a href="case-study-homedepot.html" class="project-link">View Case Study</a>
+                    </div>
+                </article>
+
+                <!-- Project 3: reCAPTCHA -->
+                <article class="project-card">
+                    <div class="project-image">[reCAPTCHA Accessibility Redesign]</div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Accessibility</span>
+                            <span class="tag">A/B Testing</span>
+                            <span class="tag">Research</span>
+                        </div>
+                        <h2>reCAPTCHA Accessibility Redesign</h2>
+                        <p class="project-role">UX Research & Design • Academic Project</p>
+                        <p>Accessibility-focused redesign with rigorous A/B testing across normal, low, and no vision users (n=18). Achieved statistically significant improvements (p<0.001) in task completion time and error rates through evidence-based design.</p>
+                        <a href="case-study-recaptcha.html" class="project-link">View Case Study</a>
+                    </div>
+                </article>
+            </section>
+            <footer><p>© 2025 Jamie Oviedo · Designed & coded with strategic intent</p></footer>
+        </main>
+    </div>
+</body>
+</html>
