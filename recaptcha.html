@@ -46,6 +46,9 @@
         .hero-image { margin: 3rem 0; width: 100%; aspect-ratio: 16/9;
             background: linear-gradient(135deg, var(--sage-light) 0%, var(--beige) 100%);
             border-radius: 1rem; display: flex; align-items: center; justify-content: center; color: var(--text-medium); }
+        .hero-image img { width: 100%; height: 100%; object-fit: cover; border-radius: 1rem; }
+        .hero-image.auto-height { aspect-ratio: auto; }
+        .hero-image.auto-height img { height: auto; object-fit: contain; }
         section { padding: 4rem 2rem; }
         .content-section h2 { font-family: var(--font-display); font-size: 2.5rem; margin-bottom: 1.5rem;
             font-weight: 800; letter-spacing: -0.02em; }
@@ -64,6 +67,17 @@
         .stat-number { font-family: var(--font-display); font-size: 3rem; font-weight: 800;
             color: var(--accent); margin-bottom: 0.5rem; }
         .stat-label { color: var(--text-medium); font-size: 1rem; }
+        .quote-block { margin: 3rem 0; padding: 2rem; background: var(--beige); border-radius: 1rem;
+            border-left: 4px solid var(--tan); }
+        .quote-text { font-size: 1.25rem; font-style: italic; color: var(--text-dark); margin-bottom: 0.75rem; }
+        .quote-author { color: var(--text-medium); font-size: 0.95rem; }
+        .image-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem; margin: 3rem 0; }
+        .image-container { width: 100%; aspect-ratio: 4/3;
+            background: linear-gradient(135deg, var(--sage-light) 0%, var(--beige) 100%);
+            border-radius: 0.5rem; display: flex; align-items: center; justify-content: center;
+            color: var(--text-medium); font-size: 0.875rem; }
+        .image-container img { width: 100%; height: 100%; object-fit: cover; border-radius: 0.5rem; }
         .takeaways { background: var(--beige); padding: 3rem; border-radius: 1rem; margin: 3rem 0; }
         .takeaways h2 { font-family: var(--font-display); margin-bottom: 1.5rem; }
         .takeaway-item { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
@@ -106,124 +120,372 @@
         </aside>
         <main class="content-area">
             <a href="work.html" class="back-link">← Back to Work</a>
+
+            <!-- Hero -->
             <section class="hero">
                 <div class="narrow-container">
                     <h1>reCAPTCHA Accessibility Redesign</h1>
-                    <p class="subtitle">Rigorous A/B testing demonstrating statistically significant improvements for users with diverse vision abilities</p>
+                    <p class="subtitle">Leading design and development for a research project that achieved statistically significant accessibility improvements through rigorous A/B testing with 18 participants across vision ability spectrum</p>
                     <div class="meta">
-                        <div class="meta-item"><h3>Role</h3><p>UX Research & Design</p></div>
-                        <div class="meta-item"><h3>Type</h3><p>Accessibility Research</p></div>
-                        <div class="meta-item"><h3>Methods</h3><p>A/B Testing, Statistical Analysis</p></div>
-                        <div class="meta-item"><h3>Participants</h3><p>n=18 (Normal/Low/No Vision)</p></div>
+                        <div class="meta-item">
+                            <h3>Role</h3>
+                            <p>Product Design Lead & Developer</p>
+                        </div>
+                        <div class="meta-item">
+                            <h3>Team</h3>
+                            <p>7-person research team (Gestalt Gang)</p>
+                        </div>
+                        <div class="meta-item">
+                            <h3>Timeline</h3>
+                            <p>Winter 2025</p>
+                        </div>
+                        <div class="meta-item">
+                            <h3>Methods</h3>
+                            <p>A/B Testing, Statistical Analysis, Development</p>
+                        </div>
                     </div>
                 </div>
             </section>
+
+            <!-- Hero Image -->
             <div class="container">
-                <div class="hero-image">[reCAPTCHA Redesign Interface - Coming Soon]</div>
+                <div class="hero-image"><img src="assets/recap-hero.png" alt="reCAPTCHA Accessibility Redesign Hero Image"></div>
             </div>
+
+            <!-- Overview -->
             <section class="content-section">
                 <div class="narrow-container">
                     <h2>Overview</h2>
-                    <p>This accessibility-focused redesign project applied rigorous research methodology to improve reCAPTCHA usability for users across vision ability spectrum. Through controlled A/B testing with 18 participants (normal vision, low vision, and no vision users), I designed and validated improvements that achieved statistically significant reductions in task completion time and error rates.</p>
+                    <p>As Product Design Lead on a 7-person research team, I was the sole designer and developer responsible for creating a fully functional reCAPTCHA redesign that improved accessibility without compromising security. I designed the user experience, built the entire prototype from scratch, and conducted rigorous A/B testing with 18 participants across three vision ability groups (normal, low, and no vision).</p>
+
+                    <p>The project combined my unique interdisciplinary background—leveraging psychology research methods, technical development skills, and accessibility design expertise to create a solution that achieved statistically significant improvements (p<0.001) in both completion time and error rates.</p>
+
                     <div class="highlight-box">
-                        <h3>Research Rigor</h3>
-                        <p>Applied statistical analysis (p<0.001) to validate design improvements, demonstrating measurable impact on accessibility metrics. This project showcased expertise in both inclusive design principles and quantitative research methodology.</p>
+                        <h3>My Specific Contributions</h3>
+                        <p><strong>Product Design:</strong> Led design workshops and decisions, designed the multi-challenge system architecture, and designed accessible interaction patterns for diverse user needs</p>
+                        <p><strong>Technical Development:</strong> Built fully functional prototype on Netlify, integrated Google Developers API Kit for original experience, coded redesigned experience from scratch using HTML/CSS/JavaScript</p>
+                        <p><strong>Security Validation:</strong> Wrote Python scripts using Selenium to conduct automated bot penetration testing, validating that accessibility improvements maintained security integrity</p>
+                        <p><strong>Research Collaboration:</strong> Collaborated with team on study design, statistical analysis, and presentation of findings</p>
                     </div>
                 </div>
             </section>
+
+            <!-- Impact -->
             <section class="content-section">
                 <div class="container">
                     <h2>Impact & Results</h2>
                     <div class="stats-grid">
                         <div class="stat-card">
-                            <div class="stat-number">p<0.001</div>
-                            <div class="stat-label">Statistical Significance</div>
+                            <div class="stat-number">↓70s</div>
+                            <div class="stat-label">Avg. completion time reduced</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">↓54%</div>
+                            <div class="stat-label">Error rate reduction</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">77.8%</div>
+                            <div class="stat-label">User preference for redesign</div>
                         </div>
                         <div class="stat-card">
                             <div class="stat-number">18</div>
-                            <div class="stat-label">Test Participants</div>
+                            <div class="stat-label">Participants tested</div>
                         </div>
-                        <div class="stat-card">
-                            <div class="stat-number">3</div>
-                            <div class="stat-label">Vision Ability Groups</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">↓</div>
-                            <div class="stat-label">Error Rates Reduced</div>
-                        </div>
+                    </div>
+
+                    <div class="quote-block">
+                        <p class="quote-text">"I could not pass the original CAPTCHA at all... The screen reader did not pick up on [the audio button]... I also could not understand the audio... In the redesigned CAPTCHA, I at least had a button to say the answer—and I could go back and use the haptic challenge."</p>
+                        <p class="quote-author">— Participant with no vision</p>
                     </div>
                 </div>
             </section>
+
+            <!-- Research -->
             <section class="content-section">
                 <div class="narrow-container">
-                    <h2>Research Methodology</h2>
-                    <h3>Controlled A/B Testing</h3>
-                    <p>Designed rigorous testing protocol comparing original reCAPTCHA interface with accessibility-enhanced redesign across three user groups:</p>
+                    <h2>Research & Discovery</h2>
+                    
+                    <h3>Identifying the Problem</h3>
+                    <p>Current CAPTCHA systems create significant barriers for users with disabilities through over-reliance on visual tasks, lack of accessible alternatives, and absence of helpful feedback. Research revealed three critical gaps:</p>
+                    
                     <ul>
-                        <li><strong>Normal Vision Users:</strong> Baseline group to ensure redesign didn't negatively impact standard experience</li>
-                        <li><strong>Low Vision Users:</strong> Users with reduced visual acuity testing contrast and sizing improvements</li>
-                        <li><strong>No Vision Users:</strong> Screen reader users testing alternative interaction patterns</li>
+                        <li><strong>Visual dependency:</strong> Image-based challenges exclude users with low or no vision</li>
+                        <li><strong>Limited options:</strong> Few alternatives force users into unsuitable challenge types</li>
+                        <li><strong>Poor feedback:</strong> No indication of what went wrong or how to proceed after failure</li>
                     </ul>
-                    <h3>Quantitative Metrics</h3>
-                    <p>Measured objective performance data:</p>
+
+                    <h3>Research Questions</h3>
+                    <p>Our study investigated two primary questions:</p>
+                    
+                    <div class="highlight-box">
+                        <h3>Question 1: Usability</h3>
+                        <p>How can incorporating user feedback loops enhance overall user experience in reCAPTCHA without overcomplicating the design?</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h3>Question 2: Accessibility</h3>
+                        <p>How can reCAPTCHA V2 be redesigned to improve usability and accessibility for users with diverse needs (visual, motor, or cognitive impairments)?</p>
+                    </div>
+
+                    <h3>Study Design</h3>
+                    <p><strong>Mixed-methods approach:</strong> Combined quantitative A/B testing with qualitative thematic analysis</p>
+                    
+                    <p><strong>Participants:</strong> 18 users recruited across three vision groups:</p>
                     <ul>
-                        <li>Task completion time</li>
-                        <li>Error rates</li>
-                        <li>Abandonment rates</li>
-                        <li>Retry attempts</li>
+                        <li>6 users with normal vision (baseline control)</li>
+                        <li>7 users with low vision</li>
+                        <li>5 users with no vision simulations (screen reader users)</li>
                     </ul>
-                    <p>Applied statistical analysis to validate that improvements were significant (p<0.001) rather than due to chance.</p>
+
+                    <p><strong>Testing protocol:</strong> Within-subjects design where all participants completed both original Google reCAPTCHA and redesigned version in randomized order. Moderator tracked completion time, error count, and qualitative feedback.</p>
+
+                    <p><strong>Statistical methods:</strong> Applied paired t-tests, two-way repeated measures ANOVA, and Fisher's exact tests to validate significance of improvements</p>
                 </div>
             </section>
+
+            <!-- Technical Implementation -->
+            <section class="content-section">
+                <div class="narrow-container">
+                    <h2>Technical Implementation</h2>
+                    
+                    <h3>Building a Functional Prototype</h3>
+                    <p>To conduct authentic A/B testing, I needed a real working prototype—not just mockups. I built the entire testing environment from scratch:</p>
+
+                    <p><strong>Prototype site:</strong> <a href="https://gestalt-gang-testsite.netlify.app/" target="_blank" style="color: var(--accent);">gestalt-gang-testsite.netlify.app</a></p>
+
+                    <ul>
+                        <li><strong>Hosted on Netlify:</strong> Deployed functional web application for participant testing</li>
+                        <li><strong>Original experience:</strong> Integrated Google's reCAPTCHA via official Developers API Kit</li>
+                        <li><strong>Redesigned experience:</strong> Coded entirely from scratch using HTML, CSS, and JavaScript to implement new interaction patterns and accessibility features</li>
+                    </ul>
+
+                    <h3>Security Validation with Python & Selenium</h3>
+                    <p>A critical requirement was ensuring the redesign maintained security integrity. I wrote Python automation scripts using Selenium to conduct bot penetration testing:</p>
+
+                    <ul>
+                        <li>Automated bot attempts to bypass CAPTCHA challenges</li>
+                        <li>Tested each challenge type individually for vulnerabilities</li>
+                        <li>Validated that accessibility improvements didn't compromise security</li>
+                        <li>Documented security test results showing redesign maintained protection against automated attacks</li>
+                    </ul>
+
+                    <p>This technical work demonstrated my ability to move beyond design into full implementation—building, testing, and validating solutions end-to-end.</p>
+                </div>
+            </section>
+
+            <!-- Design Solutions -->
             <section class="content-section">
                 <div class="narrow-container">
                     <h2>Design Solutions</h2>
-                    <h3>Accessibility-Centered Redesign</h3>
-                    <p>Key design improvements focused on WCAG 2.1 AA compliance and inclusive interaction patterns:</p>
+                    
+                    <h3>Core Design Principles</h3>
+                    <p>The redesign centered on three interconnected principles: <strong>Choice + Clarity + Feedback</strong></p>
+
+                    <h3>1. User Choice: Multiple Challenge Types</h3>
+                    <p>Instead of forcing users into a single verification method, I designed a system offering five distinct challenge options:</p>
+
                     <ul>
-                        <li><strong>Enhanced Contrast Ratios:</strong> Improved visual clarity for low vision users</li>
-                        <li><strong>Screen Reader Optimization:</strong> Clear semantic structure and ARIA labels</li>
-                        <li><strong>Keyboard Navigation:</strong> Fully keyboard-accessible interaction patterns</li>
-                        <li><strong>Alternative Challenges:</strong> Multiple verification options accommodating diverse abilities</li>
-                        <li><strong>Error Recovery:</strong> Clear error messaging and retry mechanisms</li>
+                        <li><strong>Image Challenge:</strong> Visual object identification (removed confusing reference photos)</li>
+                        <li><strong>Audio Challenge:</strong> Sound-based verification with recording capability for voice input</li>
+                        <li><strong>Puzzle Challenge:</strong> Shape matching and orientation tasks</li>
+                        <li><strong>Haptic Challenge:</strong> Pattern-based interaction (though user testing revealed "haptic" wasn't understood—redesigned in later iteration)</li>
+                        <li><strong>Text Challenge:</strong> Reading and transcription tasks</li>
                     </ul>
+
+                    <p>Giving users control to select their preferred challenge type dramatically improved both satisfaction and success rates, particularly for users with disabilities who could choose methods matching their abilities.</p>
+                </div>
+
+                <div class="container">
+                    <div class="image-grid">
+                        <div class="image-container">[Challenge selection screen - 800x600px]</div>
+                        <div class="image-container">[Image challenge interface - 800x600px]</div>
+                        <div class="image-container">[Audio challenge with recording - 800x600px]</div>
+                    </div>
+                </div>
+
+                <div class="narrow-container">
+                    <h3>2. Clarity: Simplified Visual Design</h3>
+                    <p>Removed visual clutter and confusion from original reCAPTCHA:</p>
+
+                    <ul>
+                        <li>Eliminated reference photos in image challenges that caused ambiguity</li>
+                        <li>Enhanced contrast ratios for low vision users</li>
+                        <li>Clear, concise instructions for each challenge type</li>
+                        <li>Semantic HTML structure for screen reader compatibility</li>
+                    </ul>
+
+                    <div class="quote-block">
+                        <p class="quote-text">"Had a hard time reading the text that said 'Chimneys' on the Google reCAPTCHA... With the puzzle challenge it was easier to see the shapes and solve it."</p>
+                        <p class="quote-author">— Participant with low vision</p>
+                    </div>
+
+                    <h3>3. Feedback: Breaking the Frustration Loop</h3>
+                    <p>Original reCAPTCHA provides no indication when users fail—just endless new challenges. I designed an explicit feedback system:</p>
+
+                    <ul>
+                        <li><strong>Success messaging:</strong> "Challenge Passed! Great job" with clear continue button</li>
+                        <li><strong>Failure indication:</strong> "Try again" prompt explaining what to do next</li>
+                        <li><strong>Progress visibility:</strong> Users understood their status at all times</li>
+                        <li><strong>Exit paths:</strong> Ability to return and select different challenge type</li>
+                    </ul>
+
+                    <div class="quote-block">
+                        <p class="quote-text">"I don't like the continuous images in reCAPTCHA—and that it loads without feedback. The redesigned version clearly prompted me to 'try again.'"</p>
+                        <p class="quote-author">— Participant with normal vision</p>
+                    </div>
                 </div>
             </section>
+
+            <!-- Results Breakdown -->
+            <section class="content-section">
+                <div class="narrow-container">
+                    <h2>Detailed Results</h2>
+
+                    <h3>Statistical Validation</h3>
+                    <p>Applied rigorous statistical analysis to validate improvements weren't due to chance:</p>
+
+                    <ul>
+                        <li><strong>Two-way repeated measures ANOVA:</strong> Testing version (p=0.001) and vision ability (p=0.001) both showed significant main effects</li>
+                        <li><strong>Paired t-tests by vision group:</strong>
+                            <ul>
+                                <li>Normal vision: p=0.010 (significant)</li>
+                                <li>No vision: p=0.012 (significant)</li>
+                                <li>Low vision: p=0.146 (trending toward significance)</li>
+                            </ul>
+                        </li>
+                        <li><strong>User preference:</strong> Z-statistic: 2.834, p=0.004 (highly significant preference for redesign)</li>
+                    </ul>
+
+                    <h3>Performance by Vision Group</h3>
+                    
+                    <p><strong>Blind users (no vision) showed greatest improvement:</strong></p>
+                    <ul>
+                        <li>100% preferred redesigned version</li>
+                        <li>Could not complete original CAPTCHA at all in many cases</li>
+                        <li>Screen readers properly detected new interface elements</li>
+                        <li>Audio and haptic alternatives provided genuine accessibility</li>
+                    </ul>
+
+                    <p><strong>Low vision users:</strong></p>
+                    <ul>
+                        <li>57.1% preferred redesign</li>
+                        <li>Emphasized frustration with original and value of customization</li>
+                        <li>Puzzle challenges with clear shapes easier than ambiguous images</li>
+                    </ul>
+
+                    <p><strong>Normal vision users:</strong></p>
+                    <ul>
+                        <li>83.3% preferred redesign</li>
+                        <li>Focused on clarity, flexibility, and feedback improvements</li>
+                        <li>Faster completion even for users without disabilities</li>
+                    </ul>
+
+                    <h3>Qualitative Themes</h3>
+                    <p>Thematic analysis of user feedback identified six primary themes:</p>
+
+                    <ul>
+                        <li><strong>Accessibility/Assistive Technology:</strong> Screen reader compatibility, alternative input methods</li>
+                        <li><strong>Clarity & Ease of Use:</strong> Simplified instructions, reduced ambiguity</li>
+                        <li><strong>Customization/Flexibility:</strong> User choice, multiple challenge options</li>
+                        <li><strong>Frustration:</strong> Endless loops, unclear requirements (original only)</li>
+                        <li><strong>Feedback Loop:</strong> Clear success/failure messaging</li>
+                        <li><strong>Familiarity/Simplicity:</strong> Intuitive interaction patterns</li>
+                    </ul>
+
+                    <p>Fisher's exact test showed blind participants emphasized accessibility and clarity significantly more than other users (p=0.0423, odds ratio=10.22), validating that design changes meaningfully addressed their specific needs.</p>
+                </div>
+            </section>
+
+            <!-- Insights & Iterations -->
+            <section class="content-section">
+                <div class="narrow-container">
+                    <h2>Design Insights & Iterations</h2>
+
+                    <h3>Observations from Testing</h3>
+                    <p>User testing revealed several unexpected findings that informed design refinements:</p>
+
+                    <ul>
+                        <li><strong>"Haptic Challenge" confusion:</strong> No participants understood what "haptic" meant. This led to relabeling with more intuitive language in subsequent iterations.</li>
+                        <li><strong>Text challenge avoidance:</strong> Zero participants selected the text challenge option, suggesting it wasn't perceived as valuable or was poorly explained.</li>
+                        <li><strong>Help button ignored:</strong> Despite designing a prominent help icon, no participants clicked it. This suggested either the interface was sufficiently clear, or the help pattern wasn't discoverable.</li>
+                        <li><strong>Familiarity bias:</strong> Image challenge, positioned first in the list, was selected most frequently—suggesting order matters for user choice.</li>
+                    </ul>
+
+                    <h3>Prototype Improvements Based on Feedback</h3>
+                    <p>Following initial testing, I implemented several refinements:</p>
+
+                    <ul>
+                        <li><strong>Simplified instructions:</strong> Rewrote challenge descriptions after users reported confusion, particularly for puzzle orientation</li>
+                        <li><strong>Repositioned recording button:</strong> Moved "Start Recording" button before text input in audio challenge to improve discoverability</li>
+                        <li><strong>Clearer challenge labeling:</strong> Replaced technical terms with plain language descriptions</li>
+                        <li><strong>Added gamification elements:</strong> Incorporated more engaging visual feedback in puzzle challenge based on mentor (Dr. Kim) recommendations</li>
+                    </ul>
+
+                    <h3>Expert Interview Insights</h3>
+                    <p>An interview with a security expert revealed how modern CAPTCHA systems work:</p>
+
+                    <div class="quote-block">
+                        <p class="quote-text">"Today's CAPTCHA analyze human behaviors: How you move the mouse, the way you click the mouse, how long you take to answer. In the past, the goal was identify objects like dogs to prove you are human. But now, AI can solve image tasks!"</p>
+                        <p class="quote-author">— Security Expert</p>
+                    </div>
+
+                    <p>This insight informed our security testing approach—validating that behavioral patterns (mouse movement curves, click duration of 0.1-0.2s per GOMS-KLM model, response timing) were properly captured alongside challenge completion.</p>
+                </div>
+            </section>
+
+            <!-- Takeaways -->
             <section class="content-section">
                 <div class="container">
                     <div class="takeaways">
                         <h2>Key Takeaways</h2>
+
                         <div class="takeaway-item">
                             <div class="takeaway-number">1</div>
                             <div class="takeaway-content">
-                                <h3>Quantitative Validation of Accessibility</h3>
-                                <p>Accessibility improvements must be measured and validated, not just asserted. Statistical rigor demonstrates real impact beyond anecdotal feedback.</p>
+                                <h3>Accessibility Requires Both Design and Technical Execution</h3>
+                                <p>Understanding WCAG guidelines isn't enough—you have to know how to build properly semantic HTML, implement ARIA labels correctly, and test with actual assistive technologies. Being able to design AND code accessible solutions means I can ensure implementation matches intent rather than relying on developers to interpret accessibility requirements.</p>
                             </div>
                         </div>
+
                         <div class="takeaway-item">
                             <div class="takeaway-number">2</div>
                             <div class="takeaway-content">
-                                <h3>Design Across Vision Ability Spectrum</h3>
-                                <p>Testing across normal, low, and no vision users ensures solutions work for diverse needs. Accessibility isn't binary—it's a spectrum requiring nuanced understanding.</p>
+                                <h3>Statistical Rigor Transforms "Good Design" into Defensible Strategy</h3>
+                                <p>Quantitative validation (p<0.001) moves accessibility from subjective preference to objective improvement. This research methodology—applying academic rigor to design decisions—produces solutions that withstand scrutiny from stakeholders, legal teams, and business leaders who need data-driven justification for accessibility investments.</p>
                             </div>
                         </div>
+
                         <div class="takeaway-item">
                             <div class="takeaway-number">3</div>
                             <div class="takeaway-content">
-                                <h3>Research Methodology Strengthens Design</h3>
-                                <p>Applying academic research rigor (controlled testing, statistical analysis) to design work produces defensible, evidence-based solutions that withstand scrutiny.</p>
+                                <h3>User Choice is More Powerful Than Perfect Solutions</h3>
+                                <p>Rather than trying to design one "perfect" CAPTCHA for all users, offering multiple challenge types with user control produced better outcomes. Accessibility isn't about one-size-fits-all—it's about providing options that respect diverse abilities and preferences. This principle applies far beyond CAPTCHA to any system serving varied user needs.</p>
+                            </div>
+                        </div>
+
+                        <div class="takeaway-item">
+                            <div class="takeaway-number">4</div>
+                            <div class="takeaway-content">
+                                <h3>Managing Teams Means Trusting Imperfect Contributions</h3>
+                                <p>My instinct to handle all design and development work myself was inefficient and unsustainable. Learning to delegate tasks matching each team member's capabilities—even when their work didn't meet my personal standards—taught me that effective leadership means empowering others rather than controlling everything. Collaboration skills matter as much as technical ability.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+
+            <!-- Next Project -->
             <section class="next-project">
                 <div class="container">
                     <h2>Explore More Work</h2>
                     <a href="work.html" class="btn">View All Projects</a>
                 </div>
             </section>
-            <footer role="contentinfo"><p>© 2026 Jamie Oviedo · Designed & coded with strategic intent</p></footer>
+
+            <!-- Footer -->
+            <footer role="contentinfo">
+                <p>© 2026 Jamie Oviedo · Designed & coded with strategic intent</p>
+            </footer>
         </main>
     </div>
 </body>
