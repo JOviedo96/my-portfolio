@@ -9,6 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,700;9..144,800&display=swap" rel="stylesheet">
+
+    <!-- Material Design Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
     
     <style>
         * {
@@ -577,41 +580,20 @@
             background: white;
             padding: 3rem;
             border-radius: 30px;
-            box-shadow: 
+            box-shadow:
                 0 1px 3px rgba(0, 0, 0, 0.05),
                 0 10px 40px rgba(107, 120, 66, 0.06);
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .value-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--accent);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-        }
-
-        .value-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .value-card:hover {
-            transform: translateY(-8px) rotate(1deg);
-            box-shadow: 
-                0 4px 6px rgba(0, 0, 0, 0.05),
-                0 20px 60px rgba(107, 120, 66, 0.15);
         }
 
         .value-icon {
             font-size: 3rem;
             margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--sage-dark) 0%, var(--tan-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Material Symbols Outlined';
+            font-weight: 400;
         }
 
         .value-card h3 {
@@ -1174,37 +1156,37 @@
                     <h2 id="philosophy-heading">How I Work</h2>
                     <div class="values-grid">
                         <article class="value-card">
-                            <div class="value-icon">🎯</div>
+                            <div class="value-icon">adjust</div>
                             <h3>Strategy First, Pixels Second</h3>
                             <p>I start with the problem, not the solution. Research and strategy inform design decisions—not the other way around. Beautiful design that doesn't solve the right problem is just decoration. I focus on outcomes, not outputs.</p>
                         </article>
 
                         <article class="value-card">
-                            <div class="value-icon">🔬</div>
+                            <div class="value-icon">science</div>
                             <h3>Research-Backed Decisions</h3>
                             <p>Every design decision should be defensible with evidence. I combine qualitative insights with quantitative data to understand not just what users do, but why they do it. This approach leads to solutions that actually work in the real world.</p>
                         </article>
 
                         <article class="value-card">
-                            <div class="value-icon">🤝</div>
+                            <div class="value-icon">group</div>
                             <h3>Cross-Functional Leadership</h3>
                             <p>Great products require diverse perspectives. I lead by facilitating collaboration between product, engineering, and business stakeholders—translating between disciplines, building alignment, and keeping teams focused on shared outcomes.</p>
                         </article>
 
                         <article class="value-card">
-                            <div class="value-icon">⚖️</div>
+                            <div class="value-icon">balance</div>
                             <h3>Balance User Needs & Business Goals</h3>
                             <p>Strategic design means finding solutions that work for users AND the business. I actively engage with constraints—whether technical, business, or organizational—and use them to inform better solutions, not excuse mediocre ones.</p>
                         </article>
 
                         <article class="value-card">
-                            <div class="value-icon">🧠</div>
+                            <div class="value-icon">psychology</div>
                             <h3>Psychology-Informed Design</h3>
                             <p>Understanding cognitive biases, decision-making processes, and behavioral patterns isn't optional—it's foundational. I apply behavioral science principles to create intuitive experiences that align with how people actually think and behave.</p>
                         </article>
 
                         <article class="value-card">
-                            <div class="value-icon">⚡</div>
+                            <div class="value-icon">bolt</div>
                             <h3>AI as Force Multiplier</h3>
                             <p>I leverage AI to accelerate research synthesis and design exploration—not to replace human judgment. AI helps me test 10x more concepts with users, analyze data at scale, and prototype rapidly. The goal: more time on strategic thinking and validation.</p>
                         </article>
@@ -1221,7 +1203,6 @@
                             <h3>Strategic Leadership</h3>
                             <div class="skill-items">
                                 <span class="skill-tag">Product Strategy</span>
-                                <span class="skill-tag">Roadmap Planning</span>
                                 <span class="skill-tag">Stakeholder Management</span>
                                 <span class="skill-tag">Cross-Functional Leadership</span>
                                 <span class="skill-tag">Workshop Facilitation</span>
@@ -1233,6 +1214,7 @@
                             <h3>Research & Insights</h3>
                             <div class="skill-items">
                                 <span class="skill-tag">User Research</span>
+                                <span class="skill-tag">Competitive Analysis</span>
                                 <span class="skill-tag">Usability Testing</span>
                                 <span class="skill-tag">Data Analysis</span>
                                 <span class="skill-tag">A/B Testing</span>
@@ -1260,6 +1242,7 @@
                             <div class="skill-items">
                                 <span class="skill-tag">Python</span>
                                 <span class="skill-tag">HTML/CSS/JS</span>
+                                <span class="skill-tag">React/React Native</span>
                                 <span class="skill-tag">AI-Assisted Workflows</span>
                                 <span class="skill-tag">Data Science</span>
                                 <span class="skill-tag">Machine Learning Basics</span>
@@ -1276,14 +1259,14 @@
                 <h2 id="cta-heading">Let's work together</h2>
                 <p>I'm seeking remote Product Designer roles where I can lead strategic design initiatives, drive cross-functional collaboration, and deliver measurable business impact.</p>
                 <div class="cta-buttons">
-                    <a href="/cdn-cgi/l/email-protection#6d070c00040843021b04080902545b2d0a000c0401430e0200" class="btn btn-primary">Get in Touch</a>
-                    <a href="index.html#work" class="btn btn-secondary">View My Work</a>
+                    <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+                    <a href="work.html" class="btn btn-secondary">View My Work</a>
                 </div>
             </section>
 
             <!-- Footer -->
             <footer role="contentinfo">
-                <p>© 2025 Jamie Oviedo · Designed & coded with strategic intent</p>
+                <p>© 2026 Jamie Oviedo · Designed & coded with strategic intent</p>
             </footer>
         </main>
     </div>

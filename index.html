@@ -9,6 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,700;9..144,800&display=swap" rel="stylesheet">
+
+    <!-- Material Design Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
     
     <style>
         * {
@@ -273,11 +276,14 @@
             display: flex;
             gap: 4rem;
             margin-bottom: 3rem;
+            flex-wrap: nowrap;
         }
 
         .stat {
             display: flex;
             flex-direction: column;
+            flex-shrink: 1;
+            min-width: 0;
         }
 
         .stat-number {
@@ -286,6 +292,7 @@
             font-weight: 700;
             color: var(--accent);
             line-height: 1;
+            white-space: nowrap;
         }
 
         .stat-label {
@@ -295,6 +302,7 @@
             letter-spacing: 0.1em;
             margin-top: 0.5rem;
             font-weight: 500;
+            white-space: nowrap;
         }
 
         .hero-cta {
@@ -355,7 +363,7 @@
         .card-1 {
             top: -5%;
             right: 0%;
-            width: 250px;
+            width: 200px;
             background: linear-gradient(135deg, var(--sage-light), white);
             animation: float 6s ease-in-out infinite;
             z-index: 3;
@@ -388,6 +396,12 @@
         .card-icon {
             font-size: 2.5rem;
             margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--sage-dark) 0%, var(--tan-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Material Symbols Outlined';
+            font-weight: 400;
         }
 
         .card-title {
@@ -405,7 +419,7 @@
 
         /* Projects */
         .projects {
-            padding: 10rem 6rem;
+            padding: 12rem 6rem 10rem;
             background: var(--cream);
         }
 
@@ -435,7 +449,7 @@
             display: grid;
             grid-template-columns: 1.2fr 0.8fr;
             gap: 3rem;
-            margin-bottom: 3rem;
+            margin-bottom: 10rem;
         }
 
         .project-showcase:nth-child(even) {
@@ -682,17 +696,9 @@
             background: white;
             padding: 1.5rem;
             border-radius: 15px;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            box-shadow: 
+            box-shadow:
                 0 1px 3px rgba(0, 0, 0, 0.05),
                 0 10px 30px rgba(107, 120, 66, 0.06);
-        }
-
-        .skill-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 
-                0 4px 6px rgba(0, 0, 0, 0.05),
-                0 20px 40px rgba(107, 120, 66, 0.12);
         }
 
         .skill-item h4 {
@@ -795,16 +801,11 @@
         /* Footer */
         footer {
             padding: 3rem 6rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid var(--sage-light);
-            background: var(--neutral-50);
-        }
-
-        .footer-text {
+            text-align: center;
             color: var(--text-medium);
-            font-size: 0.9rem;
+            background: var(--neutral-50);
+            border-top: 1px solid var(--sage-light);
+            font-size: 0.95rem;
         }
 
         /* Accessibility - Reduced Motion */
@@ -826,6 +827,11 @@
                 padding: 6rem 4rem;
             }
 
+            .hero-stats {
+                gap: 2.5rem;
+                flex-wrap: nowrap;
+            }
+
             .projects, .contact {
                 padding: 6rem 4rem;
             }
@@ -839,7 +845,7 @@
             }
         }
 
-        @media (max-width: 1050px) {
+        @media (max-width: 1400px) {
             .floating-card {
                 display: none;
             }
@@ -871,6 +877,11 @@
 
             .hero-visual {
                 height: 500px;
+            }
+
+            .hero-stats {
+                gap: 2rem;
+                flex-wrap: nowrap;
             }
 
             .projects, .contact {
@@ -1055,9 +1066,6 @@
 
             footer {
                 padding: 2rem 1.5rem;
-                flex-direction: column;
-                gap: 1.5rem;
-                text-align: center;
             }
         }
 
@@ -1272,9 +1280,6 @@
 
             footer {
                 padding: 2rem 1rem;
-            }
-
-            .footer-text {
                 font-size: 0.875rem;
             }
         }
@@ -1315,9 +1320,9 @@
         <aside class="nav-sidebar">
             <div class="logo-fixed" aria-label="Site logo">JO</div>
             <nav aria-label="Main navigation">
-                <a href="#work">WORK</a>
+                <a href="work.html">WORK</a>
                 <a href="about.html">ABOUT</a>
-                <a href="#contact">CONTACT</a>
+                <a href="/contact.html">CONTACT</a>
             </nav>
         </aside>
 
@@ -1346,25 +1351,25 @@
                     </div>
                 </div>
 
-                <a href="#work" class="hero-cta">
+                <a href="work.html" class="hero-cta">
                     View Case Studies
-                    <span aria-hidden="true">↓</span>
+                    <span aria-hidden="true">→</span>
                 </a>
             </div>
 
             <div class="hero-visual" aria-hidden="true">
                 <div class="floating-card card-1">
-                    <div class="card-icon">📊</div>
+                    <div class="card-icon">insights</div>
                     <div class="card-title">Strategic Thinking</div>
                     <div class="card-text">Balancing user needs with business objectives</div>
                 </div>
                 <div class="floating-card card-2">
-                    <div class="card-icon">🔬</div>
+                    <div class="card-icon">science</div>
                     <div class="card-title">Research-Driven</div>
                     <div class="card-text">Quantitative and qualitative insights that inform decisions</div>
                 </div>
                 <div class="floating-card card-3">
-                    <div class="card-icon">⚡</div>
+                    <div class="card-icon">bolt</div>
                     <div class="card-title">AI-Accelerated</div>
                     <div class="card-text">10x faster exploration without sacrificing quality</div>
                 </div>
@@ -1394,7 +1399,7 @@
                 <h3>CareCompass</h3>
                 <p class="project-role">Product Design Lead • University of Michigan-Dearborn</p>
                 <p class="project-description">Led product strategy and design for patient-centered mobile platform integrating with EMR systems via FHIR-compliant APIs. Analyzed 344,000+ patient app reviews as part of 3-person research team to identify systemic barriers in healthcare navigation. Research under review for publication in International Journal of Medical Informatics and JMIR Human Factors.</p>
-                <a href="/care-compass.html" class="project-link">
+                <a href="care-compass.html" class="project-link">
                     View Case Study
                     <span class="sr-only">about CareCompass Healthcare Navigation</span>
                 </a>
@@ -1412,7 +1417,7 @@
                 <h3>Home Depot Associate Integration</h3>
                 <p class="project-role">UX Research & Design • Case Study</p>
                 <p class="project-description">Through business analytics and user interviews, identified that only 27.8% of service leads were captured due to system fragmentation. Designed integration strategy combining Order Up (POS) and Service Connect platforms. Validated by The Home Depot design leadership during final-round interviews for strategic depth and business impact.</p>
-                <a href="case-study-homedepot.html" class="project-link">
+                <a href="home-depot.html" class="project-link">
                     View Case Study
                     <span class="sr-only">about Home Depot Associate Integration</span>
                 </a>
@@ -1438,7 +1443,7 @@
                 <h3>reCAPTCHA Accessibility Redesign</h3>
                 <p class="project-role">Accessibility Research & Design • Academic Project</p>
                 <p class="project-description"> Led accessibility-focused redesign with rigorous A/B testing across normal, low, and no vision simulations (n=18). Designed and developed multiple challenge types in coded prototype. Achieved statistically significant reductions in task completion time and error rates (p&lt;0.001), demonstrating measurable improvements for users with vision impairments.</p>
-                <a href="case-study-recaptcha.html" class="project-link">
+                <a href="recaptcha.html" class="project-link">
                     View Case Study
                     <span class="sr-only">about reCAPTCHA Accessibility Redesign</span>
                 </a>
@@ -1487,13 +1492,9 @@
         <h2 id="contact-heading">Let's build<br>something impactful</h2>
         <p>I'm open to remote Product Designer roles where I can apply strategic thinking, research rigor, and technical depth to solve meaningful problems at scale.</p>
         <div class="contact-options">
-            <a href="mailto:your.email@example.com" class="contact-btn contact-btn-primary">Get in Touch</a>
+            <a href="/contact.html" class="contact-btn contact-btn-primary">Get in Touch</a>
             <a href="https://www.linkedin.com/in/jamie-oviedo/" class="contact-btn contact-btn-secondary" target="_blank" rel="noopener noreferrer">
                 LinkedIn
-                <span class="sr-only">(opens in new tab)</span>
-            </a>
-            <a href="resume.pdf" class="contact-btn contact-btn-secondary" target="_blank" rel="noopener noreferrer">
-                Resume
                 <span class="sr-only">(opens in new tab)</span>
             </a>
         </div>
@@ -1501,14 +1502,14 @@
 
     <!-- Footer -->
     <footer role="contentinfo">
-        <div class="footer-text">© 2025 Your Name · Designed & coded with strategic intent</div>
+        <p>© 2026 Jamie Oviedo · Designed & coded with strategic intent</p>
     </footer>
 
     <script>
         // Console Easter Egg
         console.log('%c👋 Hey there!', 'color: #D4A373; font-size: 20px; font-weight: bold;');
         console.log('%cLike what you see? Let\'s chat about design, psychology, or code.', 'color: #6B7842; font-size: 14px;');
-        console.log('%c📧 your.email@example.com', 'color: #57534E; font-size: 12px;');
+        console.log('%c📧 jamie.oviedo96@gmail.com', 'color: #57534E; font-size: 12px;');
 
         // Scroll-triggered reveals
         const observerOptions = {

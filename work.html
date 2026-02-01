@@ -34,12 +34,11 @@
             line-height: 1; margin-bottom: 1.5rem; }
         .hero p { font-size: 1.5rem; color: var(--text-medium); max-width: 700px; line-height: 1.6; }
         .projects-grid { padding: 6rem 3rem; max-width: 1400px; margin: 0 auto; }
-        .project-card { background: white; border-radius: 20px; overflow: hidden; transition: all 0.4s;
+        .project-card { background: white; border-radius: 20px; overflow: hidden;
             box-shadow: 0 4px 20px rgba(0,0,0,0.06); margin-bottom: 4rem; }
-        .project-card:hover { transform: translateY(-8px); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
         .project-image { width: 100%; aspect-ratio: 16/9; background: linear-gradient(135deg, var(--sage-light), var(--beige));
             display: flex; align-items: center; justify-content: center; color: var(--text-medium); font-size: 0.9rem; }
-        .project-content { padding: 3rem; }
+        .project-content { padding: 3rem; position: relative; }
         .project-tags { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
         .tag { padding: 0.5rem 1rem; background: var(--sage-light); border-radius: 20px; font-size: 0.75rem;
             text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); font-weight: 600; }
@@ -47,9 +46,13 @@
             letter-spacing: -0.02em; margin-bottom: 1rem; }
         .project-role { color: var(--accent); font-weight: 600; margin-bottom: 1rem; font-size: 1rem; }
         .project-content p { font-size: 1.15rem; color: var(--text-medium); line-height: 1.7; margin-bottom: 2rem; }
-        .project-link { display: inline-flex; align-items: center; gap: 0.75rem; color: var(--tan);
-            text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s; }
+        .project-link { display: flex; align-items: center; gap: 0.75rem; color: var(--tan-dark);
+            text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease; position: relative; width: 100%; }
+        .project-link::before { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 2px;
+            background: var(--tan-dark); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
         .project-link:hover { gap: 1.25rem; color: var(--accent); }
+        .project-link:hover::before { transform: scaleX(1); background: var(--accent); }
+        .project-link:focus { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
         .project-link::after { content: '→'; font-size: 1.5rem; }
         footer { padding: 3rem; text-align: center; color: var(--text-medium);
             border-top: 1px solid var(--sage-light); background: var(--neutral-50); }
@@ -98,7 +101,7 @@
                         <h2>CareCompass Healthcare Navigation Platform</h2>
                         <p class="project-role">Product Design Lead • University of Michigan-Dearborn</p>
                         <p>Led product strategy and design for patient-centered mobile platform integrating with EMR systems via FHIR-compliant APIs. Research analyzing 344,000+ patient reviews currently under review for publication in peer-reviewed medical informatics journals.</p>
-                        <a href="case-study-carecompass.html" class="project-link">View Case Study</a>
+                        <a href="care-compass.html" class="project-link">View Case Study</a>
                     </div>
                 </article>
 
@@ -114,7 +117,7 @@
                         <h2>Home Depot Associate Integration</h2>
                         <p class="project-role">UX Research & Strategy • Strategic Case Study</p>
                         <p>Strategic UX research identifying 72% service lead loss due to system fragmentation. Designed integration strategy connecting disconnected retail systems to capture lost revenue opportunities. Validated by Home Depot design leadership.</p>
-                        <a href="case-study-homedepot.html" class="project-link">View Case Study</a>
+                        <a href="home-depot.html" class="project-link">View Case Study</a>
                     </div>
                 </article>
 
@@ -130,11 +133,11 @@
                         <h2>reCAPTCHA Accessibility Redesign</h2>
                         <p class="project-role">UX Research & Design • Academic Project</p>
                         <p>Accessibility-focused redesign with rigorous A/B testing across normal, low, and no vision users (n=18). Achieved statistically significant improvements (p<0.001) in task completion time and error rates through evidence-based design.</p>
-                        <a href="case-study-recaptcha.html" class="project-link">View Case Study</a>
+                        <a href="recaptcha.html" class="project-link">View Case Study</a>
                     </div>
                 </article>
             </section>
-            <footer><p>© 2025 Jamie Oviedo · Designed & coded with strategic intent</p></footer>
+            <footer role="contentinfo"><p>© 2026 Jamie Oviedo · Designed & coded with strategic intent</p></footer>
         </main>
     </div>
 </body>
