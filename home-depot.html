@@ -57,6 +57,14 @@
         .highlight-box { background: var(--beige); border-left: 4px solid var(--accent); padding: 2rem;
             margin: 2rem 0; border-radius: 0.5rem; }
         .highlight-box h3 { margin-top: 0; color: var(--accent); }
+        .stat-callout { background: var(--beige); padding: 3rem; border-radius: 1rem; margin: 3rem 0; text-align: center; }
+        .stat-callout .stat-number { font-family: var(--font-display); font-size: 4rem; font-weight: 800; 
+            color: var(--accent); line-height: 1; margin-bottom: 0.5rem; }
+        .stat-callout .stat-label { font-size: 1.25rem; color: var(--text-medium); }
+        .personas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 3rem 0; }
+        .persona-card { background: white; padding: 2rem; border-radius: 1rem; border: 1px solid var(--sage-light); }
+        .persona-card .quote { font-size: 1rem; font-style: italic; color: var(--text-dark); margin-bottom: 1rem; line-height: 1.6; }
+        .persona-card .role { font-size: 0.9rem; color: var(--text-medium); font-weight: 600; }
         .takeaways { background: var(--beige); padding: 3rem; border-radius: 1rem; margin: 3rem 0; }
         .takeaways h2 { font-family: var(--font-display); margin-bottom: 1.5rem; }
         .takeaway-item { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
@@ -83,6 +91,7 @@
             .hero .subtitle { font-size: 1.25rem; }
             .content-section h2 { font-size: 2rem; }
             .meta { gap: 1.5rem; }
+            .personas-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -98,72 +107,156 @@
         </aside>
         <main class="content-area">
             <a href="work.html" class="back-link">← Back to Work</a>
+
+            <!-- Hero -->
             <section class="hero">
                 <div class="narrow-container">
                     <h1>Home Depot Associate Integration</h1>
-                    <p class="subtitle">Strategic UX research identifying 72% service lead loss due to system fragmentation</p>
+                    <p class="subtitle">Offering the whole project in a more efficient way while addressing 72% service lead loss through system integration</p>
                     <div class="meta">
-                        <div class="meta-item"><h3>Role</h3><p>UX Research & Strategy</p></div>
+                        <div class="meta-item"><h3>Role</h3><p>UX Research & Design</p></div>
                         <div class="meta-item"><h3>Type</h3><p>Strategic Case Study</p></div>
-                        <div class="meta-item"><h3>Methods</h3><p>Business Analytics, User Interviews</p></div>
-                        <div class="meta-item"><h3>Validation</h3><p>Home Depot Design Leadership</p></div>
+                        <div class="meta-item"><h3>Methods</h3><p>Business Analytics, User Interviews, Journey Mapping</p></div>
+                        <div class="meta-item"><h3>Recognition</h3><p>Presented to Home Depot Design Leadership</p></div>
                     </div>
                 </div>
             </section>
+
+            <!-- Hero Image Placeholder -->
             <div class="container">
-                <div class="hero-image">[System Integration Concept - Coming Soon]</div>
+                <div class="hero-image">[Add: Final prototype or system integration concept image]</div>
             </div>
+
+            <!-- Problem -->
             <section class="content-section">
                 <div class="narrow-container">
-                    <h2>Overview</h2>
-                    <p>This strategic UX case study examined fragmentation in The Home Depot's associate-facing systems. Through business analytics and user interviews, I identified that only 27.8% of service leads were being captured—meaning 72.2% of potential revenue opportunities were lost due to disconnected systems between Point of Sale (Order Up) and services platform (Service Connect).</p>
+                    <h2>The Problem</h2>
+                    <p>The flow of helping a customer find a complete solution with products, services, and credit card can be very cumbersome for associates with many different systems to interact with.</p>
+                    
+                    <h3>What is Order Up and Service Connect?</h3>
+                    <p><strong>Order Up</strong> — Replacing ESVS, Order Up is a platform used by Sales Specialists, Service Desk Associates, and Pro Associates to sell products to the customer.</p>
+                    <p><strong>Service Connect</strong> — Service Connect is a platform that can be used by any associate to sell a service lead to a customer from Home Depot Home Services or ProConnect.</p>
+
                     <div class="highlight-box">
-                        <h3>The Strategic Problem</h3>
-                        <p>Associates toggled between multiple disconnected systems to complete single customer transactions, creating friction that resulted in massive lead loss and degraded customer experience.</p>
+                        <h3>The Core Issue</h3>
+                        <p>Associates must toggle between disconnected systems to complete a single customer transaction, creating friction that results in massive lead loss and degraded customer experience.</p>
                     </div>
-                    <p>The research and integration strategy were validated by The Home Depot design leadership during final-round interviews, where they recognized the strategic depth and potential business impact.</p>
                 </div>
             </section>
+
+            <!-- Research -->
             <section class="content-section">
                 <div class="narrow-container">
-                    <h2>Research Approach</h2>
-                    <h3>Business Analytics + User Research</h3>
-                    <p>I combined quantitative business data with qualitative user research:</p>
+                    <h2>Explore & Discover</h2>
+                    <p>I approached this project through three research methods:</p>
                     <ul>
-                        <li><strong>Analytics Review:</strong> Analyzed service lead capture rates, identifying 27.8% capture as critical metric</li>
-                        <li><strong>Associate Interviews:</strong> User interviews to understand workflow pain points</li>
-                        <li><strong>System Mapping:</strong> Documented disconnected tools and integration opportunities</li>
+                        <li><strong>Business Analytics</strong> — Breakdown the leads collected from store 6869 and analyze in-store performance vs. other lead collection methods</li>
+                        <li><strong>User Interviews</strong> — Collect unbiased views from other associates and sales specialists of common pain points and concerns</li>
+                        <li><strong>User Personas</strong> — Take insights from associates and turn them into user personas to represent the users who interact with the platforms</li>
                     </ul>
-                    <h3>Key Findings</h3>
+
+                    <div class="stat-callout">
+                        <div class="stat-number">27.8%</div>
+                        <div class="stat-label">Store Generated Service Leads</div>
+                        <p style="margin-top: 1rem; font-size: 1rem;">72.2% of potential service leads were lost to other channels (website, third-party vendors) due to system fragmentation</p>
+                    </div>
+
+                    <p><strong>Insight from the results:</strong> Why is the percentage so low? Are the associates having issues putting in the leads?</p>
+                </div>
+            </section>
+
+            <!-- User Personas -->
+            <section class="content-section">
+                <div class="container">
+                    <h3>User Personas</h3>
+                    <div class="personas-grid">
+                        <div class="persona-card">
+                            <p class="quote">"Having a way to learn the different service programs but through less systems would make my job easier."</p>
+                            <p class="role">Sales Specialist - Appliances</p>
+                        </div>
+                        <div class="persona-card">
+                            <p class="quote">"I find joy in helping customers, but need to do it efficiently to avoid a line at the Service Desk."</p>
+                            <p class="role">Service Desk Associate</p>
+                        </div>
+                        <div class="persona-card">
+                            <p class="quote">"It's important for me to train my associates well enough to feel comfortable and confident in doing their job."</p>
+                            <p class="role">Specialty Department Supervisor</p>
+                        </div>
+                        <div class="persona-card">
+                            <p class="quote">"I want to help the customer as much as I can with what little time I have to give from my own duties."</p>
+                            <p class="role">Specialty Assistant Store Manager</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- User Journey Map -->
+            <section class="content-section">
+                <div class="container">
+                    <h3>User Journey Map</h3>
+                    <div class="hero-image">[Add: User journey map image from slide 7]</div>
+                    <p>Mapped the complete associate workflow showing system switches, pain points, and opportunities for integration.</p>
+                </div>
+            </section>
+
+            <!-- Design Process -->
+            <section class="content-section">
+                <div class="narrow-container">
+                    <h2>Design Planning</h2>
+                    <p>The design process followed an iterative approach:</p>
                     <ul>
-                        <li>Context switching between Order Up and Service Connect during customer interactions</li>
-                        <li>Manual data re-entry causing errors and slowing transactions</li>
-                        <li>Lost customer information during busy periods</li>
-                        <li>Difficulty accessing customer history across systems</li>
+                        <li><strong>Sketches</strong> — Several rounds of quick sketching to figure out the layout</li>
+                        <li><strong>Low Fidelity Wireframes</strong> — Integrating the sketched iteration into the existing platform</li>
+                        <li><strong>High Fidelity Mockups</strong> — Incorporating the last refinements and enhancements to complete the project</li>
                     </ul>
                 </div>
             </section>
+
+            <!-- Design Iterations -->
+            <section class="content-section">
+                <div class="container">
+                    <div class="hero-image">[Add: Design evolution images from slide 8 - Sketches, Low-fi, High-fi side by side]</div>
+                </div>
+            </section>
+
+            <!-- Solution -->
             <section class="content-section">
                 <div class="narrow-container">
                     <h2>Integration Strategy</h2>
-                    <h3>Connecting Order Up + Service Connect</h3>
-                    <p>Rather than redesigning individual systems, I proposed strategic integration:</p>
+                    <p>Rather than redesigning individual systems, I proposed strategic integration that brings Service Connect functionality directly into the Order Up workflow:</p>
+                    
+                    <h3>Key Integration Points</h3>
                     <ul>
-                        <li><strong>Single-Point Data Capture:</strong> Capture service leads directly within Order Up during POS transaction</li>
-                        <li><strong>Automatic Lead Routing:</strong> Seamlessly transfer leads to Service Connect without manual entry</li>
-                        <li><strong>Unified Customer View:</strong> Surface relevant history from both systems in single interface</li>
-                        <li><strong>Reduce System Toggle:</strong> Minimize context switching by surfacing Service Connect functions in Order Up workflow</li>
-                    </ul>
-                    <h3>Projected Business Impact</h3>
-                    <p>Addressing the 72% lead capture gap could potentially:</p>
-                    <ul>
-                        <li>Dramatically increase service revenue capture</li>
-                        <li>Reduce transaction time and improve associate efficiency</li>
-                        <li>Enhance customer experience through streamlined service</li>
-                        <li>Decrease data errors from manual re-entry</li>
+                        <li><strong>Recommended Services Widget</strong> — Automatically surface relevant services when service-eligible products are added to cart</li>
+                        <li><strong>Embedded Service Connect Flow</strong> — Capture service leads without leaving Order Up interface</li>
+                        <li><strong>Single-Point Data Capture</strong> — Eliminate manual re-entry between systems</li>
+                        <li><strong>Unified Customer View</strong> — Surface relevant history from both systems in single interface</li>
                     </ul>
                 </div>
             </section>
+
+            <!-- Final Prototype -->
+            <section class="content-section">
+                <div class="container">
+                    <h3>Final Prototype</h3>
+                    <div class="hero-image">[Add: Final prototype images - Shopping cart with services, Service Connect embedded flow]</div>
+                </div>
+            </section>
+
+            <!-- Future Iterations -->
+            <section class="content-section">
+                <div class="narrow-container">
+                    <h3>Future Iterations</h3>
+                    <ul>
+                        <li><strong>Adding Multiple Services</strong> — What would the flow be like in the case that a customer wants to add multiple related services to a purchase?</li>
+                        <li><strong>Home Depot Credit Card Integration</strong> — Is there a way to create an API embed within Order Up in a similar way for new applications?</li>
+                        <li><strong>Search Bar for Non-Related Services</strong> — Can we integrate a search bar from Service Connect to add services not related to the merchandise they are purchasing?</li>
+                        <li><strong>Pushing this Flow to HomeDepot.com</strong> — Allow related services to show up as an option in the customer's checkout flow</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Key Takeaways -->
             <section class="content-section">
                 <div class="container">
                     <div class="takeaways">
@@ -171,33 +264,36 @@
                         <div class="takeaway-item">
                             <div class="takeaway-number">1</div>
                             <div class="takeaway-content">
-                                <h3>System Fragmentation is a UX Problem</h3>
-                                <p>Poor experiences often stem from disconnected systems, not just bad interface design. Strategic UX work means identifying and addressing systemic issues.</p>
+                                <h3>Design System Adherence</h3>
+                                <p>Trying to adhere to the design system without access to it was difficult, but gave a deeper appreciation of the current design system.</p>
                             </div>
                         </div>
                         <div class="takeaway-item">
                             <div class="takeaway-number">2</div>
                             <div class="takeaway-content">
-                                <h3>Quantify the UX Impact</h3>
-                                <p>The 72% lead capture gap made this business-critical, not just user frustration. Designers who connect UX to business metrics create stronger cases for change.</p>
+                                <h3>Business Considerations</h3>
+                                <p>Understanding that Pro Customers shop and see those screens, include ProConnect options.</p>
                             </div>
                         </div>
                         <div class="takeaway-item">
                             <div class="takeaway-number">3</div>
                             <div class="takeaway-content">
-                                <h3>Integration Often Beats Redesign</h3>
-                                <p>Strategic integration can deliver massive value with less risk and faster implementation than expensive full redesigns.</p>
+                                <h3>Advanced Computer Logic</h3>
+                                <p>Diving into computer science and logic to understand how APIs work and to optimize the listings with SEO practices.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+
+            <!-- Next Project -->
             <section class="next-project">
                 <div class="container">
                     <h2>Explore More Work</h2>
                     <a href="work.html" class="btn">View All Projects</a>
                 </div>
             </section>
+
             <footer role="contentinfo"><p>© 2026 Jamie Oviedo · Designed & coded with strategic intent</p></footer>
         </main>
     </div>
