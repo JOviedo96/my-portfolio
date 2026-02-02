@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CareCompass Case Study | Jamie Oviedo</title>
+    <title>CareCompass: Healthcare Navigation Platform | Jamie Oviedo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,700;9..144,800&display=swap" rel="stylesheet">
@@ -57,6 +57,23 @@
         .highlight-box { background: var(--beige); border-left: 4px solid var(--accent); padding: 2rem;
             margin: 2rem 0; border-radius: 0.5rem; }
         .highlight-box h3 { margin-top: 0; color: var(--accent); }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem; margin: 3rem 0; }
+        .stat-card { background: var(--beige); padding: 2rem; border-radius: 1rem; text-align: center;
+            border: 1px solid var(--sage-light); }
+        .stat-number { font-family: var(--font-display); font-size: 3rem; font-weight: 800;
+            color: var(--accent); margin-bottom: 0.5rem; }
+        .stat-label { color: var(--text-medium); font-size: 1rem; }
+        .quote-block { margin: 3rem 0; padding: 2rem; background: var(--beige); border-radius: 1rem;
+            border-left: 4px solid var(--tan); }
+        .quote-text { font-size: 1.25rem; font-style: italic; color: var(--text-dark); margin-bottom: 0.75rem; }
+        .quote-author { color: var(--text-medium); font-size: 0.95rem; }
+        .image-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem; margin: 3rem 0; }
+        .image-container { width: 100%; aspect-ratio: 4/3;
+            background: linear-gradient(135deg, var(--sage-light) 0%, var(--beige) 100%);
+            border-radius: 0.5rem; display: flex; align-items: center; justify-content: center;
+            color: var(--text-medium); font-size: 0.875rem; }
         .takeaways { background: var(--beige); padding: 3rem; border-radius: 1rem; margin: 3rem 0; }
         .takeaways h2 { font-family: var(--font-display); margin-bottom: 1.5rem; }
         .takeaway-item { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
@@ -83,6 +100,7 @@
             .hero .subtitle { font-size: 1.25rem; }
             .content-section h2 { font-size: 2rem; }
             .meta { gap: 1.5rem; }
+            .stat-number { font-size: 2rem; }
         }
     </style>
 </head>
@@ -98,99 +116,446 @@
         </aside>
         <main class="content-area">
             <a href="work.html" class="back-link">← Back to Work</a>
+
+            <!-- Hero -->
             <section class="hero">
                 <div class="narrow-container">
-                    <h1>CareCompass Healthcare Navigation Platform</h1>
-                    <p class="subtitle">Patient-centered mobile platform integrating with EMR systems via FHIR APIs to address systemic healthcare navigation barriers</p>
+                    <h1>CareCompass: Healthcare Navigation Platform</h1>
+                    <p class="subtitle">Master's capstone research analyzing 344,000+ patient app reviews and conducting 18 in-depth interviews to design a healthcare navigation platform addressing systemic barriers in financial transparency, medical literacy, and care coordination</p>
                     <div class="meta">
-                        <div class="meta-item"><h3>Role</h3><p>Product Design Lead</p></div>
-                        <div class="meta-item"><h3>Organization</h3><p>UMich-Dearborn</p></div>
-                        <div class="meta-item"><h3>Timeline</h3><p>Master's Capstone</p></div>
-                        <div class="meta-item"><h3>Status</h3><p>Research Under Review</p></div>
+                        <div class="meta-item">
+                            <h3>Team</h3>
+                            <p>The Northern Lights (3 designers)</p>
+                        </div>
+                        <div class="meta-item">
+                            <h3>Role</h3>
+                            <p>Graduate Researcher & Product Designer</p>
+                        </div>
+                        <div class="meta-item">
+                            <h3>Mentor</h3>
+                            <p>Dr. Sang-Hwan Kim (MS HCDE Director)</p>
+                        </div>
+                        <div class="meta-item">
+                            <h3>Timeline</h3>
+                            <p>HCDE 590 Capstone (Academic Year)</p>
+                        </div>
                     </div>
                 </div>
             </section>
+
+            <!-- Hero Image -->
             <div class="container">
-                <div class="hero-image">[CareCompass Interface - Coming Soon]</div>
+                <div class="hero-image">[CareCompass app interface showing Scout compass mascot and key features - 1920x1080px]</div>
             </div>
+
+            <!-- Overview -->
             <section class="content-section">
                 <div class="narrow-container">
                     <h2>Overview</h2>
-                    <p>CareCompass is a patient-centered healthcare navigation platform designed to address systemic barriers identified through large-scale research. As Product Design Lead for my Master's capstone under Dr. Sang-Hwan Kim's mentorship, I led product strategy and design for a mobile platform that integrates with Electronic Medical Record systems via FHIR-compliant APIs.</p>
+                    <p>CareCompass is a master's capstone research project investigating systemic failures in digital patient-provider communication through large-scale data analysis and qualitative research. Working under the mentorship of Dr. Sang-Hwan Kim (Program Director, MS HCDE), our team analyzed 344,733 patient app reviews and conducted 18 semi-structured interviews to identify critical gaps in healthcare navigation, financial transparency, and health literacy support.</p>
+
+                    <p>The research, currently under review for publication in the International Journal of Medical Informatics, JMIR Human Factors, and BMC Medical Informatics and Decision Making, applies Socio-Technical Systems Analysis (STSA) and Human Factors Engineering (HFE) frameworks to propose a comprehensive mobile platform integrating with EMR systems via FHIR-compliant APIs.</p>
+
                     <div class="highlight-box">
-                        <h3>Research Scale</h3>
-                        <p>As part of a 3-person research team, we analyzed 344,000+ patient app reviews and conducted 18 in-depth interviews to identify critical pain points: financial transparency, medical jargon barriers, and care coordination gaps.</p>
+                        <h3>Research Under Review for Publication</h3>
+                        <p>This work is currently being considered for publication in three peer-reviewed journals focusing on medical informatics and human factors, demonstrating the academic rigor and potential contribution to healthcare technology research.</p>
                     </div>
-                    <p>This research is currently under review for publication in the International Journal of Medical Informatics, JMIR Human Factors, and BMC Medical Informatics and Decision Making.</p>
                 </div>
             </section>
+
+            <!-- Impact -->
+            <section class="content-section">
+                <div class="container">
+                    <h2>Research Scale & Impact</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">344K</div>
+                            <div class="stat-label">App reviews analyzed</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">18</div>
+                            <div class="stat-label">In-depth interviews</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">10</div>
+                            <div class="stat-label">Platforms benchmarked</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">35</div>
+                            <div class="stat-label">Literature sources reviewed</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">0.84</div>
+                            <div class="stat-label">Sentiment gap (cost navigation)</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">40.3%</div>
+                            <div class="stat-label">Data retention rate</div>
+                        </div>
+                    </div>
+
+                    <div class="quote-block">
+                        <p class="quote-text">"I want access to my information, but at times not understanding what that information means, and then having to wait to talk to a provider about it for sometimes a week, can be frustrating and anxiety-provoking."</p>
+                        <p class="quote-author">— Patient Interview Participant</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- The Problem -->
             <section class="content-section">
                 <div class="narrow-container">
-                    <h2>Research & Discovery</h2>
-                    <h3>Large-Scale Analysis + Deep Qualitative Research</h3>
-                    <p>I combined quantitative analysis at scale with deep qualitative investigation to understand patient navigation challenges:</p>
+                    <h2>The Problem: Lost in the System</h2>
+                    
+                    <p>The fragmented healthcare experience leaves patients feeling profoundly lost and anxious, constantly battling administrative friction, non-transparent costs, and complex medical jargon that creates barriers to confident self-advocacy.</p>
+
+                    <h3>Three Critical Pain Points</h3>
+
+                    <p><strong>1. Digital Portal Rabbit Hole</strong></p>
+                    <p>Current patient portals present overwhelming amounts of raw clinical data without context or interpretation. Patients experience "Initial Shock" upon seeing test results filled with numbers, abbreviations, and red flags—no explanation, no guidance, just anxiety. This context vacuum precipitates "Interpretation Chaos," driving patients to unreliable sources like "Dr. Google" or family members, which exacerbates worry and misinformation.</p>
+
+                    <div class="quote-block">
+                        <p class="quote-text">"When it wasn't, I was having my husband coming with me to better understand all the medical jargon and reduce anxiety."</p>
+                        <p class="quote-author">— Patient Interview Participant</p>
+                    </div>
+
+                    <p><strong>2. Financial Transparency Crisis</strong></p>
+                    <p>Patients cannot see predicted copays or deductible costs before scheduling appointments. The combination of low market coverage (29%) and the largest user dissatisfaction gap (0.84 sentiment gap) in insurance and cost navigation reveals a critical failure point. Unexpected costs, insurance denials, and unclear financial information contribute directly to patient anxiety and treatment non-compliance.</p>
+
+                    <div class="quote-block">
+                        <p class="quote-text">"How much the insurance companies kind of control who you can and can't see... Especially if they're not in-network."</p>
+                        <p class="quote-author">— Patient Interview Participant</p>
+                    </div>
+
+                    <p><strong>3. Advocacy & Literacy Gap</strong></p>
+                    <p>Patients consistently demonstrated widespread lack of basic health knowledge, with nurses reporting that many don't even know "what the surgery is going to encompass." This literacy gap translates into the "Forgot to Ask" problem—patients arrive at appointments distracted by anxiety, unable to retain or articulate their questions, resulting in inefficient reactive communication after visits.</p>
+
+                    <div class="quote-block">
+                        <p class="quote-text">"A lot of them really don't even know sometimes what they're really having done, or what the surgery is going to encompass."</p>
+                        <p class="quote-author">— Registered Nurse Interview Participant</p>
+                    </div>
+
+                    <h3>Provider Burden</h3>
+                    <p>These patient-facing failures translate directly into provider workload:</p>
                     <ul>
-                        <li><strong>344,000+ Patient Reviews:</strong> Analyzed as part of research team to identify systemic patterns</li>
-                        <li><strong>18 In-Depth Interviews:</strong> Conducted interviews with patients navigating chronic conditions</li>
-                        <li><strong>FHIR API Research:</strong> Investigated technical constraints of EMR integration</li>
+                        <li><strong>"Healthcare 101" Time Drain:</strong> Nurses must interrupt scheduled clinical work to perform unscheduled basic health education</li>
+                        <li><strong>Post-Visit Message Backlog:</strong> Triaging "dozens of reactive portal messages" from confused patients</li>
+                        <li><strong>Advocacy Roadblocks:</strong> Feeling helpless within systems constrained by insurance denials and administrative delays</li>
                     </ul>
-                    <h3>Key Insights</h3>
-                    <ul>
-                        <li><strong>Financial Opacity:</strong> Patients struggle to understand costs before receiving care</li>
-                        <li><strong>Medical Jargon:</strong> Complex terminology creates comprehension gaps</li>
-                        <li><strong>Fragmented Care:</strong> Disconnected systems force patients to act as their own case managers</li>
-                    </ul>
+
+                    <div class="quote-block">
+                        <p class="quote-text">"You are... teaching them Medical Terminology 101."</p>
+                        <p class="quote-author">— Registered Nurse Interview Participant</p>
+                    </div>
                 </div>
             </section>
+
+            <!-- Research Methodology -->
             <section class="content-section">
                 <div class="narrow-container">
-                    <h2>Product Design Strategy</h2>
-                    <h3>FHIR-Compliant Integration Architecture</h3>
-                    <p>Rather than creating another disconnected platform, I designed for integration with existing EMR systems through FHIR (Fast Healthcare Interoperability Resources) APIs, ensuring CareCompass works within current healthcare infrastructure.</p>
-                    <h3>Core Features</h3>
+                    <h2>Research Methodology</h2>
+
+                    <p>The study employed a rigorous mixed-methods research design combining quantitative competitive benchmarking with rich qualitative interview data, all conducted under IRB approval (University of Michigan HSBS-IRB, Exemption Category 3).</p>
+
+                    <h3>Quantitative: Competitive Benchmarking</h3>
+                    <p>We analyzed the digital health ecosystem through systematic review of 10 platforms including direct competitors (MyChart, WebMD, Apple Health, GoodRx, ZocDoc) and indirect competitors from fintech and lifestyle sectors (Credit Karma, Lose It, Redfin).</p>
+
+                    <p><strong>Data Pipeline:</strong></p>
                     <ul>
-                        <li><strong>Financial Transparency Module:</strong> Real-time cost estimates based on insurance coverage</li>
-                        <li><strong>Plain-Language Translation:</strong> Medical jargon automatically simplified with contextual definitions</li>
-                        <li><strong>Unified Care Timeline:</strong> Consolidated view across multiple providers</li>
-                        <li><strong>Smart Coordination:</strong> Automated reminders and care team communication</li>
+                        <li>Custom Python web scraping harvested 854,858 raw reviews from Google Play and Apple App Stores</li>
+                        <li>Multi-stage filtering: duplicate removal (205,998 entries), length filtering, feature-relevance scoring</li>
+                        <li>Weighted functional health features (2× standard weight) while penalizing technical bug reports</li>
+                        <li>Final analytical dataset: 344,733 reviews (40.3% retention rate)</li>
+                        <li>NLP techniques extracted sentiment scores and aggregated results by feature category</li>
+                    </ul>
+
+                    <p><strong>Key Findings:</strong></p>
+                    <ul>
+                        <li><strong>Market Coverage Gaps:</strong> Provider Communication (47%), Insurance Navigation (29%)</li>
+                        <li><strong>Sentiment Gaps:</strong> Insurance & Cost Navigation showed largest divergence (0.84) between user need and system performance, followed by Provider Communication (0.74)</li>
+                        <li><strong>Top 3 User Priorities:</strong> Health Data Integration, Provider Communication Tools, Insurance Navigation</li>
+                        <li><strong>UX-Clinical Divide:</strong> Users expressed higher satisfaction with fintech/lifestyle apps than healthcare platforms</li>
+                    </ul>
+
+                    <h3>Qualitative: Semi-Structured Interviews</h3>
+                    <p>Conducted 18 one-hour interviews (11 patients + 7 registered nurses as subject matter experts) via Zoom to capture diverse lived experiences navigating the healthcare system.</p>
+
+                    <p><strong>Interview Protocol:</strong></p>
+                    <ul>
+                        <li>Patients: Overall experience, pain points, health literacy, preparedness, empowerment, resources</li>
+                        <li>Nurses: Perspective on patient preparedness, defining patient advocacy, challenges, opportunities</li>
+                        <li>Audio recordings transcribed, de-identified, and stored in secure University of Michigan research storage</li>
+                        <li>Thematic analysis with AI-assisted initial coding, followed by human verification and refinement</li>
+                    </ul>
+
+                    <p><strong>Overlapping Themes Across Patients and Nurses:</strong></p>
+                    <ul>
+                        <li>The "Forgot to Ask" Problem</li>
+                        <li>Information Overload and Retention Challenges</li>
+                        <li>Need for Information Preparation and Support</li>
+                        <li>Clinical and Financial Transparency</li>
+                    </ul>
+
+                    <h3>Theoretical Framework</h3>
+                    <p>Analysis grounded in three interconnected frameworks:</p>
+                    <ul>
+                        <li><strong>Socio-Technical Systems Analysis (STSA):</strong> Examining misalignment between technological subsystem (patient portal) and social subsystem (patients, providers, procedures, organizational culture)</li>
+                        <li><strong>Human Factors Engineering (HFE):</strong> Analyzing how usability defects exacerbate clinical risk and operational inefficiency</li>
+                        <li><strong>eHealth Literacy Theory:</strong> Understanding how digital systems either support or impede health literacy development</li>
                     </ul>
                 </div>
             </section>
+
+            <!-- User Research Insights -->
+            <section class="content-section">
+                <div class="narrow-container">
+                    <h2>User Journey Mapping</h2>
+
+                    <p>Synthesizing interview data revealed distinct but interdependent patient and provider journeys, each marked by escalating friction and workload burden.</p>
+
+                    <h3>Patient Journey: Anxiety Spiral</h3>
+                    <p><strong>Stage 1: Initial Shock</strong> — Receives notification that results are available, logs in immediately, confronted with "a page full of numbers, abbreviations, and red flags" without explanation</p>
+
+                    <p><strong>Stage 2: Interpretation Chaos</strong> — Context vacuum drives patients to "Dr. Google" and family members, exacerbating worry and misinformation. Forced to "wait to talk to a provider about it for sometimes a week"</p>
+
+                    <p><strong>Stage 3: Waiting and Follow-Up</strong> — Sustained anxiety, inability to prepare questions effectively. The "Forgot to Ask" problem emerges</p>
+
+                    <p><strong>Stage 4: Post-Visit Resolution</strong> — Inefficient, reactive communication after the visit. Message overload for providers</p>
+
+                    <h3>Provider Journey: Workload Cascade</h3>
+                    <p><strong>Pre-Visit Gaps</strong> — Patients arrive unprepared with significant knowledge deficits</p>
+
+                    <p><strong>In-Visit Education Demands</strong> — "Healthcare 101" instruction consumes scheduled clinical time. Must spend 10+ unscheduled minutes explaining basic terminology before actual clinical conversation can begin</p>
+
+                    <div class="quote-block">
+                        <p class="quote-text">"When they have the list in front of them, the doctor will take the time to make sure that every single one is answered, whereas if they're just going off the top of their head... the patient forgets, and patients are nervous."</p>
+                        <p class="quote-author">— Registered Nurse Interview Participant</p>
+                    </div>
+
+                    <p><strong>Post-Visit Backlog</strong> — Triaging dozens of reactive portal messages resulting from confusion, forgotten questions, interpretation errors</p>
+
+                    <p><strong>Advocacy Roadblocks</strong> — Feeling helpless when attempting to intervene in insurance denials or multi-site care coordination</p>
+
+                    <div class="quote-block">
+                        <p class="quote-text">"I think Healthcare 101 needs to be done in general for patients."</p>
+                        <p class="quote-author">— Registered Nurse Interview Participant</p>
+                    </div>
+
+                    <h3>Workload Transfer Pattern</h3>
+                    <p>The qualitative findings starkly illustrate direct and damaging workload transfer: The system's failure to provide necessary context to the patient (a UX failure) immediately translates into unscheduled, high-effort educational duties and prolonged asynchronous communication demands for clinical staff. Deficient digital design externalizes cognitive burden onto the least prepared user (the patient), whose resulting anxiety and confusion requires expensive, reactive, one-on-one intervention from the provider.</p>
+                </div>
+            </section>
+
+            <!-- Solution Images -->
+            <div class="container">
+                <div class="image-grid">
+                    <div class="image-container">[Patient journey map visualization - 800x600px]</div>
+                    <div class="image-container">[Provider journey map visualization - 800x600px]</div>
+                </div>
+            </div>
+
+            <!-- Design Solution -->
+            <section class="content-section">
+                <div class="narrow-container">
+                    <h2>CareCompass Solution</h2>
+
+                    <p>The CareCompass framework is a comprehensive socio-technical solution designed to address empirically identified gaps through proactive contextualization, AI-powered support, and system-level feedback mechanisms.</p>
+
+                    <h3>Three Foundational Design Pillars</h3>
+                    <ul>
+                        <li><strong>Restore Patient Confidence</strong> — Through clear, plain-language explanations and proactive guidance</li>
+                        <li><strong>Establish Radical Transparency</strong> — Both clinical (test results, diagnoses) and financial (costs, insurance coverage)</li>
+                        <li><strong>Reduce Burden</strong> — For both patients (cognitive load) and providers (administrative workload)</li>
+                    </ul>
+
+                    <h3>Platform & Technical Architecture</h3>
+                    <ul>
+                        <li><strong>Patient-facing mobile application</strong> (iOS & Android)</li>
+                        <li><strong>FHIR-compliant API integration</strong> with existing EMR systems (Epic, Cerner)</li>
+                        <li><strong>Data flows into clinician's existing EMR inbox</strong> — no new system adoption required</li>
+                        <li><strong>Secure, healthcare data standards compliant</strong> (FHIR, SMART on FHIR)</li>
+                    </ul>
+
+                    <h3>Core Features Mapped to Pain Points</h3>
+
+                    <p><strong>Addressing "Initial Shock" & "Interpretation Chaos"</strong></p>
+                    <ul>
+                        <li><strong>AI Diagnosis Explainer:</strong> Translates dense medical jargon into "Plain English," provides historical trends, displays appropriate baseline norms</li>
+                        <li><strong>Test Status + Plain-Language Results:</strong> Instant contextualization of raw clinical data using AI overlay</li>
+                        <li><strong>AI Video Visit Summary:</strong> Post-visit summary with next steps, bulleted action plan</li>
+                    </ul>
+
+                    <p><strong>Addressing "Forgot to Ask" Problem</strong></p>
+                    <ul>
+                        <li><strong>Prep + Follow-Up Question Builder:</strong> Smart prep reminders with literacy-based checklists, short instructional videos before visits</li>
+                        <li><strong>Structured Information Preparation:</strong> Auto-generated question lists patients can bring to appointments</li>
+                    </ul>
+
+                    <p><strong>Addressing Financial Transparency Crisis</strong></p>
+                    <ul>
+                        <li><strong>Insurance Cost Compare:</strong> Estimated costs and deductible progress before booking appointments</li>
+                        <li><strong>Rx Price + Savings Finder:</strong> Prescription cost comparison and savings options</li>
+                    </ul>
+
+                    <p><strong>Addressing Provider Workload Burden</strong></p>
+                    <ul>
+                        <li><strong>AI Triage & Message Routing:</strong> Advanced ML models filter non-urgent, routine, or educational inquiries, handling them automatically or routing to appropriate non-clinical staff</li>
+                        <li><strong>Anxiety Meter (E-EKG):</strong> Proactive risk flag inferring patient anxiety based on pre-visit digital behavior (repeated access to sensitive results, high search volume), guiding nurse/provider on appropriate pace and language</li>
+                        <li><strong>Escalation Tracker:</strong> Automatically flags patient cases trapped in administrative/logistical delays (insurance denials, referral logjams), ensuring systemic failures trigger immediate alert to care team</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Feature Images -->
+            <div class="container">
+                <div class="image-grid">
+                    <div class="image-container">[AI Diagnosis Explainer interface - 800x600px]</div>
+                    <div class="image-container">[Cost transparency screen - 800x600px]</div>
+                    <div class="image-container">[Question builder feature - 800x600px]</div>
+                </div>
+            </div>
+
+            <!-- Design Metaphors -->
+            <section class="content-section">
+                <div class="narrow-container">
+                    <h2>Design Language & Metaphors</h2>
+
+                    <p>To make complex healthcare navigation feel approachable and intuitive, we developed four core design metaphors:</p>
+
+                    <p><strong>1. The Roadmap</strong> — Displaying the patient journey as a road map creates immediate association of "Journey" and "Steps." Shows appointments as journeys with clear stages (before, during, after), helping people understand where they are in the process and what's coming next.</p>
+
+                    <p><strong>2. The Notebook</strong> — Organizing information the way people organize important documents—by appointment, by condition, by doctor. The notebook metaphor communicates organization and provides a reference place for past appointments and research.</p>
+
+                    <p><strong>3. The Translator</strong> — Positioning the app as converting "doctor speak" into plain language. Info bubble icons over complex terms signal that users can tap to learn more—making medical literacy accessible rather than intimidating.</p>
+
+                    <p><strong>4. Scout the Compass</strong> — Our AI companion mascot. We chose a compass because: (1) it aligns with our app name "CareCompass," (2) it lacks negative connotations unlike animal mascots, and (3) it provides direct connection that this assistant guides users through their healthcare journey. We gave Scout a face because it's helping with something deeply personal and sometimes scary—human-like interaction reduces anxiety.</p>
+
+                    <div class="quote-block">
+                        <p class="quote-text">"Empowerment means: Plain English instructions, next steps in writing, take me seriously."</p>
+                        <p class="quote-author">— Patient Interview Participant, defining what empowerment means</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Theoretical Contributions -->
+            <section class="content-section">
+                <div class="narrow-container">
+                    <h2>Theoretical Contributions</h2>
+
+                    <h3>Bridging the eHealth Literacy Gap as Equity Tool</h3>
+                    <p>The research reinforces that health literacy (HL) and eHealth literacy (eHL) are crucial determinants of equitable care access. When digital systems fail to account for low eHL, they function as accelerators of the "technology gap." The CareCompass framework reframes UX/UI simplification not as convenience, but as critical health equity intervention.</p>
+
+                    <p>By mandating "Plain English" translation and proactive contextual overlays, the design ensures the portal actively supports comprehension, making complex clinical information accessible. This approach transforms the digital interface into an instrument for closing the literacy gap.</p>
+
+                    <h3>Socio-Technical Alignment of Work and Technology</h3>
+                    <p>The system failures observed—cognitive burden transferred to patients and subsequent workload deflection onto providers—underscore persistent STSA framework challenges. The CareCompass framework directly addresses the STSA imperative to align technology and social subsystems.</p>
+
+                    <p>By implementing AI Triage, Smart Prep Reminders, and the Anxiety Meter, the system stabilizes clinical routines and actively supports providers' cognitive processes by pre-processing common educational needs and reducing non-urgent communication noise. The proposed functional feedback loops build organizational resilience by linking patient anxiety detection to proactive system response, preventing issues from escalating into high-effort disruptive crises.</p>
+
+                    <h3>Navigating AI Ethics and Trust in Patient Advocacy</h3>
+                    <p>Implementation of AI for advocacy and explanation requires rigorous ethical scrutiny regarding trust management. To mitigate risks, Explainable AI (XAI) principles must be intrinsically embedded, clearly articulating sources, methods, and limitations of AI interpretations. This commitment to transparency is fundamental to technical accountability.</p>
+
+                    <p>The system must inspire enough confidence for effective utility, but not so much that users defer uncritically to algorithms over conflicting human clinical judgment. Furthermore, the system must proactively address potential algorithmic bias, ensuring models trained on disparate demographic data don't introduce or reinforce systemic inequities.</p>
+                </div>
+            </section>
+
+            <!-- Primary Persona -->
+            <section class="content-section">
+                <div class="narrow-container">
+                    <h2>Primary Persona: Lisa</h2>
+
+                    <p>To ground our design decisions, we developed detailed personas based on interview data. Our primary persona, Lisa, embodies the core pain points identified in research:</p>
+
+                    <ul>
+                        <li><strong>Cost-conscious patient</strong> with high-deductible health plan</li>
+                        <li><strong>Faces financial anxiety</strong> — cannot predict costs before scheduling</li>
+                        <li><strong>Struggles with medical jargon</strong> — feels confused and overwhelmed by clinical terminology</li>
+                        <li><strong>Arrives unprepared to appointments</strong> — forgets to ask critical questions</li>
+                        <li><strong>Needs clear next steps</strong> — wants plain-language instructions in writing</li>
+                    </ul>
+
+                    <p>Lisa's journey through the current system—receiving context-less test results, experiencing financial shock, forgetting crucial questions during appointments—informed every feature decision in CareCompass. Her need for empowerment ("plain English instructions, next steps in writing, take me seriously") became our design north star.</p>
+                </div>
+            </section>
+
+            <!-- Takeaways -->
             <section class="content-section">
                 <div class="container">
                     <div class="takeaways">
                         <h2>Key Takeaways</h2>
+
                         <div class="takeaway-item">
                             <div class="takeaway-number">1</div>
                             <div class="takeaway-content">
-                                <h3>Research at Scale Reveals Systemic Patterns</h3>
-                                <p>Analyzing 344,000+ data points uncovered patterns invisible in small samples. Combining quantitative scale with qualitative depth creates complete understanding.</p>
+                                <h3>Large-Scale Data Analysis Reveals Systemic Patterns</h3>
+                                <p>Analyzing 344,000+ app reviews uncovered market-wide failures invisible in small-scale studies. The sentiment gap analysis—quantifying the divergence between best-in-class performance and average sentiment—provided empirical evidence that existing digital health solutions fundamentally fail to meet user needs in communication and cost transparency. This scale of analysis is essential for identifying systemic rather than anecdotal problems.</p>
                             </div>
                         </div>
+
                         <div class="takeaway-item">
                             <div class="takeaway-number">2</div>
                             <div class="takeaway-content">
-                                <h3>Design Within Constraints</h3>
-                                <p>Healthcare infrastructure is complex and regulated. Successful design means working within existing systems like FHIR standards rather than proposing unrealistic replacement.</p>
+                                <h3>Patient Pain = Provider Pain in Poorly Designed Systems</h3>
+                                <p>The research revealed direct workload transfer: when digital systems fail patients (presenting raw data without context), that failure immediately translates into unscheduled provider burden (explaining results, answering anxious messages, performing basic health education). Effective healthcare design must solve for both simultaneously—patient empowerment directly enables provider efficiency.</p>
                             </div>
                         </div>
+
                         <div class="takeaway-item">
                             <div class="takeaway-number">3</div>
                             <div class="takeaway-content">
-                                <h3>Academic Rigor Strengthens Product Design</h3>
-                                <p>Applying research methodology to product work yields insights that withstand peer review, translating directly to more defensible design decisions.</p>
+                                <h3>AI Must Be Explainable to Be Ethical</h3>
+                                <p>Deploying AI for medical translation and triage introduces trust challenges: if patients over-rely on opaque algorithms, their critical engagement with human providers may be compromised. Explainable AI (XAI) principles must be intrinsically embedded—clearly articulating sources, methods, and limitations. The system must inspire sufficient confidence for utility while preventing uncritical deference to algorithmic recommendations over clinical judgment.</p>
+                            </div>
+                        </div>
+
+                        <div class="takeaway-item">
+                            <div class="takeaway-number">4</div>
+                            <div class="takeaway-content">
+                                <h3>Accessibility Is Health Equity</h3>
+                                <p>Health literacy gaps disproportionately affect marginalized populations, and digital systems that ignore these gaps accelerate inequity. CareCompass reframes simplified design—plain language translation, proactive contextualization, structured preparation tools—not as convenience features but as critical health equity interventions. When digital interfaces actively support comprehension, they become instruments for closing systemic literacy gaps rather than reinforcing them.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+
+            <!-- Next Steps -->
+            <section class="content-section">
+                <div class="narrow-container">
+                    <h2>Future Directions</h2>
+
+                    <p>While the research established strong empirical basis for system redesign, the CareCompass solutions are currently conceptual and require rigorous validation through experimental implementation.</p>
+
+                    <h3>Proposed Next Steps</h3>
+                    <ul>
+                        <li><strong>High-fidelity prototype development:</strong> Build functional AI Overlay and test with real patient data</li>
+                        <li><strong>Pilot testing:</strong> Measure direct impact on patient outcomes using validated psychological scales to assess anxiety reduction</li>
+                        <li><strong>EHR message log analysis:</strong> Empirically verify mitigation of provider workload and message volume</li>
+                        <li><strong>XAI guidelines development:</strong> Establish specific HFE guidelines for designing optimal explainable AI that's effective, understandable, and non-misleading for general patient populations</li>
+                        <li><strong>Algorithmic bias testing:</strong> Ensure models trained on disparate demographic data don't introduce or reinforce systemic inequities</li>
+                    </ul>
+
+                    <h3>Publication Status</h3>
+                    <p>Research findings currently under review at:</p>
+                    <ul>
+                        <li>International Journal of Medical Informatics</li>
+                        <li>JMIR Human Factors</li>
+                        <li>BMC Medical Informatics and Decision Making</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Next Project -->
             <section class="next-project">
                 <div class="container">
                     <h2>Explore More Work</h2>
                     <a href="work.html" class="btn">View All Projects</a>
                 </div>
             </section>
-            <footer role="contentinfo"><p>© 2026 Jamie Oviedo · Designed & coded with strategic intent</p></footer>
+
+            <!-- Footer -->
+            <footer role="contentinfo">
+                <p>© 2026 Jamie Oviedo · Designed & coded with strategic intent</p>
+            </footer>
         </main>
     </div>
 </body>

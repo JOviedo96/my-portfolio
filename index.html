@@ -186,7 +186,7 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 0 6rem;
+            padding: 0 6rem 6rem;
             position: relative;
             opacity: 1;
             transform: none;
@@ -419,7 +419,7 @@
 
         /* Projects */
         .projects {
-            padding: 12rem 6rem 10rem;
+            padding: 6rem 6rem 6rem;
             background: var(--cream);
         }
 
@@ -824,7 +824,7 @@
             .project-info h3 { font-size: 2rem; }
 
             .hero {
-                padding: 6rem 4rem;
+                padding: 6rem 4rem 8rem;
             }
 
             .hero-stats {
@@ -832,7 +832,11 @@
                 flex-wrap: nowrap;
             }
 
-            .projects, .contact {
+            .projects {
+                padding: 4rem 4rem 4rem;
+            }
+
+            .contact {
                 padding: 6rem 4rem;
             }
 
@@ -857,7 +861,7 @@
             }
 
             .hero {
-                padding: 4rem 3rem;
+                padding: 4rem 3rem 8rem;
             }
 
             .hero h1 {
@@ -884,7 +888,11 @@
                 flex-wrap: nowrap;
             }
 
-            .projects, .contact {
+            .projects {
+                padding: 4rem 3rem 4rem;
+            }
+
+            .contact {
                 padding: 6rem 3rem;
             }
 
@@ -986,11 +994,15 @@
             }
 
             .hero {
-                padding: 2rem 1.5rem;
+                padding: 2rem 1.5rem 8rem;
                 min-height: auto;
             }
 
-            .projects, .contact {
+            .projects {
+                padding: 4rem 1.5rem 4rem;
+            }
+
+            .contact {
                 padding: 4rem 1.5rem;
             }
 
@@ -1005,8 +1017,7 @@
             }
 
             .hero-visual {
-                height: 350px;
-                margin-top: 3rem;
+                display: none;
             }
 
             .hero-stats {
@@ -1432,7 +1443,7 @@
         <article class="project-showcase">
             <div class="project-main" role="img" aria-label="reCAPTCHA Accessibility Redesign project preview">
                 <span class="project-number" aria-hidden="true">03</span>
-                <span style="color: var(--text-medium); font-size: 1rem;">[Project Visual - 1400x900px]</span>
+                <span style="display: flex; width: 100%; height: 100%; align-items: center; justify-content: center;"><img src="assets/recap-hero.png" alt="reCAPTCHA Accessibility Redesign Hero Image" style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;"></span>
             </div>
             <div class="project-info">
                 <div class="project-meta">
