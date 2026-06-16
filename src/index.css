@@ -261,11 +261,11 @@ button { font-family: inherit; cursor: pointer; }
   padding-top: 12px;
   border-top: 1px dashed color-mix(in oklab, var(--paper) 40%, transparent);
   font-size: 11px;
-  color: color-mix(in oklab, var(--paper) 70%, transparent);
+  color: var(--paper);
   letter-spacing: 0.02em;
 }
 .hero-testimonial-link {
-  color: color-mix(in oklab, var(--paper) 50%, transparent);
+  color: var(--paper);
   text-decoration: none;
   font-size: 10px;
   letter-spacing: 0.05em;
