@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './CareCompass.css';
 import './HomeDepot.css';
 import hdHero from '../assets/hd-hero.png';
@@ -55,6 +55,11 @@ const TAB_CONTENT = {
 function HdTldrModal({ onClose }) {
   const [activeTab, setActiveTab] = useState('recruiter');
   const items = TAB_CONTENT[activeTab];
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = ''; };
+  }, []);
 
   return (
     <div className="cs-modal-overlay" onClick={(e) => e.target === e.currentTarget && onClose()}>
