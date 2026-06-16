@@ -43,10 +43,15 @@ function ProjectCard({ project: p }) {
 
   return (
     <a id={`project-${p.n}`} className="card" data-c={p.color || ""} data-project={p.n} style={{ cursor: "pointer" }}>
-      <div className={p.coverBg ? "card-cover" : `card-cover cover-${p.color}`} style={coverStyle}>
-        {coverImg
-          ? <img src={coverImg} alt={p.title} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-          : <CoverArt kind={p.cover} />}
+      <div
+        className={p.coverBg ? "card-cover" : `card-cover cover-${p.color}`}
+        role={coverImg ? "img" : undefined}
+        aria-label={coverImg ? p.title : undefined}
+        style={coverImg
+          ? { backgroundImage: `url(${coverImg})`, backgroundSize: 'cover', backgroundPosition: 'center top' }
+          : coverStyle}
+      >
+        {coverImg ? null : <CoverArt kind={p.cover} />}
       </div>
       <div className="card-body">
         <div className="card-meta">
