@@ -1,0 +1,863 @@
+/* ── CareCompass Case Study ── */
+
+/* Placeholder styling — remove when content is filled in */
+.cs-placeholder {
+  display: inline-block;
+  background: color-mix(in oklab, var(--mustard) 28%, transparent);
+  border: 1.5px dashed color-mix(in oklab, var(--mustard) 70%, var(--ink));
+  border-radius: 4px;
+  padding: 2px 10px;
+  font-style: italic;
+  color: var(--ink-2);
+  font-size: 0.9em;
+}
+.cs-placeholder-block {
+  display: block;
+  background: color-mix(in oklab, var(--mustard) 18%, transparent);
+  border: 1.5px dashed color-mix(in oklab, var(--mustard) 60%, var(--ink));
+  border-radius: 8px;
+  padding: 20px 24px;
+  font-style: italic;
+  color: var(--ink-2);
+  line-height: 1.6;
+  margin: 12px 0;
+}
+
+/* ── Shared inner container ── */
+.cs-inner {
+  max-width: var(--grid);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ── Film epigraph ── */
+.cs-epigraph {
+  max-width: var(--grid);
+  margin: 40px auto 0;
+  padding: 0 32px;
+  position: relative;
+  z-index: 2;
+}
+.cs-epigraph blockquote {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(15px, 1.4vw, 18px);
+  color: var(--ink-3);
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  margin: 0;
+  padding: 0 0 0 20px;
+  border-left: 2px solid var(--line-soft);
+  max-width: 56ch;
+}
+
+/* ── Hero ── */
+.cs-hero {
+  position: relative;
+  z-index: 2;
+  margin-top: 32px;
+}
+
+/* ── CareCompass flush hero ── */
+.cc-hero-flush { margin-top: 0 !important; }
+.cc-hero-flush .cs-hero-inner { padding-top: 24px; }
+
+/* ── Company badge ── */
+.cc-company-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(240, 232, 212, 0.5);
+  margin-bottom: 16px;
+}
+
+/* ── Context note ── */
+.cc-context-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 18px;
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  font-size: 13px;
+  color: rgba(240, 232, 212, 0.8);
+  line-height: 1.5;
+  max-width: 520px;
+}
+.cc-context-icon {
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: rgba(240, 232, 212, 0.6);
+}
+.cs-hero-inner {
+  max-width: var(--grid);
+  margin: 0 auto;
+  padding: 64px 32px 56px;
+}
+.cs-wordmark {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 500;
+  font-size: clamp(48px, 7vw, 88px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-variation-settings: "opsz" 72;
+  margin: 0 0 20px;
+  color: #F0E8D4;
+}
+.cs-wordmark span { color: #9DE3F0; }
+.cs-tagline {
+  font-size: clamp(15px, 1.5vw, 18px);
+  color: rgba(240, 232, 212, 0.75);
+  line-height: 1.5;
+  max-width: 54ch;
+  margin: 0 0 32px;
+}
+.cs-tldr-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  border: 2.5px solid #9DE3F0;
+  border-radius: 999px;
+  background: #9DE3F0;
+  color: #1A3040;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 #9DE3F0aa;
+  transition: transform .15s, box-shadow .15s;
+}
+.cs-tldr-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #9DE3F0aa;
+}
+
+.cs-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1.5px solid rgba(157, 227, 240, 0.25);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+.cs-stat-item {
+  padding: 20px 24px;
+  border-right: 1.5px solid rgba(157, 227, 240, 0.2);
+}
+.cs-stat-item:last-child { border-right: 0; }
+.cs-stat-n {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 500;
+  color: #9DE3F0;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 6px;
+}
+.cs-stat-l {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(240, 232, 212, 0.55);
+  font-weight: 500;
+}
+.cs-hero-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.cs-hero-tag {
+  padding: 5px 14px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(157, 227, 240, 0.3);
+  color: rgba(240, 232, 212, 0.7);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+/* ── Section scaffold ── */
+.cs-section {
+  position: relative;
+  z-index: 2;
+  padding: 72px 0;
+  border-top: 2px solid var(--line-soft);
+}
+.cs-section:first-of-type { border-top: 2px solid var(--line); }
+.cs-section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 18px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.cs-headline {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 380;
+  font-size: clamp(26px, 3.2vw, 42px);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin: 0 0 28px;
+  max-width: 22ch;
+  font-variation-settings: "opsz" 72;
+}
+.cs-body-text {
+  max-width: 68ch;
+}
+.cs-body-text p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--ink-2);
+  margin: 0 0 18px;
+}
+.cs-body-text p:last-child { margin-bottom: 0; }
+
+/* ── Quote block ── */
+.cs-quote-block {
+  margin: 36px 0;
+  padding: 24px 28px;
+  background: color-mix(in oklab, var(--peri) 10%, transparent);
+  border-left: 3px solid var(--peri);
+  border-radius: 0 12px 12px 0;
+}
+.cs-quote-block blockquote {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-style: italic;
+  font-size: clamp(17px, 1.8vw, 21px);
+  font-weight: 350;
+  color: var(--ink);
+  line-height: 1.45;
+  margin: 0 0 10px;
+  letter-spacing: -0.01em;
+}
+.cs-quote-attr {
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  font-weight: 600;
+}
+
+/* ── Method tags ── */
+.cs-method-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+.cs-method-tag {
+  padding: 5px 14px;
+  border-radius: 999px;
+  border: 1.5px solid var(--line-soft);
+  background: var(--bg-2);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-2);
+  letter-spacing: 0.03em;
+}
+
+/* ── Research stats callout ── */
+.cs-stats-callout {
+  margin: 36px 0;
+  padding: 24px 28px;
+  background: var(--bg-2);
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 4px 4px 0 var(--line);
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.cs-stats-callout-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  color: var(--ink-3);
+  line-height: 1.4;
+}
+.cs-stats-callout-item strong {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.cs-stats-callout-sep {
+  width: 1px;
+  height: 48px;
+  background: var(--line-soft);
+  flex-shrink: 0;
+  align-self: center;
+}
+
+/* ── Key insight callout ── */
+.cs-insight-callout {
+  margin: 36px 0;
+  padding: 28px 32px;
+  background: color-mix(in oklab, var(--coral) 8%, transparent);
+  border: 2px solid color-mix(in oklab, var(--coral) 35%, transparent);
+  border-radius: 14px;
+}
+.cs-insight-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--coral);
+  margin-bottom: 10px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.cs-insight-text {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(17px, 1.9vw, 22px);
+  font-weight: 380;
+  font-style: italic;
+  color: var(--ink);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+/* ── Feature grid (2x2) ── */
+.cs-feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin: 36px 0;
+}
+.cs-feature-card {
+  padding: 28px 28px 24px;
+  background: var(--paper);
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 4px 4px 0 var(--line);
+}
+.cs-feature-name {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
+}
+.cs-feature-desc {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  margin: 0 0 16px;
+}
+.cs-feature-rationale {
+  font-size: 12px;
+  color: var(--ink-3);
+  border-top: 1px solid var(--line-soft);
+  padding-top: 12px;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+/* ── Figma placeholder ── */
+.cs-figma-placeholder {
+  margin-top: 40px;
+  background: var(--bg-2);
+  border: 2px dashed var(--line-soft);
+  border-radius: 16px;
+  padding: 48px 32px;
+  text-align: center;
+  color: var(--ink-3);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* ── Tech pills ── */
+.cs-tech-pills {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 24px 0 32px;
+}
+.cs-tech-pill {
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--bg);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  border: 2px solid var(--line);
+  box-shadow: 2px 2px 0 var(--line);
+}
+
+/* ── Code block ── */
+.cs-code-block {
+  margin: 32px 0;
+  background: #1a1814;
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 6px 6px 0 var(--line);
+}
+.cs-code-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.cs-code-dot { width: 10px; height: 10px; border-radius: 50%; }
+.cs-code-filename {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+  margin-left: 6px;
+}
+.cs-code-block pre {
+  margin: 0;
+  padding: 24px 28px;
+  overflow-x: auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  line-height: 1.65;
+  color: #e8e2d4;
+}
+.cs-code-comment { color: #6b7060; }
+.cs-code-keyword { color: #9DE3F0; }
+.cs-code-string { color: #c5a87a; }
+.cs-code-fn { color: #b4d4a8; }
+
+/* ── PostHog callout ── */
+.cs-posthog-callout {
+  margin: 32px 0;
+  padding: 20px 24px;
+  background: color-mix(in oklab, var(--mint) 12%, transparent);
+  border: 1.5px solid color-mix(in oklab, var(--mint) 40%, transparent);
+  border-radius: 12px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.cs-posthog-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.cs-posthog-text {
+  font-size: 18px;
+  color: var(--ink-2);
+  line-height: 1.55;
+}
+.cs-posthog-text strong { color: var(--ink); font-weight: 600; }
+
+/* ── Tradeoffs (two-column) ── */
+.cs-tradeoffs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin: 32px 0;
+}
+.cs-tradeoff-col {
+  padding: 28px;
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  background: var(--paper);
+}
+.cs-tradeoff-col.considered {
+  background: var(--bg-2);
+  border-style: dashed;
+}
+.cs-tradeoff-col.shipped {
+  box-shadow: 4px 4px 0 var(--line);
+}
+.cs-tradeoff-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 14px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.cs-tradeoff-label.shipped { color: var(--mint-text); }
+.cs-tradeoff-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
+}
+.cs-tradeoff-body {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  margin: 0;
+}
+.cs-tradeoff-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  background: var(--mustard);
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  box-shadow: 2px 2px 0 var(--line);
+  margin-bottom: 20px;
+}
+.cs-decision-rationale {
+  margin-top: 24px;
+  padding: 18px 22px;
+  background: var(--bg-2);
+  border-radius: 10px;
+  border: 1.5px solid var(--line-soft);
+  font-size: 18px;
+  color: var(--ink-2);
+  line-height: 1.55;
+  font-style: italic;
+}
+.cs-decision-rationale strong { color: var(--ink); font-style: normal; }
+
+/* ── Outcome metrics ── */
+.cs-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 32px 0;
+}
+.cs-metric {
+  padding: 28px 24px;
+  background: var(--paper);
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 4px 4px 0 var(--line);
+  text-align: center;
+}
+.cs-metric-n {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(32px, 3.5vw, 48px);
+  font-weight: 500;
+  color: var(--coral);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.cs-metric-l {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* ── Journal callout ── */
+.cs-journal-callout {
+  margin: 36px 0;
+  padding: 28px 32px;
+  background: var(--ink);
+  color: var(--bg);
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 6px 6px 0 var(--line);
+}
+.cs-journal-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 14px;
+  font-family: 'JetBrains Mono', monospace;
+  color: rgba(240, 232, 212, 0.5);
+}
+.cs-journal-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cs-journal-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 18px;
+  color: rgba(240, 232, 212, 0.9);
+  line-height: 1.4;
+}
+.cs-journal-list li::before {
+  content: "◆";
+  color: var(--coral);
+  font-size: 10px;
+  flex-shrink: 0;
+}
+
+/* ── Method cards ── */
+.cs-method-card {
+  margin: 20px 0;
+  padding: 24px 28px;
+  background: var(--paper);
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 3px 3px 0 var(--line);
+}
+.cs-method-card-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--coral);
+  margin-bottom: 8px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.cs-method-card-body {
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  margin: 0 0 10px;
+}
+.cs-method-card-finding {
+  font-size: 14px;
+  color: var(--ink-3);
+  font-style: italic;
+  line-height: 1.55;
+  padding-top: 10px;
+  border-top: 1px solid var(--line-soft);
+  margin: 0;
+}
+
+/* ── Insight action line (→ Because we learned this…) ── */
+.cs-insight-action {
+  font-size: 16px;
+  color: var(--ink-3);
+  font-style: italic;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid color-mix(in oklab, var(--coral) 20%, transparent);
+  line-height: 1.5;
+}
+
+/* ── Peri-tinted callout (failures / context notes) ── */
+.cs-peri-callout {
+  margin: 36px 0;
+  padding: 28px 32px;
+  background: color-mix(in oklab, var(--peri) 8%, var(--paper));
+  border: 2px solid color-mix(in oklab, var(--peri) 40%, transparent);
+  border-radius: 14px;
+}
+.cs-peri-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--peri);
+  margin-bottom: 10px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.cs-peri-text {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--ink-2);
+  margin: 0;
+}
+
+/* ── Iteration cards (Final Design section) ── */
+.cs-iteration-card {
+  margin: 20px 0;
+  padding: 24px 28px;
+  background: var(--paper);
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 3px 3px 0 var(--line);
+}
+.cs-iteration-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 4px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.cs-iteration-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
+}
+.cs-iteration-body {
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  margin: 0;
+}
+
+/* ── Screen placeholder grid (2×2) ── */
+.cs-screens-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 32px 0;
+}
+.cs-screen-slot {
+  background: var(--bg-2);
+  border: 2px dashed var(--line-soft);
+  border-radius: 12px;
+  padding: 40px 24px;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: var(--ink-3);
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* ── Build chain pipeline ── */
+.cs-build-chain {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 24px 0 32px;
+}
+.cs-build-step {
+  padding: 8px 16px;
+  background: var(--ink);
+  color: var(--bg);
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  box-shadow: 2px 2px 0 var(--line);
+}
+.cs-build-arrow {
+  color: var(--coral);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* ── Modal ── */
+.cs-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 24, 20, 0.72);
+  z-index: 200;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 24px;
+  overflow-y: auto;
+  backdrop-filter: blur(4px);
+}
+.cs-modal {
+  background: var(--paper);
+  border: 2px solid var(--line);
+  border-radius: 20px;
+  box-shadow: 8px 8px 0 var(--line);
+  max-width: 600px;
+  width: 100%;
+  padding: 40px 40px 36px;
+  position: relative;
+}
+.cs-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid var(--line-soft);
+  border-radius: 50%;
+  background: transparent;
+  font-size: 16px;
+  cursor: pointer;
+  color: var(--ink-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  transition: background .15s;
+}
+.cs-modal-close:hover { background: var(--bg-2); }
+.cs-modal h2 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 28px;
+  font-weight: 450;
+  letter-spacing: -0.03em;
+  margin: 0 0 6px;
+  color: var(--ink);
+}
+.cs-modal-sub {
+  font-size: 13px;
+  color: var(--ink-3);
+  margin: 0 0 28px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+}
+.cs-modal-items {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.cs-modal-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.cs-modal-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--coral);
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+.cs-modal-text {
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+.cs-modal-text strong { color: var(--ink); font-weight: 600; }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .cs-stats { grid-template-columns: 1fr 1fr; }
+  .cs-stat-item:nth-child(2) { border-right: 0; }
+  .cs-feature-grid { grid-template-columns: 1fr; }
+  .cs-tradeoffs-grid { grid-template-columns: 1fr; }
+  .cs-metrics { grid-template-columns: 1fr; }
+  .cs-stats-callout { flex-direction: column; gap: 12px; }
+  .cs-stats-callout-sep { width: 100%; height: 1px; }
+  .cs-hero-inner { padding: 48px 20px 40px; }
+  .cs-inner { padding: 0 20px; }
+  .cs-epigraph { padding: 0 20px; }
+  .cs-section { padding: 48px 0; }
+  .cs-modal { padding: 28px 24px; }
+}

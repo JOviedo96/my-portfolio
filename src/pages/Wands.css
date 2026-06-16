@@ -1,0 +1,755 @@
+/* ── Wands.css ──
+   Showcase-specific overrides and new components.
+   Base from CareCompass.css; tabs from HomeDepot.css. */
+
+/* ── Flush hero: dark bg extends to nav bar ── */
+.wands-hero-flush { margin-top: 0 !important; }
+.wands-hero-flush .cs-hero-inner { padding-top: 24px; }
+
+/* ── Hero accent: → warm amber ── */
+.wands-hero .cs-wordmark span { color: #D4A843; }
+.wands-hero .cs-tldr-btn {
+  background: #D4A843;
+  border-color: #D4A843;
+  color: #1A1008;
+  box-shadow: 4px 4px 0 rgba(245, 158, 11, 0.4);
+}
+.wands-hero .cs-tldr-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 rgba(245, 158, 11, 0.4);
+}
+.wands-hero .cs-stat-n { color: #D4A843; }
+.wands-hero .cs-stats { border-color: rgba(245, 158, 11, 0.25); }
+.wands-hero .cs-stat-item { border-right-color: rgba(245, 158, 11, 0.2); }
+.wands-hero .cs-hero-tag { border-color: rgba(245, 158, 11, 0.3); }
+
+/* ── Company badge (above wordmark) ── */
+.wands-company-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(240, 232, 212, 0.5);
+  margin-bottom: 14px;
+}
+
+/* ── NDA callout in hero ── */
+.wands-nda {
+  margin-bottom: 28px;
+  padding: 16px 20px;
+  border: 1.5px solid rgba(245, 158, 11, 0.4);
+  border-radius: 12px;
+  background: rgba(245, 158, 11, 0.07);
+  max-width: 560px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.wands-nda-badge {
+  flex-shrink: 0;
+  padding: 3px 10px;
+  background: rgba(245, 158, 11, 0.18);
+  border: 1.5px solid rgba(245, 158, 11, 0.5);
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #D4A843;
+  white-space: nowrap;
+  margin-top: 1px;
+}
+.wands-nda-text {
+  font-size: 16px;
+  color: rgba(240, 232, 212, 0.75);
+  line-height: 1.55;
+}
+
+/* ── Three challenge cards (horizontal) ── */
+.wands-challenge-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 32px 0;
+}
+.wands-challenge-card {
+  padding: 26px 24px 22px;
+  background: var(--paper);
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 4px 4px 0 var(--line);
+}
+.wands-challenge-icon {
+  font-size: 22px;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.wands-challenge-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
+}
+.wands-challenge-body {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  margin: 0;
+}
+
+/* ── Ownership list ── */
+.wands-ownership {
+  margin: 28px 0;
+  padding: 24px 28px;
+  background: var(--bg-2);
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 4px 4px 0 var(--line);
+}
+.wands-ownership-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 14px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.wands-ownership-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.wands-ownership-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  background: var(--paper);
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  box-shadow: 2px 2px 0 var(--line);
+}
+.wands-ownership-item::before {
+  content: "◎";
+  color: #D4A843;
+  font-size: 11px;
+}
+
+/* ── Constraint callout ── */
+.wands-constraint {
+  margin: 28px 0;
+  padding: 22px 26px;
+  background: color-mix(in oklab, #D4A843 10%, transparent);
+  border: 2px solid color-mix(in oklab, #D4A843 40%, transparent);
+  border-radius: 12px;
+}
+.wands-constraint-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, #D4A843 80%, var(--ink));
+  margin-bottom: 10px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.wands-constraint-text {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(16px, 1.8vw, 20px);
+  font-weight: 380;
+  font-style: italic;
+  color: var(--ink);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+/* ── News coverage block ── */
+.wands-news {
+  margin: 32px 0;
+  padding: 24px 28px;
+  background: var(--ink);
+  color: var(--bg);
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 5px 5px 0 var(--line);
+}
+.wands-news-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(240, 232, 212, 0.5);
+  margin-bottom: 14px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.wands-news-headline {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(17px, 1.9vw, 21px);
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(240, 232, 212, 0.95);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  margin: 0 0 18px;
+}
+.wands-news-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.wands-news-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  color: #D4A843;
+  text-decoration: none;
+  line-height: 1.4;
+  transition: color .15s;
+}
+.wands-news-link:hover { color: rgba(245, 158, 11, 0.75); }
+.wands-news-link::before {
+  content: "↗";
+  font-size: 13px;
+  flex-shrink: 0;
+}
+.wands-news-placeholder {
+  font-size: 14px;
+  color: rgba(240, 232, 212, 0.4);
+  font-style: italic;
+}
+
+/* ── Video embed block ── */
+.wands-video {
+  margin: 32px 0;
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 5px 5px 0 var(--line);
+}
+.wands-video-frame {
+  position: relative;
+  padding-top: 56.25%; /* 16:9 */
+  background: #0d0d0d;
+}
+.wands-video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.wands-video-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: rgba(240, 232, 212, 0.3);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-align: center;
+  padding: 24px;
+}
+.wands-video-icon {
+  font-size: 32px;
+  opacity: 0.4;
+}
+.wands-video-caption {
+  padding: 12px 20px;
+  background: var(--bg-2);
+  border-top: 1.5px solid var(--line-soft);
+  font-size: 13px;
+  color: var(--ink-3);
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+/* ── Portfolio close CTA ── */
+.wands-portfolio-close {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 64px 0 96px;
+  padding: 32px 36px;
+  background: var(--paper);
+  border: 2px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 5px 5px 0 var(--line);
+  flex-wrap: wrap;
+}
+.wands-close-text {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  flex: 1;
+  min-width: 200px;
+}
+.wands-close-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.wands-close-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid var(--line);
+  transition: background .15s, color .15s, box-shadow .15s;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+.wands-close-btn.secondary {
+  background: transparent;
+  color: var(--ink-2);
+  box-shadow: 2px 2px 0 var(--line);
+}
+.wands-close-btn.secondary:hover {
+  background: var(--bg-2);
+  color: var(--ink);
+}
+.wands-close-btn.primary {
+  background: var(--ink);
+  color: var(--bg);
+  box-shadow: 3px 3px 0 var(--line);
+}
+.wands-close-btn.primary:hover {
+  background: var(--coral);
+  box-shadow: 4px 4px 0 var(--line);
+}
+
+/* ── NDA overview box ── */
+.wands-nda-box {
+  margin: 32px 0;
+  padding: 24px 28px;
+  border: 1.5px solid rgba(245, 158, 11, 0.35);
+  border-radius: 14px;
+  background: rgba(245, 158, 11, 0.06);
+}
+.wands-nda-box-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #D4A843;
+  margin-bottom: 16px;
+}
+.wands-nda-box-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.wands-nda-col-head {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.wands-nda-col-head.can { color: color-mix(in oklab, #22c55e 70%, var(--ink)); }
+.wands-nda-col-head.cannot { color: color-mix(in oklab, #ef4444 60%, var(--ink)); }
+.wands-nda-col-item {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-size: 16px;
+  color: var(--ink-2);
+  line-height: 1.5;
+  margin-bottom: 7px;
+}
+.wands-nda-col-item .mark { flex-shrink: 0; font-size: 12px; margin-top: 1px; }
+.wands-nda-col-item .mark.yes { color: #22c55e; }
+.wands-nda-col-item .mark.no { color: #ef4444; }
+
+/* ── Design Context cards (2-col) ── */
+.wands-context-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 32px 0;
+}
+.wands-context-card {
+  padding: 26px 24px 22px;
+  background: var(--paper);
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 4px 4px 0 var(--line);
+}
+.wands-context-card-icon {
+  font-size: 20px;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+.wands-context-card-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
+}
+.wands-context-card-body {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  margin: 0;
+}
+
+/* ── Core tension callout ── */
+.wands-tension {
+  margin: 28px 0;
+  padding: 22px 26px;
+  background: color-mix(in oklab, #D4A843 6%, var(--paper));
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 3px 3px 0 var(--line);
+}
+.wands-tension-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #D4A843;
+  margin-bottom: 10px;
+}
+.wands-tension-text {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(18px, 1.8vw, 22px);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+/* ── Problem cards (3-col) ── */
+.wands-problem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 32px 0;
+}
+.wands-problem-card {
+  padding: 26px 24px 22px;
+  background: var(--bg-2);
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 4px 4px 0 var(--line);
+}
+.wands-problem-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 10px;
+}
+.wands-problem-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
+}
+.wands-problem-body { font-size: 18px; line-height: 1.6; color: var(--ink-2); margin: 0; }
+
+/* ── Gen 2 callout ── */
+.wands-gen2 {
+  margin: 28px 0;
+  padding: 20px 24px;
+  background: color-mix(in oklab, #D4A843 6%, var(--paper));
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 3px 3px 0 var(--line);
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.wands-gen2-badge {
+  flex-shrink: 0;
+  padding: 3px 10px;
+  background: rgba(245, 158, 11, 0.2);
+  border: 1.5px solid rgba(245, 158, 11, 0.5);
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #D4A843;
+  white-space: nowrap;
+  margin-top: 2px;
+}
+.wands-gen2-text { font-size: 18px; color: var(--ink-2); line-height: 1.55; }
+
+/* ── Contribution list ── */
+.wands-contrib-list { display: flex; flex-direction: column; gap: 16px; margin: 32px 0; }
+.wands-contrib-item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 22px 24px;
+  background: var(--paper);
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 3px 3px 0 var(--line);
+}
+.wands-contrib-icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  background: color-mix(in oklab, #D4A843 12%, transparent);
+  border: 1.5px solid rgba(245, 158, 11, 0.3);
+  border-radius: 10px;
+}
+.wands-contrib-icon.accent-purple {
+  background: color-mix(in oklab, #a855f7 12%, transparent);
+  border-color: rgba(168, 85, 247, 0.3);
+}
+.wands-contrib-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin: 0 0 6px;
+}
+.wands-contrib-body { font-size: 18px; line-height: 1.6; color: var(--ink-2); margin: 0; }
+
+/* ── Accessibility callout ── */
+.wands-access-callout {
+  margin: 28px 0;
+  padding: 22px 26px;
+  background: color-mix(in oklab, var(--plum) 6%, var(--paper));
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 3px 3px 0 var(--line);
+}
+.wands-access-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--plum);
+  margin-bottom: 10px;
+}
+.wands-access-text { font-size: 18px; line-height: 1.6; color: var(--ink-2); margin: 0; }
+
+/* ── Screen grid (live product placeholders) ── */
+.wands-screen-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 32px 0;
+}
+.wands-screen-slot {
+  border: 2px dashed var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--bg-2);
+}
+.wands-screen-slot-img {
+  aspect-ratio: 9 / 16;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+}
+.wands-screen-slot.has-image {
+  border: 2px solid var(--line);
+  background: transparent;
+  box-shadow: 4px 4px 0 var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.wands-screen-slot.has-image .wands-screen-slot-img {
+  aspect-ratio: unset;
+  padding: 0;
+  background: transparent;
+  display: block;
+}
+.wands-screen-slot-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
+}
+.wands-screen-slot-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 32px;
+  font-weight: 700;
+  color: rgba(245, 158, 11, 0.2);
+}
+.wands-screen-slot-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-3);
+  text-align: center;
+  line-height: 1.4;
+}
+.wands-screen-slot-note {
+  padding: 10px 14px;
+  font-size: 11px;
+  color: var(--ink-3);
+  line-height: 1.5;
+  font-style: italic;
+  border-top: 1.5px solid var(--line-soft);
+}
+
+/* ── Observation callout ── */
+.wands-obs-callout {
+  margin: 28px 0;
+  padding: 22px 26px;
+  background: color-mix(in oklab, var(--mint) 8%, var(--paper));
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 3px 3px 0 var(--line);
+}
+.wands-obs-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--mint) 60%, var(--ink));
+  margin-bottom: 10px;
+}
+.wands-obs-text { font-size: 18px; line-height: 1.6; color: var(--ink-2); margin: 0; }
+
+/* ── Reflection row ── */
+.wands-reflection-row {
+  display: flex;
+  gap: 32px;
+  align-items: stretch;
+  margin-bottom: 32px;
+}
+.wands-reflection-left {
+  flex: 1 1 0;
+  min-width: 0;
+}
+.wands-reflection-photo {
+  flex: 0 0 auto;
+  width: auto;
+  border-radius: 12px;
+  border: 2px solid var(--line);
+  box-shadow: 3px 3px 0 var(--line);
+  overflow: hidden;
+}
+.wands-reflection-img {
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+@media (max-width: 970px) {
+  .wands-reflection-row { flex-direction: column; }
+  .wands-reflection-photo { width: 100%; height: auto; max-width: 100%; }
+  .wands-reflection-img { width: 100%; height: auto; }
+}
+
+/* ── Opening Weekend Story box ── */
+.wands-story-box {
+  margin: 32px 0;
+  padding: 28px 32px;
+  background: var(--paper);
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 5px 5px 0 var(--line);
+}
+.wands-story-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #D4A843;
+  margin-bottom: 18px;
+}
+.wands-story-paragraph { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 14px; }
+.wands-story-paragraph:last-child { margin-bottom: 0; }
+
+/* ── Confirmation callout ── */
+.wands-confirm-callout {
+  margin: 28px 0;
+  padding: 22px 26px;
+  background: color-mix(in oklab, #D4A843 6%, var(--paper));
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 3px 3px 0 var(--line);
+}
+.wands-confirm-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #D4A843;
+  margin-bottom: 10px;
+}
+.wands-confirm-text { font-size: 18px; line-height: 1.6; color: var(--ink-2); margin: 0; }
+
+/* ── NDA close note ── */
+.wands-nda-close {
+  margin: 28px 0;
+  padding: 18px 22px;
+  background: var(--bg-2);
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 3px 3px 0 var(--line);
+  font-size: 16px;
+  color: var(--ink-3);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .wands-challenge-grid { grid-template-columns: 1fr; }
+  .wands-context-grid { grid-template-columns: 1fr; }
+  .wands-problem-grid { grid-template-columns: 1fr; }
+  .wands-screen-grid { grid-template-columns: repeat(2, 1fr); }
+  .wands-nda-box-cols { grid-template-columns: 1fr; }
+  .wands-portfolio-close { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .wands-close-actions { width: 100%; }
+  .wands-close-btn { flex: 1; justify-content: center; }
+}
+@media (max-width: 600px) {
+  .wands-screen-grid { grid-template-columns: 1fr; }
+}

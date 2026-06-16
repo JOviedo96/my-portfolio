@@ -1,0 +1,322 @@
+/* ── NaturalDisaster.css ──
+   ND-specific overrides and new components.
+   Base styles from CareCompass.css; tab styles from HomeDepot.css. */
+
+/* ── Hero accent: swap → steel blue ── */
+.nd-hero .cs-wordmark span { color: #88C0DF; }
+.nd-hero .cs-tldr-btn { border-color: #88C0DF; color: #88C0DF; }
+.nd-hero .cs-tldr-btn:hover { background: #88C0DF; color: #0A1828; }
+.nd-hero .cs-stat-n { color: #88C0DF; }
+.nd-hero .cs-stats { border-color: rgba(136, 192, 223, 0.25); }
+.nd-hero .cs-stat-item { border-right-color: rgba(136, 192, 223, 0.2); }
+.nd-hero .cs-hero-tag { border-color: rgba(136, 192, 223, 0.3); }
+
+/* ── Stakes callout ── */
+.nd-stakes {
+  margin: 36px 0;
+  padding: 28px 32px;
+  background: var(--ink);
+  color: var(--bg);
+  border: 2px solid var(--line);
+  border-left: 4px solid var(--coral);
+  border-radius: 0 16px 16px 0;
+  box-shadow: 4px 4px 0 var(--line);
+}
+.nd-stakes-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--coral);
+  margin-bottom: 14px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.nd-stakes-text {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(17px, 1.9vw, 22px);
+  font-weight: 380;
+  font-style: italic;
+  color: rgba(240, 232, 212, 0.95);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+/* ── Research challenge callout ── */
+.nd-challenge {
+  margin: 28px 0;
+  padding: 22px 26px;
+  background: color-mix(in oklab, #88C0DF 10%, transparent);
+  border: 2px solid color-mix(in oklab, #88C0DF 35%, transparent);
+  border-radius: 12px;
+}
+.nd-challenge-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6aaecf;
+  margin-bottom: 10px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.nd-challenge-text {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(16px, 1.8vw, 20px);
+  font-weight: 380;
+  font-style: italic;
+  color: var(--ink);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+/* ── Method cards grid (2x3) ── */
+.nd-method-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 32px 0;
+}
+.nd-method-card {
+  padding: 24px 26px 22px;
+  background: var(--paper);
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  position: relative;
+}
+.nd-method-card.featured {
+  border-color: #88C0DF;
+  box-shadow: 4px 4px 0 color-mix(in oklab, #88C0DF 50%, var(--line));
+}
+.nd-method-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--ink-3);
+  margin-bottom: 8px;
+}
+.nd-method-card.featured .nd-method-num { color: #88C0DF; }
+.nd-method-name {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
+}
+.nd-method-gap {
+  font-size: 13px;
+  color: var(--ink-3);
+  line-height: 1.5;
+  margin: 0 0 10px;
+  font-style: italic;
+  border-bottom: 1px solid var(--line-soft);
+  padding-bottom: 10px;
+}
+.nd-method-finding {
+  font-size: 14px;
+  color: var(--ink-2);
+  line-height: 1.55;
+  margin: 0;
+}
+.nd-method-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 4px 12px;
+  background: var(--bg-2);
+  border: 1.5px solid var(--line-soft);
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: #6aaecf;
+  letter-spacing: 0.04em;
+}
+
+/* ── Stat hero block ── */
+.nd-stat-hero {
+  margin: 32px 0;
+  background: #0A1828;
+  border: 2px solid var(--line);
+  border-radius: 20px;
+  box-shadow: 6px 6px 0 var(--line);
+  padding: 48px 40px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.nd-stat-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 50% 100%, rgba(136, 192, 223, 0.08), transparent);
+  pointer-events: none;
+}
+.nd-stat-hero-n {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(56px, 8vw, 96px);
+  font-weight: 500;
+  color: #88C0DF;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  margin-bottom: 10px;
+  font-variation-settings: "opsz" 72;
+}
+.nd-stat-hero-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(240, 232, 212, 0.55);
+  font-family: 'JetBrains Mono', monospace;
+  margin-bottom: 24px;
+}
+.nd-stat-hero-body {
+  font-size: 15px;
+  color: rgba(240, 232, 212, 0.75);
+  line-height: 1.6;
+  max-width: 52ch;
+  margin: 0 auto;
+}
+.nd-stat-hero-body strong { color: rgba(240, 232, 212, 0.95); font-weight: 600; }
+
+/* ── Before / after metric comparison ── */
+.nd-metric-compare {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0;
+  margin: 28px 0;
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--paper);
+  box-shadow: 4px 4px 0 var(--line);
+}
+.nd-metric-col {
+  padding: 28px 28px 24px;
+  text-align: center;
+}
+.nd-metric-col.after { background: color-mix(in oklab, var(--mint) 8%, var(--paper)); }
+.nd-metric-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  background: var(--bg-2);
+  border-left: 1.5px solid var(--line);
+  border-right: 1.5px solid var(--line);
+  color: var(--ink-3);
+  font-size: 20px;
+}
+.nd-metric-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 12px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.nd-metric-col.after .nd-metric-label { color: var(--mint-text); }
+.nd-metric-n {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.nd-metric-col.after .nd-metric-n { color: var(--mint-text); }
+.nd-metric-desc {
+  font-size: 13px;
+  color: var(--ink-3);
+  line-height: 1.4;
+}
+
+/* ── Publication callout ── */
+.nd-publication {
+  margin: 36px 0;
+  background: var(--ink);
+  color: var(--bg);
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 6px 6px 0 var(--line);
+  overflow: hidden;
+}
+.nd-publication-header {
+  padding: 16px 28px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.nd-publication-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(240, 232, 212, 0.5);
+  font-family: 'JetBrains Mono', monospace;
+}
+.nd-publication-badge {
+  margin-left: auto;
+  padding: 3px 10px;
+  background: var(--mint);
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  font-family: 'JetBrains Mono', monospace;
+}
+.nd-publication-body {
+  padding: 20px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.nd-publication-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.nd-publication-item::before {
+  content: "◆";
+  color: #88C0DF;
+  font-size: 10px;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+.nd-publication-item-text {
+  font-size: 15px;
+  color: rgba(240, 232, 212, 0.9);
+  line-height: 1.5;
+}
+.nd-publication-item-text em {
+  font-style: italic;
+  color: rgba(240, 232, 212, 0.7);
+  font-size: 13px;
+}
+
+/* ── ND-flavoured tabs for TL;DR modal (reuses hd-modal-* classes via HomeDepot.css) ── */
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .nd-method-grid { grid-template-columns: 1fr; }
+  .nd-metric-compare { grid-template-columns: 1fr; }
+  .nd-metric-arrow {
+    padding: 12px 28px;
+    border-left: 0;
+    border-right: 0;
+    border-top: 1.5px solid var(--line);
+    border-bottom: 1.5px solid var(--line);
+    justify-content: center;
+    font-size: 18px;
+  }
+  .nd-stat-hero { padding: 36px 24px 32px; }
+}
