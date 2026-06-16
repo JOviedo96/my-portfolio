@@ -69,7 +69,7 @@
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(240, 232, 212, 0.5);
+  color: rgba(240, 232, 212, 0.85);
   margin-bottom: 16px;
 }
 
@@ -165,7 +165,7 @@
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(240, 232, 212, 0.55);
+  color: rgba(240, 232, 212, 0.85);
   font-weight: 500;
 }
 .cs-hero-tags {
@@ -423,7 +423,7 @@
 .cs-code-filename {
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
-  color: rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.65);
   margin-left: 6px;
 }
 .cs-code-block pre {

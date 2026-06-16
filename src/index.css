@@ -217,7 +217,7 @@ button { font-family: inherit; cursor: pointer; }
   color: var(--ink); font-style: italic;
 }
 .hero-card h3 { margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; font-weight: 380; line-height: 1; letter-spacing: -0.02em;}
-.hero-card .role { font-size: 12px; color: color-mix(in oklab, var(--paper) 80%, transparent); margin-top: 4px;}
+.hero-card .role { font-size: 12px; color: var(--ink); margin-top: 4px;}
 .hero-card .stats {
   display: grid; grid-template-columns: repeat(3, 1fr);
   gap: 12px; margin-top: 18px;
@@ -226,7 +226,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 .hero-card .stat-block { text-align: left; }
 .hero-card .stat-block .n { font-family: 'Bricolage Grotesque', sans-serif; font-size: 22px; font-weight: 380; line-height: 1; letter-spacing: -0.02em;}
-.hero-card .stat-block .l { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: color-mix(in oklab, var(--paper) 70%, transparent); margin-top: 4px;}
+.hero-card .stat-block .l { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); margin-top: 4px;}
 .hero-testimonial {
   margin-top: 18px;
   padding-top: 16px;
@@ -986,10 +986,10 @@ button { font-family: inherit; cursor: pointer; }
 
 /* hobby variants — span and color */
 .hobby.h-garden {
-  grid-column: span 3; background: var(--mint); color: var(--paper);
+  grid-column: span 3; background: var(--mint); color: var(--ink);
 }
 .hobby.h-garden .h-eyebrow,
-.hobby.h-garden p { color: color-mix(in oklab, var(--paper) 88%, transparent); opacity: 1; }
+.hobby.h-garden p { color: var(--ink); }
 .hobby.h-garden h4 em { color: var(--mustard); }
 
 .hobby.h-stitch {
@@ -1004,17 +1004,17 @@ button { font-family: inherit; cursor: pointer; }
 .hobby.h-baking h4 em { color: var(--ink); }
 
 .hobby.h-humanities {
-  grid-column: span 2; background: var(--peri); color: var(--paper);
+  grid-column: span 2; background: var(--peri); color: var(--ink);
 }
 .hobby.h-humanities .h-eyebrow,
-.hobby.h-humanities p { color: color-mix(in oklab, var(--paper) 88%, transparent); opacity: 1; }
+.hobby.h-humanities p { color: var(--ink); }
 .hobby.h-humanities h4 em { color: var(--mustard); }
 
 .hobby.h-sports {
-  grid-column: span 2; background: var(--coral); color: var(--paper);
+  grid-column: span 2; background: var(--coral); color: var(--ink);
 }
 .hobby.h-sports .h-eyebrow,
-.hobby.h-sports p { color: color-mix(in oklab, var(--paper) 88%, transparent); opacity: 1; }
+.hobby.h-sports p { color: var(--ink); }
 .hobby.h-sports h4 em { color: var(--ink); }
 
 .hobby.h-movies {
