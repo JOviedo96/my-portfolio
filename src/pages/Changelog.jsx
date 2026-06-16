@@ -4,6 +4,7 @@ const ENTRIES = [
     items: [
       { type: "Update", text: "About page portrait: photo placeholder replaced with real photo (me-with-wands.jpeg), full-bleed with cover fit and center-top crop." },
       { type: "Update", text: "Site-wide font size audit: body text minimum raised to 18px. All content text at 13px raised to 16px, 12px raised to 14px. Affected: CareCompass, HomeDepot, Wands case studies and index.css (About, Process, homepage sections)." },
+      { type: "Fix", text: "WCAG contrast audit pass: fixed 9 failing or borderline text/background combinations. Hero card role text switched from 80% opacity white to var(--ink) on peri background (2.8:1 → 5.1:1). Hobby cards on mint, peri, and coral switched from semi-transparent white to var(--ink) (was 2.2–3.1:1 on medium-luminance backgrounds). Case study hero company badges (all three) raised from 0.50 to 0.85 opacity at 11px. CareCompass stat labels raised from 0.55 to 0.85 opacity. Code filename label raised from 0.40 to 0.65 opacity." },
     ],
   },
   {
