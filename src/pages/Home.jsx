@@ -90,8 +90,8 @@ export function Home() {
         <div className="hero-grid">
           <div>
             <h1>
-              Hi. I design products that make <span className="ital">complicated</span>
-              <Star className="star" />
+              Hi. I design products that <span className="star--mobile"><Star className="star" /></span>make <span className="ital">complicated</span>
+              <span className="star--desktop"><Star className="star" /></span>
               <br />
               things feel simple.
             </h1>

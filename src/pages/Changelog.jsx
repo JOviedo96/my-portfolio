@@ -1,5 +1,29 @@
 const ENTRIES = [
   {
+    date: "2026-06-19",
+    items: [
+      { type: "Fix", text: "CareCompass mobile: hero context note and TL;DR button now stack vertically on mobile instead of cramping side by side." },
+      { type: "Fix", text: "CareCompass mobile: Scout AI and final design 4-image grids reflow to 2×2 on mobile (were 4-across at ~80px each, now 2-across at full readable size)." },
+      { type: "Fix", text: "CareCompass mobile: code block is now horizontally scrollable instead of clipping content at the viewport edge." },
+      { type: "Fix", text: "CareCompass, HomeDepot + Wands mobile: hero stat grids now show a horizontal divider between the two rows on mobile (2×2 layout), matching the vertical dividers in each project's brand color." },
+      { type: "Fix", text: "HomeDepot + Wands mobile: hero context/NDA note and TL;DR button now stack vertically." },
+      { type: "Fix", text: "HomeDepot mobile: Design Process sketch/lofi pair and Case for Change presentation slide pair now stack vertically instead of shrinking to two tiny side-by-side thumbnails." },
+    ],
+  },
+  {
+    date: "2026-06-18",
+    items: [
+      { type: "Add", text: "Mobile hamburger menu: nav links are now accessible on viewports ≤960px via a hamburger button (≡/✕) in the top-right. Tapping a link closes the menu and navigates to the page. 'Get in touch' CTA moves into the mobile drawer." },
+      { type: "Fix", text: "Mobile hero heading: star decorative element conditionally repositioned — appears after 'that' on mobile (≤960px) and after 'complicated' on desktop to prevent awkward line breaks." },
+      { type: "Fix", text: "Changelog mobile layout: date now renders as a full-width section header with horizontal divider instead of a side column, making entries readable on small screens." },
+      { type: "Fix", text: "Changelog entry tag chips: fixed-width (68px) with centered text so all entry paragraphs start at the same horizontal position on every viewport." },
+      { type: "Fix", text: "About page mobile order: photo card now appears between body prose and the three value cards on mobile. Achieved by making values a third grid item with portrait spanning both rows on desktop." },
+      { type: "Fix", text: "About page Outside of Work: hobby cards all render at full width on mobile (grid-column spans reset to 1) for a cohesive single-column list." },
+      { type: "Fix", text: "Process page step cards: on mobile the step number and title now form a header row together, with the blurb and methods chips stacking full-width below. Used named CSS grid areas." },
+      { type: "Fix", text: "Wordle mobile overhaul: removed overflowing decorative blobs; board resizes to fill available width with square tiles via aspect-ratio; legend reflows to a compact 3-column card with tiles above labels; fixed legend text spacing bugs (br tags were concatenating words without spaces)." },
+    ],
+  },
+  {
     date: "2026-06-16",
     items: [
       { type: "Update", text: "About page portrait: photo placeholder replaced with real photo (me-with-wands.jpeg), full-bleed with cover fit and center-top crop." },
@@ -77,13 +101,13 @@ export function Changelog({ onBack }) {
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 40 }}>
         {ENTRIES.map((group, gi) => (
-          <div key={gi} style={{ display: 'grid', gridTemplateColumns: '120px 1fr', gap: '0 28px', alignItems: 'start' }}>
+          <div key={gi} className="cl-group" style={{ display: 'grid', gridTemplateColumns: '120px 1fr', gap: '0 28px', alignItems: 'start' }}>
 
-            <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 12, fontWeight: 500, color: 'var(--ink-3)', paddingTop: 4, letterSpacing: '-0.01em' }}>
+            <div className="cl-date" style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 12, fontWeight: 500, color: 'var(--ink-3)', paddingTop: 4, letterSpacing: '-0.01em' }}>
               {group.date}
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 12, borderLeft: '2px solid var(--line-soft)', paddingLeft: 24 }}>
+            <div className="cl-items" style={{ display: 'flex', flexDirection: 'column', gap: 12, borderLeft: '2px solid var(--line-soft)', paddingLeft: 24 }}>
               {group.items.map((item, ii) => {
                 const style = TYPE_COLOR[item.type] || TYPE_COLOR.Fix;
                 return (
@@ -91,7 +115,9 @@ export function Changelog({ onBack }) {
                     <span style={{
                       flexShrink: 0,
                       display: 'inline-block',
-                      padding: '4px 10px',
+                      width: 68,
+                      textAlign: 'center',
+                      padding: '4px 0',
                       borderRadius: 999,
                       fontSize: 11,
                       fontWeight: 500,

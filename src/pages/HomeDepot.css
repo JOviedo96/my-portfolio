@@ -678,6 +678,24 @@
   .hd-recognition { flex-direction: column; gap: 12px; }
   .hd-persona-grid { grid-template-columns: 1fr; }
   .hd-jtbd-grid { grid-template-columns: 1fr; }
-  .hd-system-row { flex-direction: column; align-items: flex-start; }
-  .hd-system-row-label { width: auto; }
+  .hd-system-row { flex-wrap: wrap; align-items: center; }
+  .hd-system-row-label { width: auto; flex-basis: 100%; margin-bottom: 4px; }
+
+  /* Hero stat row divider (orange to match HD theme) */
+  .hd-hero .cs-stat-item:nth-child(1),
+  .hd-hero .cs-stat-item:nth-child(2) {
+    border-bottom-color: rgba(249, 99, 2, 0.2);
+  }
+
+  /* Image pairs: stack vertically */
+  .hd-img-pair {
+    flex-direction: column !important;
+  }
+  .hd-img-pair .hd-screen-img {
+    height: auto !important;
+    overflow: visible !important;
+  }
+  .hd-img-pair .hd-screen-img img {
+    object-position: top !important;
+  }
 }

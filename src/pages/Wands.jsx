@@ -188,7 +188,7 @@ export function Wands({ onBack }) {
               ))}
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 24, marginTop: 32 }}>
+            <div className="cc-hero-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 24, marginTop: 32 }}>
               <div className="wands-nda">
                 <span className="wands-nda-badge">NDA</span>
                 <p className="wands-nda-text">
@@ -428,13 +428,13 @@ export function Wands({ onBack }) {
           </p>
           <div className="wands-close-actions">
             <button className="wands-close-btn secondary" onClick={onBack}>
-              ← Back to all work
+              Back to all work
             </button>
             <a
               href="mailto:jamie.oviedo96@gmail.com"
               className="wands-close-btn primary"
             >
-              Get in touch →
+              Get in touch
             </a>
           </div>
         </div>

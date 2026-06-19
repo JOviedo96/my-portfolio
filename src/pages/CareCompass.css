@@ -850,6 +850,8 @@
 @media (max-width: 900px) {
   .cs-stats { grid-template-columns: 1fr 1fr; }
   .cs-stat-item:nth-child(2) { border-right: 0; }
+  .cs-stat-item:nth-child(1),
+  .cs-stat-item:nth-child(2) { border-bottom: 1.5px solid rgba(157, 227, 240, 0.2); }
   .cs-feature-grid { grid-template-columns: 1fr; }
   .cs-tradeoffs-grid { grid-template-columns: 1fr; }
   .cs-metrics { grid-template-columns: 1fr; }
@@ -860,4 +862,34 @@
   .cs-epigraph { padding: 0 20px; }
   .cs-section { padding: 48px 0; }
   .cs-modal { padding: 28px 24px; }
+
+  /* Hero context note + TL;DR button: stack vertically */
+  .cc-hero-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  /* 4-image grids: 2 columns on mobile */
+  .cc-screens-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* 2-image grids: single column on mobile */
+  .cs-screens-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Code block: make horizontally scrollable instead of clipping */
+  .cs-code-block {
+    overflow-x: auto;
+  }
+  .cs-code-block pre {
+    overflow-x: visible;
+    font-size: 11px;
+  }
+
+  /* Modal tabs: allow wrapping */
+  .hd-modal-tabs {
+    flex-wrap: wrap;
+  }
 }

@@ -747,8 +747,14 @@
   .wands-screen-grid { grid-template-columns: repeat(2, 1fr); }
   .wands-nda-box-cols { grid-template-columns: 1fr; }
   .wands-portfolio-close { flex-direction: column; align-items: flex-start; gap: 20px; }
-  .wands-close-actions { width: 100%; }
-  .wands-close-btn { flex: 1; justify-content: center; }
+  .wands-close-actions { width: 100%; flex-direction: column; }
+  .wands-close-btn { width: 100%; justify-content: center; }
+
+  /* Hero stat row divider (amber to match Wands brand) */
+  .wands-hero .cs-stat-item:nth-child(1),
+  .wands-hero .cs-stat-item:nth-child(2) {
+    border-bottom: 1.5px solid rgba(245, 158, 11, 0.2);
+  }
 }
 @media (max-width: 600px) {
   .wands-screen-grid { grid-template-columns: 1fr; }

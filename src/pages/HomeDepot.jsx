@@ -140,7 +140,7 @@ export function HomeDepot({ onBack, onNext }) {
               ))}
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 24, marginTop: 32 }}>
+            <div className="cc-hero-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 24, marginTop: 32 }}>
               <div className="hd-context-note">
                 <span className="hd-context-icon">ⓘ</span>
                 This was a self-directed project, not an assignment. I was a store associate when I started asking why the lead capture numbers were so low, and kept going until I had an answer and a design.
@@ -375,7 +375,7 @@ export function HomeDepot({ onBack, onNext }) {
             </p>
           </div>
 
-          <div style={{ display: 'flex', gap: 16, margin: '28px 0' }}>
+          <div className="hd-img-pair" style={{ display: 'flex', gap: 16, margin: '28px 0' }}>
             <div className="hd-screen-img" style={{ flex: 1, margin: 0, height: 420, overflow: 'hidden' }}>
               <img src={hdSketch} alt="Early layout sketches exploring service surface options within Order Up" className="hd-screen-photo" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
             </div>
@@ -470,7 +470,7 @@ export function HomeDepot({ onBack, onNext }) {
             </div>
           </div>
 
-          <div style={{ display: 'flex', gap: 16, margin: '28px 0' }}>
+          <div className="hd-img-pair" style={{ display: 'flex', gap: 16, margin: '28px 0' }}>
             <div className="hd-screen-img" style={{ flex: 1, margin: 0 }}>
               <img src={hdSlide1} alt="Project deck slide: business analytics data showing service lead capture gap" className="hd-screen-photo" />
             </div>

@@ -143,7 +143,7 @@ export function CareCompass({ onBack, onNext }) {
               ))}
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 24, marginTop: 32 }}>
+            <div className="cc-hero-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 24, marginTop: 32 }}>
               <div className="cc-context-note">
                 <span className="cc-context-icon">ⓘ</span>
                 M.S. graduate capstone, not a class project. Live React app with real AI (Claude API), real session analytics (PostHog), and two rounds of moderated usability testing.
@@ -352,7 +352,7 @@ export function CareCompass({ onBack, onNext }) {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16, margin: '28px 0' }}>
+          <div className="cc-screens-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16, margin: '28px 0' }}>
             <div className="hd-screen-img" style={{ margin: 0 }}>
               <img src={scout1} alt="Scout AI chat interface: Welcome back Lisa, with suggested prompt chips" className="hd-screen-photo" />
             </div>
@@ -484,7 +484,7 @@ export function CareCompass({ onBack, onNext }) {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16, margin: '28px 0' }}>
+          <div className="cc-screens-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16, margin: '28px 0' }}>
             <div className="hd-screen-img" style={{ margin: 0 }}>
               <img src={ccHome} alt="CareCompass home dashboard: medications due, upcoming appointments, and health overview" className="hd-screen-photo" />
             </div>

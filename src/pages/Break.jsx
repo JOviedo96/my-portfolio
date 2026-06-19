@@ -130,52 +130,109 @@ export function Break({ onNavigate }) {
           <div className="side-title">Legend</div>
           <span className="legend-item">
             <span className="legend-tile correct">A</span>
-            <span className="legend-label">Right letter,<br />right spot</span>
+            <span className="legend-label">Right letter, <br />right spot</span>
           </span>
           <span className="legend-item">
             <span className="legend-tile present">B</span>
-            <span className="legend-label">In the word,<br />wrong spot</span>
+            <span className="legend-label">In the word, <br />wrong spot</span>
           </span>
           <span className="legend-item">
             <span className="legend-tile absent">C</span>
-            <span className="legend-label">Not in<br />the word</span>
+            <span className="legend-label">Not in <br />the word</span>
           </span>
         </aside>
 
-        <div className="board" style={shake ? { animation: "shake .35s" } : {}}>
-          {Array.from({ length: MAX }).map((_, rowIdx) => {
-            const guess = guesses[rowIdx];
-            const isCurrent = rowIdx === guesses.length;
-            const score = guess && rowIdx <= revealedRow ? scoreGuess(guess) : null;
-            return (
-              <div className="row" key={rowIdx}>
-                {Array.from({ length: 5 }).map((_, i) => {
-                  let letter = "";
-                  let cls = "tile";
-                  if (guess) {
-                    letter = guess[i];
-                    if (score) {
-                      const isRevealed = rowIdx < revealedRow || rowIdx === revealedRow;
-                      if (isRevealed) cls += " " + score[i];
+        <div className="game-col">
+          <div className="board" style={shake ? { animation: "shake .35s" } : {}}>
+            {Array.from({ length: MAX }).map((_, rowIdx) => {
+              const guess = guesses[rowIdx];
+              const isCurrent = rowIdx === guesses.length;
+              const score = guess && rowIdx <= revealedRow ? scoreGuess(guess) : null;
+              return (
+                <div className="row" key={rowIdx}>
+                  {Array.from({ length: 5 }).map((_, i) => {
+                    let letter = "";
+                    let cls = "tile";
+                    if (guess) {
+                      letter = guess[i];
+                      if (score) {
+                        const isRevealed = rowIdx < revealedRow || rowIdx === revealedRow;
+                        if (isRevealed) cls += " " + score[i];
+                      }
+                    } else if (isCurrent) {
+                      letter = current[i] || "";
+                      if (letter) cls += " filled";
                     }
-                  } else if (isCurrent) {
-                    letter = current[i] || "";
-                    if (letter) cls += " filled";
-                  }
-                  const delay = score ? `${i * 0.25}s` : "0s";
-                  return (
-                    <div
-                      key={i}
-                      className={cls}
-                      style={score ? { animation: `revealTile .5s ease ${delay} both` } : undefined}
-                    >
-                      {letter}
-                    </div>
-                  );
-                })}
+                    const delay = score ? `${i * 0.25}s` : "0s";
+                    return (
+                      <div
+                        key={i}
+                        className={cls}
+                        style={score ? { animation: `revealTile .5s ease ${delay} both` } : undefined}
+                      >
+                        {letter}
+                      </div>
+                    );
+                  })}
+                </div>
+              );
+            })}
+          </div>
+
+          {status === "playing" && (
+            <div className="wordle-status">
+              {guesses.length === 0 ? "Type to begin." : `${MAX - guesses.length} guesses left.`}
+            </div>
+          )}
+          {status === "won" && (
+            <>
+              <div className="wordle-status win">
+                Nicely done. {guesses.length} {guesses.length === 1 ? "guess" : "guesses"}.
               </div>
-            );
-          })}
+              <div className="def-card">
+                <div className="term">{target.w.toLowerCase()}<span className="pos">{target.pos}</span></div>
+                <div className="meaning">{target.meaning}</div>
+              </div>
+              <div className="wordle-cta">
+                <button className="btn-primary" onClick={reset}>Another →</button>
+                <button className="btn-ghost" onClick={() => onNavigate("home")}>Back to work</button>
+              </div>
+            </>
+          )}
+          {status === "lost" && (
+            <>
+              <div className="wordle-status lose">
+                The word was <strong>{target.w}</strong>.
+              </div>
+              <div className="def-card">
+                <div className="term">{target.w.toLowerCase()}<span className="pos">{target.pos}</span></div>
+                <div className="meaning">{target.meaning}</div>
+              </div>
+              <div className="wordle-cta">
+                <button className="btn-primary" onClick={reset}>Try again →</button>
+              </div>
+            </>
+          )}
+
+          <div className="kbd">
+            {ROWS.map((row, i) => (
+              <div className="kbd-row" key={i}>
+                {row.map((k) => (
+                  <button
+                    key={k}
+                    className={`key ${k.length > 1 ? "wide" : ""} ${k.length > 1 ? "key-action" : ""} ${keyStatus[k] || ""}`}
+                    onClick={() => onKey(k)}
+                  >
+                    {k === "DEL" ? "⌫" : k}
+                  </button>
+                ))}
+              </div>
+            ))}
+          </div>
+          <div className="kbd-action-row">
+            <button className="key wide" onClick={() => onKey("ENTER")}>ENTER</button>
+            <button className="key wide" onClick={() => onKey("DEL")}>⌫</button>
+          </div>
         </div>
 
         <aside className="word-bank" aria-label="Previous guesses">
@@ -200,57 +257,6 @@ export function Break({ onNavigate }) {
             </ul>
           )}
         </aside>
-      </div>
-
-      {status === "playing" && (
-        <div className="wordle-status">
-          {guesses.length === 0 ? "Type to begin." : `${MAX - guesses.length} guesses left.`}
-        </div>
-      )}
-      {status === "won" && (
-        <>
-          <div className="wordle-status win">
-            Nicely done. {guesses.length} {guesses.length === 1 ? "guess" : "guesses"}.
-          </div>
-          <div className="def-card">
-            <div className="term">{target.w.toLowerCase()}<span className="pos">{target.pos}</span></div>
-            <div className="meaning">{target.meaning}</div>
-          </div>
-          <div className="wordle-cta">
-            <button className="btn-primary" onClick={reset}>Another →</button>
-            <button className="btn-ghost" onClick={() => onNavigate("home")}>Back to work</button>
-          </div>
-        </>
-      )}
-      {status === "lost" && (
-        <>
-          <div className="wordle-status lose">
-            The word was <strong>{target.w}</strong>.
-          </div>
-          <div className="def-card">
-            <div className="term">{target.w.toLowerCase()}<span className="pos">{target.pos}</span></div>
-            <div className="meaning">{target.meaning}</div>
-          </div>
-          <div className="wordle-cta">
-            <button className="btn-primary" onClick={reset}>Try again →</button>
-          </div>
-        </>
-      )}
-
-      <div className="kbd">
-        {ROWS.map((row, i) => (
-          <div className="kbd-row" key={i}>
-            {row.map((k) => (
-              <button
-                key={k}
-                className={`key ${k.length > 1 ? "wide" : ""} ${keyStatus[k] || ""}`}
-                onClick={() => onKey(k)}
-              >
-                {k === "DEL" ? "⌫" : k}
-              </button>
-            ))}
-          </div>
-        ))}
       </div>
 
       {toast && <div className="toast">{toast}</div>}

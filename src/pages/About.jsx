@@ -22,23 +22,6 @@ export function About() {
             </p>
           </div>
 
-          <div className="values">
-            <div className="value">
-              <div className="v-icon">◎</div>
-              <h3>Research is a verb</h3>
-              <p>It happens before, during, and after design, not as a phase. I pair every study with a recommendation and a plan to act on it.</p>
-            </div>
-            <div className="value">
-              <div className="v-icon">✂</div>
-              <h3>Less, but clearer</h3>
-              <p>The best designs say one thing well. I'd rather cut a feature than ship a confusing one. Constraints clarify what actually matters.</p>
-            </div>
-            <div className="value">
-              <div className="v-icon">⛏</div>
-              <h3>Dig until it's real</h3>
-              <p>The stated problem is rarely the real one. I keep asking why until I find something worth solving. Then I solve that instead.</p>
-            </div>
-          </div>
         </div>
 
         <aside className="about-portrait">
@@ -52,6 +35,24 @@ export function About() {
             <a href="https://www.linkedin.com/in/jamie-oviedo/" target="_blank" rel="noopener noreferrer"><span>LinkedIn</span><span>→</span></a>
           </div>
         </aside>
+
+        <div className="values">
+          <div className="value">
+            <div className="v-icon">◎</div>
+            <h3>Research is a verb</h3>
+            <p>It happens before, during, and after design, not as a phase. I pair every study with a recommendation and a plan to act on it.</p>
+          </div>
+          <div className="value">
+            <div className="v-icon">✂</div>
+            <h3>Less, but clearer</h3>
+            <p>The best designs say one thing well. I'd rather cut a feature than ship a confusing one. Constraints clarify what actually matters.</p>
+          </div>
+          <div className="value">
+            <div className="v-icon">⛏</div>
+            <h3>Dig until it's real</h3>
+            <p>The stated problem is rarely the real one. I keep asking why until I find something worth solving. Then I solve that instead.</p>
+          </div>
+        </div>
       </div>
 
       <section className="about-cv">

@@ -44,10 +44,8 @@ export function Process() {
         {steps.map((s, i) => (
           <div className="step" key={s.title}>
             <div className="num">{String(i + 1).padStart(2, "0")}</div>
-            <div className="step-body">
-              <h3>{s.title}.</h3>
-              <p>{s.blurb}</p>
-            </div>
+            <h3 className="step-title">{s.title}.</h3>
+            <p className="step-blurb">{s.blurb}</p>
             <div className="step-side">
               <div>
                 <div className="label">Typical methods</div>
