@@ -2,6 +2,7 @@ const ENTRIES = [
   {
     date: "2026-06-19",
     items: [
+      { type: "Remove", text: "Removed 'UX Researcher' from all titles, metadata, and copy across the portfolio — page titles, hero card role, about page intro, AI context, and case study recruiter blurb now read 'Product Designer' only." },
       { type: "Fix", text: "CareCompass mobile: hero context note and TL;DR button now stack vertically on mobile instead of cramping side by side." },
       { type: "Fix", text: "CareCompass mobile: Scout AI and final design 4-image grids reflow to 2×2 on mobile (were 4-across at ~80px each, now 2-across at full readable size)." },
       { type: "Fix", text: "CareCompass mobile: code block is now horizontally scrollable instead of clipping content at the viewport edge." },

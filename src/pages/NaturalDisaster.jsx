@@ -27,7 +27,7 @@ const TAB_CONTENT = {
     { text: <><strong>Signal:</strong> <Placeholder hint="what this project demonstrates about your research rigor — the hiring manager subtext" /></> },
   ],
   recruiter: [
-    { text: <><strong>Role:</strong> Lead UX Researcher &amp; Designer. Solo research project. Academic setting, published outcome.</> },
+    { text: <><strong>Role:</strong> Lead Designer. Solo research project. Academic setting, published outcome.</> },
     { text: <><strong>Skills demonstrated:</strong> <Placeholder hint="5–6 skills — mixed methods research, statistical analysis, crisis UX, information architecture, usability testing, Python data analysis" /></> },
     { text: <><strong>Keywords:</strong> <Placeholder hint="screening-relevant terms — academic research, peer-reviewed, mixed methods, statistical significance, crisis design, usability testing" /></> },
     { text: <><strong>Publication status:</strong> <Placeholder hint="confirm publication venue and status for recruiter screening" /></> },
